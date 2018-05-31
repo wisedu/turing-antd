@@ -1,7 +1,8 @@
-import IviewMdText from './components/iview-md-date';
+import IviewMdText from './components/iview-md-text';
+import IviewMdDate from './components/iview-md-date';
 
 const components = {
-    IviewMdText
+    IviewMdText,IviewMdDate
 };
 const install = function (Vue, opts = {}) {
     if (install.installed) return;

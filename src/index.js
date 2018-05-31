@@ -8,9 +8,11 @@ import tgTuring from 'tg-turing';
 import 'tg-turing/dist/css/default/tg-turing.min.css';
 Vue.use(tgTuring);
 window["tg-turing"] = tgTuring;
-window["tg-turing"].iviewForm["date"] = "iview-md-date";
-import vueCustomElement from 'vue-custom-element'
-Vue.use(vueCustomElement);
+
+Object.assign(window["tg-turing"].iview.form, {
+    "text": "iview-md-text",
+    "date": "iview-md-date"
+});
 
 
 import home from './pages/home.vue';

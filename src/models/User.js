@@ -1,4 +1,5 @@
-import {DataAdapter,iviewAdapter} from 'tg-turing'
+import {DataAdapter} from 'tg-turing'
+import adapter from "../../components/adapter";
 export default class extends DataAdapter{
     constructor() {
         super()
@@ -23,7 +24,7 @@ export default class extends DataAdapter{
             },
             "默认表单:form": {
                 name: {},
-                workcode: {},
+                workcode: {xtype:"text"},
                 photo: {xtype:"date"},
             },
             "默认查询": {
@@ -39,7 +40,7 @@ export default class extends DataAdapter{
     view(name, params) {
         let props = name.split(":")
         let iviewtype = props[1];
-        return iviewAdapter(iviewtype, this.getView(name), params);
+        return adapter(iviewtype, this.getView(name), params);
     }
     // metaAG(metaid, type, params) {
     //     return aggridAdapter(type, this.getMeta(metaid), params);
