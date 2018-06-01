@@ -10,8 +10,8 @@ Vue.use(tgTuring);
 window["tg-turing"] = tgTuring;
 
 Object.assign(window["tg-turing"].iview.form, {
-    "text": "iview-md-text",
-    "date": "iview-md-date"
+    "text": "iview-fc-text",
+    "date": "iview-fc-date"
 });
 
 

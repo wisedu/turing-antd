@@ -1,8 +1,8 @@
-import {ModelDrivenFormItem} from 'tg-turing'
+import {FormConnectItem} from 'tg-turing'
 
 export default {
-    name:"iview-md-text",
-    extends: ModelDrivenFormItem,
+    name:"iview-fc-text",
+    extends: FormConnectItem,
     template:`<div>
         <FormItem :label="caption">
             <Input v-model="currentValue" :placeholder="placeholder">

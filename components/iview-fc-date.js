@@ -1,8 +1,8 @@
-import {ModelDrivenFormItem} from 'tg-turing'
+import {FormConnectItem} from 'tg-turing'
 
 export default {
-    name:"iview-md-date",
-    extends: ModelDrivenFormItem,
+    name:"iview-fc-date",
+    extends: FormConnectItem,
     template:`<div>
         <FormItem :label="caption">
             <DatePicker v-model="currentValue" type="date" :placeholder="placeholder" style="width:100%"></DatePicker>

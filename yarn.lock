@@ -5812,9 +5812,9 @@ textextensions@2:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/textextensions/-/textextensions-2.2.0.tgz#38ac676151285b658654581987a0ce1a4490d286"
 
-tg-turing@^1.3.10:
-  version "1.3.10"
-  resolved "https://registry.yarnpkg.com/tg-turing/-/tg-turing-1.3.10.tgz#325fe409b2af0a9fde688bbf1de5c7735439c828"
+tg-turing@^1.4.3:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/tg-turing/-/tg-turing-1.4.3.tgz#d840bbd13283d2f5d5f65cdf94285339de195e6b"
   dependencies:
     axios "^0.18.0"
     bh-iview "^1.0.1"

@@ -1,5 +1,6 @@
 <template>
     <div>
+        111
         <tg-form :fields="fields" type="mint"></tg-form>
     </div>
 </template>
