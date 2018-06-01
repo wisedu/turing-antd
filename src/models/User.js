@@ -23,7 +23,7 @@ export default class extends DataAdapter{
                 deleted_at: {}
             },
             "默认表单:form": {
-                name: {},
+                name: {readonly:true},
                 workcode: {xtype:"text"},
                 photo: {xtype:"date"},
             },

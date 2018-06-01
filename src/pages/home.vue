@@ -1,6 +1,6 @@
 <template>
     <div>
-        <tg-form :fields="fields" type="iview"></tg-form>
+        <tg-form :fields="fields" type="mint"></tg-form>
     </div>
 </template>
 
