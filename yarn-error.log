@@ -14,22 +14,25 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com registry.yarnpkg.com:443
-      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:67:26)
+  Error: https://registry.npmjs.org/tg-turing: ETIMEDOUT
+      at Timeout._onTimeout (/Users/qiyu/.yarn/lib/cli.js:133819:19)
+      at ontimeout (timers.js:466:11)
+      at tryOnTimeout (timers.js:304:5)
+      at Timer.listOnTimeout (timers.js:267:5)
 
 npm manifest: 
   {
-    "name": "turing-iview",
-    "version": "1.0.0",
-    "main": "index.js",
+    "name": "tg-turing-iview",
+    "version": "1.0.1",
+    "main": "dist/tg-turing-iview.min.js",
+    "packageName": "tg-turing-iview",
     "license": "MIT",
     "dependencies": {
       "axios": "^0.18.0",
       "bh-iview": "^1.0.1",
-      "tg-turing": "^1.4.3",
+      "tg-turing": "^1.4.15",
       "uuid": "^3.2.1",
       "vue": "^2.5.16",
-      "vue-custom-element": "^3.1.0",
       "vue-router": "^3.0.1"
     },
     "devDependencies": {
@@ -49,8 +52,8 @@ npm manifest:
       "webpack-dev-server": "^3.1.4"
     },
     "scripts": {
-      "dev": "webpack-dev-server --mode development",
-      "build": "webpack --mode production"
+      "dev": "webpack-dev-server --config webpack.dev.config.js --mode development",
+      "build": "webpack --config webpack.prod.config.js --mode production"
     }
   }
 
@@ -5872,9 +5875,9 @@ Lockfile:
     version "2.2.0"
     resolved "https://registry.yarnpkg.com/textextensions/-/textextensions-2.2.0.tgz#38ac676151285b658654581987a0ce1a4490d286"
   
-  tg-turing@^1.4.3:
-    version "1.4.3"
-    resolved "https://registry.yarnpkg.com/tg-turing/-/tg-turing-1.4.3.tgz#d840bbd13283d2f5d5f65cdf94285339de195e6b"
+  tg-turing@^1.4.15:
+    version "1.4.15"
+    resolved "https://registry.yarnpkg.com/tg-turing/-/tg-turing-1.4.15.tgz#228e9aacccb5c2ee08d6c265461f100a73a3a29f"
     dependencies:
       axios "^0.18.0"
       bh-iview "^1.0.1"
@@ -6206,10 +6209,6 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-0.0.4.tgz#5d7ea45bbef9e4a6ff65f95438e0a87c357d5a73"
     dependencies:
       indexof "0.0.1"
-  
-  vue-custom-element@^3.1.0:
-    version "3.1.0"
-    resolved "https://registry.yarnpkg.com/vue-custom-element/-/vue-custom-element-3.1.0.tgz#a5ec5914c82252d25bf6db89c4744b4cbd588a1d"
   
   vue-hot-reload-api@^2.3.0:
     version "2.3.0"

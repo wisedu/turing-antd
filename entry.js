@@ -1,9 +1,14 @@
 import adapter from './components/adapter';
 import IviewFcText from './components/iview-fc-text';
 import IviewFcDate from './components/iview-fc-date';
+import IviewFcButtonlist from './components/iview-fc-buttonlist';
+import IviewFcNumberRange from './components/iview-fc-number-range';
+import IviewFcNumber from './components/iview-fc-number';
+import IviewFcSelect from './components/iview-fc-select';
+import IviewFcUploadfile from './components/iview-fc-uploadfile';
 
 const components = {
-    adapter,IviewFcText,IviewFcDate
+    IviewFcText,IviewFcDate,IviewFcButtonlist,IviewFcNumberRange,IviewFcNumber,IviewFcSelect,IviewFcUploadfile
 };
 const install = function (Vue, opts = {}) {
     if (install.installed) return;
@@ -17,6 +22,6 @@ if (typeof window !== 'undefined' && window.Vue) {
     install(window.Vue);
 }
 export default Object.assign({}, {
-    install, 
+    adapter,install, 
     ...components,
 });
