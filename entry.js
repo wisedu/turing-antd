@@ -1,8 +1,9 @@
+import adapter from './components/adapter';
 import IviewFcText from './components/iview-fc-text';
 import IviewFcDate from './components/iview-fc-date';
 
 const components = {
-    IviewFcText,IviewFcDate
+    adapter,IviewFcText,IviewFcDate
 };
 const install = function (Vue, opts = {}) {
     if (install.installed) return;

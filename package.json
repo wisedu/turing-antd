@@ -1,7 +1,8 @@
 {
   "name": "turing-iview",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/tg-turing-iview.min.js",
+  "packageName": "tg-turing-iview",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",

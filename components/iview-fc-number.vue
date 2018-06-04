@@ -1,21 +1,19 @@
 <template>
     <div>
         <FormItem :label="caption">
-            <Input v-model="currentValue" :placeholder="placeholder">
-                <span slot="append" v-if="params.append">{{params.append}}</span>
-            </Input>
+            <InputNumber :max="10" :min="1" v-model="currentValue" :placeholder="placeholder"></InputNumber>
         </FormItem>
     </div>
 </template>
 
 <script>
 import {FormConnectItem} from 'tg-turing'
-
 export default {
-    name:"iview-fc-text",
+    name:"iview-fc-number",
     extends: FormConnectItem,
 }
 </script>
 
 <style>
+
 </style>
