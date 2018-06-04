@@ -1,17 +1,16 @@
 <template>
     <div>
-        111
-        <tg-form :fields="fields" type="mint"></tg-form>
+        <tg-form :fields="fields" type="iview" :column=4></tg-form>
     </div>
 </template>
 
 <script>
-import User from "../models/User";
-let user = new User();
+import Student from "../models/Student";
+let inst = new Student();
 export default {
     data(){
         return {
-            fields:user.view("默认表单:form"),
+            fields: inst.view("默认表单:form"),
             param:{
                 append:"11"
             }

@@ -6,10 +6,9 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bh-iview": "^1.0.1",
-    "tg-turing": "^1.4.3",
+    "tg-turing": "^1.4.7",
     "uuid": "^3.2.1",
     "vue": "^2.5.16",
-    "vue-custom-element": "^3.1.0",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
@@ -29,7 +28,7 @@
     "webpack-dev-server": "^3.1.4"
   },
   "scripts": {
-    "dev": "webpack-dev-server --mode development",
-    "build": "webpack --mode production"
+    "dev": "webpack-dev-server --config webpack.dev.config.js --mode development",
+    "build": "webpack --config webpack.prod.config.js --mode production"
   }
 }

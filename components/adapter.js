@@ -26,12 +26,12 @@ export default function(type, model, params){
         case "form":
             for(let prop in model){
                 let newFormItem = utils.extend({}, {
-                    name:prop, 
+                    name: prop, 
+                    xtype: "text"
                 }, model[prop], params);
                 if (model[prop].xtype !== undefined && model[prop].options === undefined){
                     model[prop].options = [];
                 }
-                if (model[prop].xtype === undefined)model[prop].xtype = "text";
                 iviewModel.push(newFormItem);
             }
             break;

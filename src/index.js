@@ -11,7 +11,8 @@ window["tg-turing"] = tgTuring;
 
 Object.assign(window["tg-turing"].iview.form, {
     "text": "iview-fc-text",
-    "date": "iview-fc-date"
+    "date": "iview-fc-date",
+    "date-local": "iview-fc-date",
 });
 
 
