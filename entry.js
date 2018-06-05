@@ -18,10 +18,22 @@ const install = function (Vue, opts = {}) {
         Vue.component(components[key].name, components[key]);
     });
 };
+const init = function () {
+    Object.assign(window["tg-turing"].iview.form, {
+        "text": "iview-fc-text",
+        "date": "iview-fc-date",
+        "date-local": "iview-fc-date",
+        "select": "iview-fc-select",
+        "buttonlist": "iview-fc-buttonlist",
+        "number-range":"iview-fc-number-range",
+        "number":"iview-fc-number",
+        "uploadfile":"iview-fc-uploadfile",
+    });
+}
 if (typeof window !== 'undefined' && window.Vue) {
     install(window.Vue);
 }
 export default Object.assign({}, {
-    adapter,install, 
+    adapter,install, init,
     ...components,
 });
