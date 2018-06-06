@@ -1,9 +1,7 @@
 <template>
-    <div>
-        <FormItem :label="caption">
-            <DatePicker v-model="currentValue" type="date" :placeholder="placeholder" style="width:100%"></DatePicker>
-        </FormItem>
-    </div>
+    <FormItem :label="caption" :prop="name">
+        <DatePicker v-model="currentValue" type="date" :placeholder="placeholder" style="width:100%"></DatePicker>
+    </FormItem>
 </template>
 
 <script>

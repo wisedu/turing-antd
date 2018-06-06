@@ -1,9 +1,7 @@
 <template>
-    <div>
-        <FormItem :label="caption">
-            <InputNumber :max="10" :min="1" v-model="currentValue" :placeholder="placeholder"></InputNumber>
-        </FormItem>
-    </div>
+    <FormItem :label="caption" :prop="name">
+        <InputNumber :max="10" :min="1" v-model="currentValue" :placeholder="placeholder"></InputNumber>
+    </FormItem>
 </template>
 
 <script>

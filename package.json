@@ -1,13 +1,13 @@
 {
   "name": "tg-turing-iview",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "dist/tg-turing-iview.min.js",
   "packageName": "tg-turing-iview",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
     "bh-iview": "^1.0.1",
-    "tg-turing": "^1.4.18",
+    "tg-turing": "^1.5.9",
     "uuid": "^3.2.1",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1"

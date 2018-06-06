@@ -1,6 +1,9 @@
 <template>
     <div>
-        <tg-form :fields="fields" type="iview" :column=4></tg-form>
+        <Button @click="handler">Halo</Button>
+        <iview-fc-form ref="form" :fields="fields" type="iview" :column=4 :value="data">
+            
+        </iview-fc-form>
     </div>
 </template>
 
@@ -13,7 +16,14 @@ export default {
             fields: inst.view("默认表单:form"),
             param:{
                 append:"11"
-            }
+            },
+            data:{XSBH:"111"}
+        }
+    },
+    methods:{
+        handler(){
+            this.data.XSBH = "222";
+            // this.$refs.form
         }
     }
 }

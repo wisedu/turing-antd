@@ -9,18 +9,11 @@ import 'tg-turing/dist/css/default/tg-turing.min.css';
 Vue.use(tgTuring);
 window["tg-turing"] = tgTuring;
 
-Object.assign(window["tg-turing"].iview.form, {
-    "text": "iview-fc-text",
-    "date": "iview-fc-date",
-    "date-local": "iview-fc-date",
-    "select": "iview-fc-select",
-});
-
-
 import home from './pages/home.vue';
 
 import COMS from "../entry";
 Vue.use(COMS)
+COMS.init()
 
 Vue.use(VueRouter)
 
