@@ -7,7 +7,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bh-iview": "^1.2.2",
-    "tg-turing": "^1.5.10",
+    "tg-turing": "^1.5.11",
     "uuid": "^3.2.1",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1"

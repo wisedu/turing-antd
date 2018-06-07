@@ -1,4 +1,4 @@
-import {utils} from 'tg-turing';
+import {utils, DataFilter} from 'tg-turing';
 export function Adapter(type, model, params){
     let iviewModel = [];
     switch (type) {
@@ -57,7 +57,7 @@ export function Adapter(type, model, params){
 
 export function getDictData(dict, callback) {
     utils.Get(dict.url).then(result => {
-        callback(result.data.datas.code.rows.map(item => {
+        callback(DataFilter.dictFilter(result).map(item => {
             return {
                 label: item[dict.label],
                 value: item[dict.value]

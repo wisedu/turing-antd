@@ -29,6 +29,9 @@ const init = function () {
         "number":"iview-fc-number",
         "uploadfile":"iview-fc-uploadfile",
     });
+    window["tg-turing"].DataFilter.dictFilter = function(result){
+        return result.data.datas.code.rows;
+    }
 }
 if (typeof window !== 'undefined' && window.Vue) {
     install(window.Vue);
