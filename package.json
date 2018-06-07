@@ -6,7 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
-    "bh-iview": "^1.0.1",
+    "bh-iview": "^1.2.2",
     "tg-turing": "^1.5.9",
     "uuid": "^3.2.1",
     "vue": "^2.5.16",

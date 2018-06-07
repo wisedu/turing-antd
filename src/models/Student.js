@@ -1,5 +1,6 @@
 import {DataAdapter} from 'tg-turing'
-import adapter from "../../components/adapter";
+import {Adapter} from "../../components/Adapter";
+import {dict} from "./dictionary";
 export default class extends DataAdapter{
     constructor() {
         super()
@@ -221,16 +222,16 @@ export default class extends DataAdapter{
                 "XM": {"xtype": "text","dataSize": 90, disabled:true},
                 "XMPY": {"dataSize": 120, required:true},
                 "CYM": {"dataSize": 120, required:true},
-                "XBDM": {"url": "/axsfw/code/b2738d0d-0eb1-4b03-b0f6-98f509a88c8c.do","xtype": "buttonlist","dataSize": 1, options:[{label:"男",value:"1"},{label:"女",value:"0"}]},
+                "XBDM": {"dict":dict("XBDM->性别"),"xtype": "buttonlist","dataSize": 1},
                 "CSRQ": {"xtype": "date-local","dataSize": 10},
-                "MZDM": {"url": "/axsfw/code/e8bdc02d-2d5b-4367-b832-cd47e6ac42c1.do","xtype": "select","dataSize": 2},
+                "MZDM": {"dict":dict("MZDM->民族"),"xtype": "select","dataSize": 2},
                 "SFZJLXDM": {"url": "/axsfw/code/553c0263-42d7-45c5-9cc3-049e371ce9d4.do","xtype": "select","dataSize": 1},
                 "SFZJH": {"xtype": "text","dataSize": 20},
                 "JG": {"url": "/axsfw/code/80f9d8aa-d053-4312-b725-016642b74e3e.do","xtype": "tree","dataSize": 6},
                 "CSDDM": {"url": "/axsfw/code/80f9d8aa-d053-4312-b725-016642b74e3e.do","xtype": "tree","dataSize": 6},
                 "SYDDM": {"url": "/axsfw/code/80f9d8aa-d053-4312-b725-016642b74e3e.do","xtype": "tree","dataSize": 6},
                 "HKSZD": {"xtype": "text","dataSize": 180},
-                "GJDQDM": {"url": "/axsfw/code/9ea2317c-be66-428d-b1f4-7f0f5bc5ad09.do","xtype": "select","dataSize": 3},
+                "GJDQDM": {"dict":dict("GJDQDM->国家地区"),"xtype": "select","dataSize": 3},
                 "HKXZDM": {"url": "/axsfw/code/a6308f2e-d206-4bd3-aa79-7a839998120c.do","xtype": "select","dataSize": 1},
                 "GATQDM": {"url": "/axsfw/code/0e53b529-ecdc-4c9c-8c8c-5e26a0a1f304.do","xtype": "select","dataSize": 2},
                 "ZZMMDM": {"url": "/axsfw/code/1079937e-d441-448d-b7e9-1e45bea76e8d.do","xtype": "select","dataSize": 2},
@@ -435,11 +436,8 @@ export default class extends DataAdapter{
     view(name, params) {
         let props = name.split(":")
         let iviewtype = props[1];
-        return adapter(iviewtype, this.getView(name), params);
+        return Adapter(iviewtype, this.getView(name), params);
     }
-    // metaAG(metaid, type, params) {
-    //     return aggridAdapter(type, this.getMeta(metaid), params);
-    // }
     getAllCreatedTime() {
         return this.execute({url:"/api/user/getAllCreatedTime", method:"get"}).then(datas => datas.data.data)
     }

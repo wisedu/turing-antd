@@ -98,17 +98,14 @@ module.exports = {
         host: '127.0.0.1',
         port: 2500,
         historyApiFallback: true,
-        proxy: {
-            "/api": {
-                target: {
-                    "host": "127.0.0.1",
-                    "protocol": 'http://',
-                    "port": 7001,//端口
-                },
-                // ignorePath: true,
-                changeOrigin: true,//必配
-                secure: false
-            }
-        }
+        // proxy: {
+        //     "/axsfw/code": {
+        //         target: "http://127.0.0.1:2500",
+        //         pathRewrite: {"^/axsfw/code" : "/mock"},
+        //         // ignorePath: true,
+        //         changeOrigin: true,//必配
+        //         secure: false
+        //     }
+        // }
     }
 }

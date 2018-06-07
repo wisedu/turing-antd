@@ -10,6 +10,7 @@
 
 <script>
 import {FormConnectItem} from 'tg-turing'
+import {getDictData} from "./Adapter";
 export default {
     name:"iview-fc-buttonlist",
     extends: FormConnectItem,
@@ -26,6 +27,13 @@ export default {
                 label = item[0].label;
             }
             this.$emit("on-item-change", this.name, value, this.model, label);
+        }
+    },
+    created(){
+        if (this.model.dict !== undefined) {
+            getDictData(this.model.dict, datas => {
+                this.options = datas;
+            });
         }
     }
 }

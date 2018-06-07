@@ -18,7 +18,7 @@ COMS.init()
 Vue.use(VueRouter)
 
 if(process.env.NODE_ENV === 'development'){
-    window.apiPath = "http://127.0.0.1:7001";
+    window.apiPath = "http://amptest.wisedu.com";
 }else{
     window.apiPath = ".";
 }

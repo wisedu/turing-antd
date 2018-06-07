@@ -1,4 +1,4 @@
-import adapter from './components/adapter';
+import {Adapter} from './components/Adapter';
 import IviewFcText from './components/iview-fc-text';
 import IviewFcDate from './components/iview-fc-date';
 import IviewFcButtonlist from './components/iview-fc-buttonlist';
@@ -34,6 +34,6 @@ if (typeof window !== 'undefined' && window.Vue) {
     install(window.Vue);
 }
 export default Object.assign({}, {
-    adapter,install, init,
+    Adapter,install, init,
     ...components,
 });

@@ -1,5 +1,5 @@
 import {utils} from 'tg-turing';
-export default function(type, model, params){
+export function Adapter(type, model, params){
     let iviewModel = [];
     switch (type) {
         case "table":
@@ -53,4 +53,15 @@ export default function(type, model, params){
     }
     
     return iviewModel;
+}
+
+export function getDictData(dict, callback) {
+    utils.Get(dict.url).then(result => {
+        callback(result.data.datas.code.rows.map(item => {
+            return {
+                label: item[dict.label],
+                value: item[dict.value]
+            }
+        }));
+    })
 }
