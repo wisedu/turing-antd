@@ -1,6 +1,6 @@
 <template>
     <FormItem :label="caption" :prop="name">
-        <DatePicker v-model="currentValue" type="date" :placeholder="placeholder" style="width:100%"></DatePicker>
+        <DatePicker :value="value" type="date" :placeholder="placeholder" style="width:100%" @on-change="onChange"></DatePicker>
     </FormItem>
 </template>
 
@@ -10,6 +10,11 @@ import {FormConnectItem} from 'tg-turing'
 export default {
     name:"iview-fc-date",
     extends: FormConnectItem,
+    methods:{
+        onChange(value){
+            this.$emit("on-item-change", this.name, value, this.model)
+        }
+    }
 }
 </script>
 

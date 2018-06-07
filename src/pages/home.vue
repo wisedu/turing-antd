@@ -23,7 +23,9 @@ export default {
     methods:{
         handler(){
             this.data.XSBH = "222";
-            // this.$refs.form
+            let values = this.$refs.form.getValue();
+            let displays = this.$refs.form.getDisplay();
+            debugger
         }
     }
 }
