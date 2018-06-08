@@ -8,3 +8,8 @@ export default {
     
 }
 </script>
+<style>
+.layout{
+    padding:8px;
+}
+</style>

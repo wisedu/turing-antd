@@ -1,9 +1,10 @@
 <template>
-    <FormItem :label="caption" :prop="name">
+    <FormItem :label="caption" :prop="name" v-if="formReadonly !== true">
         <Select :value="value" :placeholder="placeholder" @on-open-change.once="loadData" filterable @on-change="onChange" label-in-value>
             <Option v-for="item in options" :value="item.value" :key="item.value">{{ item.label }}</Option>
         </Select>
     </FormItem>
+    <iview-fc-static v-else :caption="caption" :prop="name" :value="value"></iview-fc-static>
 </template>
 
 <script>

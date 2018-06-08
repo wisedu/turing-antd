@@ -1,10 +1,11 @@
 <template>
-    <FormItem :label="caption" :prop="name">
+    <FormItem :label="caption" :prop="name" v-if="formReadonly !== true">
         <Input :value="value" :placeholder="placeholder" :readonly="readonly" 
         :maxlength="params.maxlength" @input="onChange" :disabled="disabled">
             <span slot="append" v-if="params.append">{{params.append}}</span>
         </Input>
     </FormItem>
+    <iview-fc-static v-else :caption="caption" :prop="name" :value="value"></iview-fc-static>
 </template>
 
 <script>
@@ -22,4 +23,5 @@ export default {
 </script>
 
 <style>
+
 </style>

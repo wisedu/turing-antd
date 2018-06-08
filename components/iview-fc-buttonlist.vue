@@ -1,11 +1,12 @@
 <template>
-    <FormItem :label="caption" :prop="name">
+    <FormItem :label="caption" :prop="name" v-if="formReadonly !== true">
         <RadioGroup v-model="pData" type="button" @on-change="onChange">
             <Radio :label="item.value" v-for="item in options" :key="item.value">
                 {{item.label}}
             </Radio>
         </RadioGroup>
     </FormItem>
+    <iview-fc-static v-else :caption="caption" :prop="name" :value="value"></iview-fc-static>
 </template>
 
 <script>

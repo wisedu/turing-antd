@@ -1015,18 +1015,6 @@ batch@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/batch/-/batch-0.6.1.tgz#dc34314f4e679318093fc760272525f94bf25c16"
 
-bh-iview@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/bh-iview/-/bh-iview-1.0.1.tgz#b9d4b977298cc228159a83e0476e876b97cc123d"
-  dependencies:
-    async-validator "^1.8.2"
-    deepmerge "^2.1.0"
-    element-resize-detector "^1.1.14"
-    js-calendar "^1.2.3"
-    lodash.throttle "^4.1.1"
-    popper.js "^1.14.1"
-    tinycolor2 "^1.4.1"
-
 bh-iview@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/bh-iview/-/bh-iview-1.2.2.tgz#7ceb0eeef4950047a2c6fd763c48ed8132789775"
@@ -1630,7 +1618,7 @@ copy-descriptor@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
 
-core-js@^2.4.0, core-js@^2.4.1, core-js@^2.5.0:
+core-js@^2.4.0, core-js@^2.4.1, core-js@^2.5.0, core-js@^2.5.7:
   version "2.5.7"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.7.tgz#f972608ff0cead68b841a16a932d0b183791814e"
 
@@ -5825,15 +5813,14 @@ textextensions@2:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/textextensions/-/textextensions-2.2.0.tgz#38ac676151285b658654581987a0ce1a4490d286"
 
-tg-turing@^1.5.11:
-  version "1.5.11"
-  resolved "https://registry.yarnpkg.com/tg-turing/-/tg-turing-1.5.11.tgz#f4c26f0e2bc1af991c508f77b8d3b01f4604e10c"
+tg-turing@^1.6.3:
+  version "1.6.3"
+  resolved "https://registry.yarnpkg.com/tg-turing/-/tg-turing-1.6.3.tgz#0a413d97f4bdd0a932ce151b44d669c8a955427a"
   dependencies:
     axios "^0.18.0"
-    bh-iview "^1.0.1"
+    core-js "^2.5.7"
     moment "^2.22.1"
     vue "^2.5.16"
-    vue-router "^2.1.1"
 
 through2@^2.0.0:
   version "2.0.3"
@@ -6177,10 +6164,6 @@ vue-loader@^15.0.9:
     loader-utils "^1.1.0"
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
-
-vue-router@^2.1.1:
-  version "2.8.1"
-  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-2.8.1.tgz#9833c9ee57ac83beb0269056fefee71713f20695"
 
 vue-router@^3.0.1:
   version "3.0.1"

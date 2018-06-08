@@ -25,14 +25,20 @@ export function Adapter(type, model, params){
             break;
         case "form":
             for(let prop in model){
-                let newFormItem = utils.extend({}, {
-                    name: prop, 
-                    xtype: "text"
-                }, model[prop], params);
-                if (model[prop].xtype !== undefined && model[prop].options === undefined){
-                    model[prop].options = [];
+                if (prop.startsWith("group:[")) {
+                    let groupItem = model[prop];
+                    let newFormGroup = {
+                        name: prop, items:[], title: groupItem.title
+                    };
+                    for(let item in groupItem.items){
+                        let newFormItem = adapterNewFormItem(item, groupItem.items[item], params);
+                        newFormGroup.items.push(newFormItem);
+                    }
+                    iviewModel.push(newFormGroup);
+                } else {
+                    let newFormItem = adapterNewFormItem(prop, model[prop], params);
+                    iviewModel.push(newFormItem);
                 }
-                iviewModel.push(newFormItem);
             }
             break;
         case "tree":
@@ -53,6 +59,17 @@ export function Adapter(type, model, params){
     }
     
     return iviewModel;
+}
+
+function adapterNewFormItem(key, itemModel, params){
+    let newFormItem = utils.extend({}, {
+        name: key, 
+        xtype: "text"
+    }, itemModel, params);
+    if (itemModel.xtype !== undefined && itemModel.options === undefined){
+        itemModel.options = [];
+    }
+    return newFormItem;
 }
 
 export function getDictData(dict, callback) {

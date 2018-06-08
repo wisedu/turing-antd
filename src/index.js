@@ -6,6 +6,7 @@ import 'bh-iview/dist/styles/iview.css';
 Vue.use(iView);
 import tgTuring from 'tg-turing';
 import 'tg-turing/dist/css/default/tg-turing.min.css';
+import 'tg-turing/dist/style/default/tg-turing.css';
 Vue.use(tgTuring);
 window["tg-turing"] = tgTuring;
 
