@@ -1,10 +1,10 @@
 <template>
     <FormItem :label="caption" :prop="name" v-if="formReadonly !== true">
-        <Select :value="value" :placeholder="placeholder" @on-open-change.once="loadData" filterable @on-change="onChange" label-in-value>
+        <Select :value="value" :placeholder="placeholder" filterable remote :remote-method="search" @on-change="onChange" label-in-value :label="display">
             <Option v-for="item in options" :value="item.value" :key="item.value">{{ item.label }}</Option>
         </Select>
     </FormItem>
-    <iview-fc-static v-else :caption="caption" :prop="name" :value="value"></iview-fc-static>
+    <iview-fc-static v-else :caption="caption" :prop="name" :value="value" :display="display"></iview-fc-static>
 </template>
 
 <script>
@@ -23,6 +23,9 @@ export default {
         },
         onChange(item){
             this.$emit("on-item-change", this.name, item.value, this.model, item.label)
+        },
+        search(key){
+            this.loadData()
         }
     }
 }
