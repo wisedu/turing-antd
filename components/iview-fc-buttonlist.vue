@@ -6,7 +6,7 @@
             </Radio>
         </RadioGroup>
     </FormItem>
-    <iview-fc-static v-else :caption="caption" :prop="name" :value="value"></iview-fc-static>
+    <iview-fc-static v-else :caption="caption" :prop="name" :value="value" :display="display"></iview-fc-static>
 </template>
 
 <script>
