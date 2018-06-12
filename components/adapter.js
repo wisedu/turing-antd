@@ -28,7 +28,7 @@ export function Adapter(type, model, params){
                 if (prop.startsWith("group:[")) {
                     let groupItem = model[prop];
                     let newFormGroup = {
-                        name: prop, items:[], title: groupItem.title
+                        name: prop, items:[], title: groupItem.title, desc:groupItem.desc
                     };
                     for(let item in groupItem.items){
                         let newFormItem = adapterNewFormItem(item, groupItem.items[item], params);
