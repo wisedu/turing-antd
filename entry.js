@@ -29,6 +29,7 @@ const init = function () {
         "number":"iview-fc-number",
         "uploadfile":"iview-fc-uploadfile",
     });
+    window["tg-turing"].iview.Adapter = Adapter;
     window["tg-turing"].DataFilter.dictFilter = function(result){
         return result.data.datas.code.rows;
     }
