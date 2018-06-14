@@ -1,4 +1,4 @@
-import {utils, DataFilter} from 'tg-turing';
+import turing from 'tg-turing';
 export function Adapter(type, model, params){
     let iviewModel = [];
     switch (type) {
@@ -7,7 +7,7 @@ export function Adapter(type, model, params){
                 if (model[prop].hidden === true){
                     continue;
                 }
-                let newTableItem = utils.extend({}, {
+                let newTableItem = turing.utils.extend({}, {
                     title:model[prop].caption, 
                     key:prop, 
                     minWidth:120
@@ -49,7 +49,7 @@ export function Adapter(type, model, params){
             })
             delete params.label;
             delete params.root;
-            iviewModel = utils.toTreeData(datas, root, utils.extend({toCKey:'children'}, params))
+            iviewModel = turing.utils.toTreeData(datas, root, turing.utils.extend({toCKey:'children'}, params))
             break;
         case "dict":
             
@@ -62,7 +62,7 @@ export function Adapter(type, model, params){
 }
 
 function adapterNewFormItem(key, itemModel, params){
-    let newFormItem = utils.extend({}, {
+    let newFormItem = turing.utils.extend({}, {
         name: key, 
         xtype: "text"
     }, itemModel, params);
@@ -73,12 +73,18 @@ function adapterNewFormItem(key, itemModel, params){
 }
 
 export function getDictData(dict, callback) {
-    utils.Get(dict.url).then(result => {
-        callback(DataFilter.dictFilter(result).map(item => {
-            return {
-                label: item[dict.label],
-                value: item[dict.value]
-            }
-        }));
+    turing.utils.Get(dict.url).then(result => {
+        let datas;
+        try{
+            datas = turing.DataFilter.dictFilter[0](result).map(item => {
+                return {
+                    label: item[dict.label],
+                    value: item[dict.value]
+                }
+            })
+            callback(datas);
+        } catch (e) {
+            console.error(e, result, turing.DataFilter.dictFilter[0], datas);
+        }
     })
 }

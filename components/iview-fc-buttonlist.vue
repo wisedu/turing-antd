@@ -1,7 +1,7 @@
 <template>
     <FormItem :label="caption" :prop="name" v-if="formReadonly !== true">
         <RadioGroup v-model="pData" type="button" @on-change="onChange">
-            <Radio :label="item.value" v-for="item in options" :key="item.value">
+            <Radio :label="item.value" v-for="item in fullOptions" :key="item.value">
                 {{item.label}}
             </Radio>
         </RadioGroup>
@@ -17,13 +17,23 @@ export default {
     extends: FormConnectItem,
     data(){
         return {
-            pData:this.value
+            pData:this.value,
+            localOptions:[]
+        }
+    },
+    computed:{
+        fullOptions(){
+            if (this.localOptions.length > 0) {
+                return this.localOptions;
+            } else {
+                return this.options;
+            }
         }
     },
     methods: {
         onChange(value){
             let label = "";
-            let item = this.options.filter(item=>item.value === value);
+            let item = this.fullOptions.filter(item=>item.value === value);
             if (item.length > 0) {
                 label = item[0].label;
             }
@@ -33,7 +43,7 @@ export default {
     created(){
         if (this.model.dict !== undefined) {
             getDictData(this.model.dict, datas => {
-                this.options = datas;
+                this.localOptions = datas;
             });
         }
     }

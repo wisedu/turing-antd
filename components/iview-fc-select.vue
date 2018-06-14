@@ -1,7 +1,7 @@
 <template>
     <FormItem :label="caption" :prop="name" v-if="formReadonly !== true">
         <Select :value="value" :placeholder="placeholder" filterable remote :remote-method="search" @on-change="onChange" label-in-value :label="display">
-            <Option v-for="item in options" :value="item.value" :key="item.value">{{ item.label }}</Option>
+            <Option v-for="item in fullOptions" :value="item.value" :key="item.value">{{ item.label }}</Option>
         </Select>
     </FormItem>
     <iview-fc-static v-else :caption="caption" :prop="name" :value="value" :display="display"></iview-fc-static>
@@ -13,11 +13,25 @@ import {getDictData} from "./Adapter";
 export default {
     name:"iview-fc-select",
     extends: FormConnectItem,
+    data(){
+        return {
+            localOptions:[]
+        }
+    },
+    computed:{
+        fullOptions(){
+            if (this.localOptions.length > 0) {
+                return this.localOptions;
+            } else {
+                return this.options;
+            }
+        }
+    },
     methods:{
         loadData(){
             if (this.model.dict !== undefined) {
                 getDictData(this.model.dict, datas => {
-                    this.options = datas;
+                    this.localOptions = datas;
                 });
             }
         },

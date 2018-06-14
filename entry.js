@@ -30,9 +30,10 @@ const init = function () {
         "uploadfile":"iview-fc-uploadfile",
     });
     window["tg-turing"].iview.Adapter = Adapter;
-    window["tg-turing"].DataFilter.dictFilter = function(result){
+    function dictfilter(result){
         return result.data.datas.code.rows;
     }
+    window["tg-turing"].DataFilter.dictFilter[0] = dictfilter;
 }
 if (typeof window !== 'undefined' && window.Vue) {
     install(window.Vue);
