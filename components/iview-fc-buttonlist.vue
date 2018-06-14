@@ -10,11 +10,11 @@
 </template>
 
 <script>
-import {FormConnectItem} from 'tg-turing'
+import {ConnectItem} from 'tg-turing'
 import {getDictData} from "./Adapter";
 export default {
     name:"iview-fc-buttonlist",
-    extends: FormConnectItem,
+    extends: ConnectItem,
     data(){
         return {
             pData:this.value,

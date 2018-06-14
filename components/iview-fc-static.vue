@@ -5,11 +5,11 @@
 </template>
 
 <script>
-import {FormConnectItem} from 'tg-turing'
+import {ConnectItem} from 'tg-turing'
 
 export default {
     name:"iview-fc-static",
-    extends: FormConnectItem,
+    extends: ConnectItem,
 }
 </script>
 

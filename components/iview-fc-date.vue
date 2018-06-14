@@ -6,11 +6,11 @@
 </template>
 
 <script>
-import {FormConnectItem} from 'tg-turing'
+import {ConnectItem} from 'tg-turing'
 
 export default {
     name:"iview-fc-date",
-    extends: FormConnectItem,
+    extends: ConnectItem,
     methods:{
         onChange(value){
             this.$emit("on-item-change", this.name, value, this.model)

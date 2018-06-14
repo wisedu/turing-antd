@@ -7,10 +7,10 @@
 </template>
 
 <script>
-import {FormConnectItem} from 'tg-turing'
+import {ConnectItem} from 'tg-turing'
 export default {
     name:"iview-fc-uploadfile",
-    extends: FormConnectItem,
+    extends: ConnectItem,
 }
 </script>
 

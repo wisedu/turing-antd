@@ -8,11 +8,11 @@
 </template>
 
 <script>
-import {FormConnectItem} from 'tg-turing'
+import {ConnectItem} from 'tg-turing'
 import {getDictData} from "./Adapter";
 export default {
     name:"iview-fc-select",
-    extends: FormConnectItem,
+    extends: ConnectItem,
     data(){
         return {
             localOptions:[]
