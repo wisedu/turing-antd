@@ -5813,9 +5813,9 @@ textextensions@2:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/textextensions/-/textextensions-2.2.0.tgz#38ac676151285b658654581987a0ce1a4490d286"
 
-tg-turing@^1.6.12:
-  version "1.6.12"
-  resolved "https://registry.yarnpkg.com/tg-turing/-/tg-turing-1.6.12.tgz#59e2083292d2d4b3aa5e7972df887c017c3c83d0"
+tg-turing@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/tg-turing/-/tg-turing-1.7.0.tgz#a3e3ac068afc848ab3f0ac749af52e07b2966a2d"
   dependencies:
     axios "^0.18.0"
     core-js "^2.5.7"

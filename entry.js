@@ -1,4 +1,5 @@
 import {Adapter} from './components/Adapter';
+import IviewFcGroup from './components/iview-fc-group';
 import IviewFcForm from './components/iview-fc-form';
 import IviewFcStatic from './components/iview-fc-static';
 import IviewFcText from './components/iview-fc-text';
@@ -11,7 +12,7 @@ import IviewFcUploadfile from './components/iview-fc-uploadfile';
 import Form from './components/form.js';
 
 const components = {
-    IviewFcForm,IviewFcStatic,IviewFcText,IviewFcDate,IviewFcButtonlist,IviewFcNumberRange,IviewFcNumber,IviewFcSelect,IviewFcUploadfile
+    IviewFcGroup,IviewFcForm,IviewFcStatic,IviewFcText,IviewFcDate,IviewFcButtonlist,IviewFcNumberRange,IviewFcNumber,IviewFcSelect,IviewFcUploadfile
 };
 const install = function (Vue, opts = {}) {
     if (install.installed) return;

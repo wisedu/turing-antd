@@ -8,9 +8,9 @@
         </Card>
         <br>
         <Card>
-            <tg-form ref="form" :fields="fields_scd" type="iview" :column=4 :value="data" :readonly="true" displayFieldFormat="_DISPLAY">
+            <iview-fc-form ref="form" :fields="fields_scd" type="iview" :column=4 :value="data" :readonly="true" displayFieldFormat="_DISPLAY">
                 
-            </tg-form>
+            </iview-fc-form>
         </Card>
     </div>
 </template>

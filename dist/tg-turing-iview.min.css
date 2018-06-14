@@ -1,4 +1,30 @@
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.iview-fc-static-readonly{
+    padding-left: 8px;
+}
+
+
 .readonly .ivu-form{
     border-top: 1px solid #e9eaec;
     border-left: 1px solid #e9eaec;
@@ -20,11 +46,6 @@
 }
 .readonly .ivu-form .ivu-upload-select{
     display: none;
-}
-
-
-.iview-fc-static-readonly{
-    padding-left: 8px;
 }
 
 

@@ -24,12 +24,13 @@
 
 <script>
 import iviewForm from "./form";
+import IviewFcStatic from "./iview-fc-static";
 import {FormConnector} from "tg-turing";
 export default {
     name:"iview-fc-form",
     extends: FormConnector,
     components: {
-        TgListview,IviewFcStatic
+        IviewFcStatic
     },
     data(){
         return {
