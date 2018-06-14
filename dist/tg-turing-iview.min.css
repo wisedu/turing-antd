@@ -1,4 +1,33 @@
 
+.readonly .ivu-form{
+    border-top: 1px solid #e9eaec;
+    border-left: 1px solid #e9eaec;
+}
+.readonly .ivu-form .ivu-form-item-label{
+    background-color: #f8f8f9;
+    border-bottom: 1px solid #e9eaec;
+    border-right: 1px solid #e9eaec;
+}
+.readonly .ivu-form .ivu-form-item{
+    margin-bottom: 0;
+    display: flex;
+}
+.readonly .ivu-form .ivu-form-item-content{
+    border-bottom: 1px solid #e9eaec;
+    border-right: 1px solid #e9eaec;
+    width: calc(100% - 100px);
+    margin-left: 0!important;
+}
+.readonly .ivu-form .ivu-upload-select{
+    display: none;
+}
+
+
+.iview-fc-static-readonly{
+    padding-left: 8px;
+}
+
+
 
 
 

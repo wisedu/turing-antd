@@ -1,6 +1,6 @@
 {
   "name": "tg-turing-iview",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "main": "dist/tg-turing-iview.min.js",
   "packageName": "tg-turing-iview",
   "license": "MIT",
