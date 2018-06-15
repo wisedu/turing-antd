@@ -1,5 +1,5 @@
 <template>
-    <FormItem :label="caption" :prop="name" v-if="formReadonly !== true">
+    <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
         <DatePicker :value="value" type="date" :placeholder="placeholder" style="width:100%" @on-change="onChange"></DatePicker>
     </FormItem>
     <iview-fc-static v-else :caption="caption" :prop="name" :value="value"></iview-fc-static>

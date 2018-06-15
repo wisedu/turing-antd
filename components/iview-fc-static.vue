@@ -1,5 +1,5 @@
 <template>
-    <FormItem :label="caption">
+    <FormItem :label="caption" :label-width="params.labelWidth" >
         <div class="iview-fc-static-readonly">{{display !== undefined ? display : value}}&nbsp;</div>
     </FormItem>
 </template>

@@ -1,5 +1,5 @@
 <template>
-    <FormItem :label="caption" :prop="name" v-if="formReadonly !== true">
+    <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
         <Select :value="value" :placeholder="placeholder" filterable remote :remote-method="search" @on-change="onChange" label-in-value :label="display">
             <Option v-for="item in fullOptions" :value="item.value" :key="item.value">{{ item.label }}</Option>
         </Select>

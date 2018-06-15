@@ -1,5 +1,5 @@
 <template>
-    <FormItem :label="caption" :prop="name" v-if="formReadonly !== true">
+    <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
         <RadioGroup v-model="pData" type="button" @on-change="onChange">
             <Radio :label="item.value" v-for="item in fullOptions" :key="item.value">
                 {{item.label}}

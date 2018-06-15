@@ -1,5 +1,5 @@
 <template>
-    <FormItem :label="caption" :prop="name" v-if="formReadonly !== true">
+    <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
         <Input :value="value" :placeholder="placeholder" :readonly="readonly" 
         :maxlength="params.maxlength" @input="onChange" :disabled="disabled">
             <span slot="append" v-if="params.append">{{params.append}}</span>
