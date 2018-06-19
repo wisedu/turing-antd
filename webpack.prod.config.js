@@ -37,7 +37,8 @@ module.exports = {
         filename: './[name].min.js',
         library: packageName,
         libraryTarget: 'umd',
-        umdNamedDefine: true
+        umdNamedDefine: true,
+        sourceMapFilename:"[file].map"
     },
     module:{
         rules:[
@@ -58,6 +59,16 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader']
+            },
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                  loader: 'babel-loader',
+                  options: {
+                    presets: ['@babel/preset-env']
+                  }
+                }
             }
         ]
     },

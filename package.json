@@ -1,13 +1,16 @@
 {
   "name": "tg-turing-iview",
-  "version": "1.3.1",
+  "version": "1.3.3",
   "main": "dist/tg-turing-iview.min.js",
   "packageName": "tg-turing-iview",
   "license": "MIT",
   "dependencies": {
+    "@babel/core": "^7.0.0-beta.51",
+    "@babel/preset-env": "^7.0.0-beta.51",
     "axios": "^0.18.0",
+    "babel-loader": "^8.0.0-beta",
     "bh-iview": "^1.2.2",
-    "tg-turing": "^1.8.3",
+    "tg-turing": "^1.8.4",
     "uuid": "^3.2.1",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1"
@@ -24,7 +27,7 @@
     "url-loader": "^1.0.1",
     "vue-loader": "^15.0.9",
     "vue-template-compiler": "^2.5.16",
-    "webpack": "^4.7.0",
+    "webpack": "^4.12.0",
     "webpack-cli": "^2.1.2",
     "webpack-dev-server": "^3.1.4"
   },
