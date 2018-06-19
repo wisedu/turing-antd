@@ -12,7 +12,8 @@ export default {
     extends: ConnectItem,
     methods:{
         onChange(item){
-            this.$emit("on-item-change", this.name, value, this.model)
+            let label = value;
+            this.$emit("on-item-change", this.name, value, label, this.model)
         }
     }
 }

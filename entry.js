@@ -3,6 +3,7 @@ import IviewFcGroup from './components/iview-fc-group';
 import IviewFcForm from './components/iview-fc-form';
 import IviewFcStatic from './components/iview-fc-static';
 import IviewFcText from './components/iview-fc-text';
+import IviewFcTextArea from './components/iview-fc-textarea';
 import IviewFcDate from './components/iview-fc-date';
 import IviewFcButtonlist from './components/iview-fc-buttonlist';
 import IviewFcNumberRange from './components/iview-fc-number-range';
@@ -12,7 +13,7 @@ import IviewFcUploadfile from './components/iview-fc-uploadfile';
 import Form from './components/form.js';
 
 const components = {
-    IviewFcGroup,IviewFcForm,IviewFcStatic,IviewFcText,IviewFcDate,IviewFcButtonlist,IviewFcNumberRange,IviewFcNumber,IviewFcSelect,IviewFcUploadfile
+    IviewFcGroup,IviewFcForm,IviewFcStatic,IviewFcText,IviewFcTextArea,IviewFcDate,IviewFcButtonlist,IviewFcNumberRange,IviewFcNumber,IviewFcSelect,IviewFcUploadfile
 };
 const install = function (Vue, opts = {}) {
     if (install.installed) return;

@@ -36,7 +36,7 @@ export default {
             }
         },
         onChange(item){
-            this.$emit("on-item-change", this.name, item.value, this.model, item.label)
+            this.$emit("on-item-change", this.name, item.value, item.label, this.model)
         },
         search(key){
             this.loadData()

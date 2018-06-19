@@ -37,7 +37,7 @@ export default {
             if (item.length > 0) {
                 label = item[0].label;
             }
-            this.$emit("on-item-change", this.name, value, this.model, label);
+            this.$emit("on-item-change", this.name, value, label, this.model);
         }
     },
     created(){

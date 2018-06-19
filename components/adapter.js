@@ -76,7 +76,7 @@ export function getDictData(dict, callback) {
     turing.utils.Get(dict.url).then(result => {
         let datas;
         try{
-            datas = turing.DataFilter.dictFilter[0](result).map(item => {
+            datas = turing.defaults.dictFilter[0](result).map(item => {
                 return {
                     label: item[dict.label],
                     value: item[dict.value]
@@ -84,7 +84,7 @@ export function getDictData(dict, callback) {
             })
             callback(datas);
         } catch (e) {
-            console.error(e, result, turing.DataFilter.dictFilter[0], datas);
+            console.error(e, result, turing.defaults.dictFilter[0], datas);
         }
     })
 }

@@ -1,6 +1,6 @@
 <template>
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
-        <Input :value="value" :placeholder="placeholder" :readonly="readonly" 
+        <Input :value="value" type="textarea" :placeholder="placeholder" :readonly="readonly" 
         :maxlength="params.maxlength" @input="onChange" :disabled="disabled">
             <span slot="append" v-if="params.append">{{params.append}}</span>
         </Input>
@@ -11,7 +11,7 @@
 <script>
 import {ConnectItem} from 'tg-turing'
 export default {
-    name:"iview-fc-text",
+    name:"iview-fc-textarea",
     extends: ConnectItem,
     methods:{
         onChange(value){
