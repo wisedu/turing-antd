@@ -1,8 +1,7 @@
 <template>
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
-        <Input :value="value" type="textarea" :placeholder="placeholder" :readonly="readonly" 
-        :maxlength="params.maxlength" @input="onChange" :disabled="disabled">
-            <span slot="append" v-if="params.append">{{params.append}}</span>
+        <Input :value="value" type="textarea" :placeholder="placeholder" :readonly="readonly"
+        :maxlength="params.maxlength" @input="onChange" :disabled="disabled" :rows="params.rows" :autosize="params.autosize">
         </Input>
     </FormItem>
     <iview-fc-static v-else :caption="caption" :prop="name" :value="value" :display="display"></iview-fc-static>

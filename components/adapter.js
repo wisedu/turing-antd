@@ -71,20 +71,3 @@ function adapterNewFormItem(key, itemModel, params){
     }
     return newFormItem;
 }
-
-export function getDictData(dict, callback) {
-    turing.utils.Get(dict.url).then(result => {
-        let datas;
-        try{
-            datas = turing.defaults.dictFilter[0](result).map(item => {
-                return {
-                    label: item[dict.label],
-                    value: item[dict.value]
-                }
-            })
-            callback(datas);
-        } catch (e) {
-            console.error(e, result, turing.defaults.dictFilter[0], datas);
-        }
-    })
-}

@@ -10,8 +10,7 @@
 </template>
 
 <script>
-import {ConnectItem} from 'tg-turing'
-import {getDictData} from "./Adapter";
+import {ConnectItem, defaults} from 'tg-turing'
 export default {
     name:"iview-fc-buttonlist",
     extends: ConnectItem,
@@ -42,7 +41,7 @@ export default {
     },
     created(){
         if (this.model.dict !== undefined) {
-            getDictData(this.model.dict, datas => {
+            defaults.getDictData[0](this.model.dict, datas => {
                 this.localOptions = datas;
             });
         }

@@ -29,9 +29,22 @@ const init = function () {
         form: Form
     };
     
-    window["tg-turing"].DataFilter.dictFilter[0] = function dictfilter(result){
-        return result.data.datas.code.rows;
-    };
+    // window["tg-turing"].defaults.getDictData[0] = function (dict, callback){
+    //     window["tg-turing"].utils.Get(dict.url).then(result => {
+    //         let datas;
+    //         try{
+    //             datas = result.data.datas.code.rows.map(item => {
+    //                 return {
+    //                     label: item[dict.label],
+    //                     value: item[dict.value]
+    //                 }
+    //             })
+    //             callback(datas);
+    //         } catch (e) {
+    //             console.error(e, result);
+    //         }
+    //     })
+    // };
 }
 if (typeof window !== 'undefined' && window.Vue) {
     install(window.Vue);
