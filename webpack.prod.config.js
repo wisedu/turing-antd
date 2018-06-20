@@ -89,5 +89,6 @@ module.exports = {
             vue: 'vue/dist/vue.js',
         }
     },
-    externals: ["tg-turing"]
+    externals: ["tg-turing"],
+    devtool: 'source-map'
 }
