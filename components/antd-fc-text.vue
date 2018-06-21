@@ -6,13 +6,13 @@
             <span slot="append" v-if="params.append">{{params.append}}</span>
         </Input>
     </FormItem>
-    <iview-fc-static v-else :caption="caption" :prop="name" :value="value" :display="display"></iview-fc-static>
+    <antd-fc-static v-else :caption="caption" :prop="name" :value="value" :display="display"></antd-fc-static>
 </template>
 
 <script>
 import {ConnectItem} from 'tg-turing'
 export default {
-    name:"iview-fc-text",
+    name:"antd-fc-text",
     extends: ConnectItem,
     methods:{
         onChange(value){

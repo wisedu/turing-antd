@@ -9,7 +9,7 @@
 <script>
 import {ConnectItem} from 'tg-turing'
 export default {
-    name:"iview-fc-uploadfile",
+    name:"antd-fc-uploadfile",
     extends: ConnectItem,
 }
 </script>

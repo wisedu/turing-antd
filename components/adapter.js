@@ -1,6 +1,6 @@
 import turing from 'tg-turing';
 export function Adapter(type, model, params){
-    let iviewModel = [];
+    let antdModel = [];
     switch (type) {
         case "table":
             for(let prop in model){
@@ -20,7 +20,7 @@ export function Adapter(type, model, params){
                         column.selectedFilterValue = value;
                     }
                 }
-                iviewModel.push(newTableItem);
+                antdModel.push(newTableItem);
             }
             break;
         case "form":
@@ -34,10 +34,10 @@ export function Adapter(type, model, params){
                         let newFormItem = adapterNewFormItem(item, groupItem.items[item], params);
                         newFormGroup.items.push(newFormItem);
                     }
-                    iviewModel.push(newFormGroup);
+                    antdModel.push(newFormGroup);
                 } else {
                     let newFormItem = adapterNewFormItem(prop, model[prop], params);
-                    iviewModel.push(newFormItem);
+                    antdModel.push(newFormItem);
                 }
             }
             break;
@@ -49,7 +49,7 @@ export function Adapter(type, model, params){
             })
             delete params.label;
             delete params.root;
-            iviewModel = turing.utils.toTreeData(datas, root, turing.utils.extend({toCKey:'children'}, params))
+            antdModel = turing.utils.toTreeData(datas, root, turing.utils.extend({toCKey:'children'}, params))
             break;
         case "dict":
             
@@ -58,7 +58,7 @@ export function Adapter(type, model, params){
             break;
     }
     
-    return iviewModel;
+    return antdModel;
 }
 
 function adapterNewFormItem(key, itemModel, params){

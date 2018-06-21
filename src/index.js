@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './app.vue'
-import iView from 'bh-iview';
-import 'bh-iview/dist/styles/iview.css';
+import iView from 'bh-antd';
+import 'bh-antd/dist/styles/antd.css';
 Vue.use(iView);
 import tgTuring from 'tg-turing';
 import 'tg-turing/dist/css/default/tg-turing.min.css';

@@ -7,7 +7,7 @@
                 </template>
                 <template slot="itemTemplate" slot-scope="props" v-if="props.data.hidden !== true">
                     <slot :name="props.data.name" :model="props.data" :value="formValue[props.data.name]" :display="formValue[props.data.name + displayFieldFormat]" :ref="'field_' + props.data.name" :formReadonly="readonly">
-                        <component :model="props.data" :name="props.data.name" :is="registedComponentList(props.data, iviewForm, 'iview-fc-static', props.index)"
+                        <component :model="props.data" :name="props.data.name" :is="registedComponentList(props.data, antdForm, 'antd-fc-static', props.index)"
                         v-model="formValue[props.data.name]" :display="formValue[props.data.name + displayFieldFormat]" :ref="'field_' + props.data.name" :formReadonly="readonly"
                         :caption="props.data.caption" :xtype="props.data.xtype" :placeholder="props.data.placeholder"
                         :required="props.data.required" :readonly="props.data.readonly" :disabled="props.data.disabled"
@@ -23,20 +23,20 @@
 </template>
 
 <script>
-import iviewForm from "./form";
-import IviewFcStatic from "./iview-fc-static";
+import antdForm from "./form";
+import AntdFcStatic from "./antd-fc-static";
 import {FormConnector} from "tg-turing";
 export default {
-    name:"iview-fc-form",
+    name:"antd-fc-form",
     extends: FormConnector,
     components: {
-        IviewFcStatic
+        AntdFcStatic
     },
     data(){
         return {
             //当前字段隐藏时，让listview组件所占位的格子也隐藏
             tglistFields:[],
-            iviewForm: iviewForm,
+            antdForm: antdForm,
             ruleValidate: {}
         }
     },

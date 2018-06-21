@@ -1,6 +1,6 @@
 <template>
     <FormItem :label="caption" :label-width="params.labelWidth" >
-        <div class="iview-fc-static-readonly">{{display !== undefined ? display : value}}&nbsp;</div>
+        <div class="antd-fc-static-readonly">{{display !== undefined ? display : value}}&nbsp;</div>
     </FormItem>
 </template>
 
@@ -8,13 +8,13 @@
 import {ConnectItem} from 'tg-turing'
 
 export default {
-    name:"iview-fc-static",
+    name:"antd-fc-static",
     extends: ConnectItem,
 }
 </script>
 
 <style>
-.iview-fc-static-readonly{
+.antd-fc-static-readonly{
     padding-left: 8px;
 }
 </style>

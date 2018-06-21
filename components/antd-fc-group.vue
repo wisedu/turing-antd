@@ -8,7 +8,7 @@
 
 <script>
 export default {
-    name:"iview-fc-group",
+    name:"antd-fc-group",
     props: {
         name: String,
         desc: String

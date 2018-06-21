@@ -2,15 +2,15 @@
     <div>
         <Button @click="handler">Halo</Button>
         <Card>
-            <tg-form ref="form" :fields="fields" type="iview" :column=4 :value="data" displayFieldFormat="_DISPLAY">
+            <tg-form ref="form" :fields="fields" type="antd" :column=4 :value="data" displayFieldFormat="_DISPLAY">
                 
             </tg-form>
         </Card>
         <br>
         <Card>
-            <iview-fc-form ref="form" :fields="fields_scd" type="iview" :column=4 :value="data" :readonly="true" displayFieldFormat="_DISPLAY">
+            <antd-fc-form ref="form" :fields="fields_scd" type="antd" :column=4 :value="data" :readonly="true" displayFieldFormat="_DISPLAY">
                 
-            </iview-fc-form>
+            </antd-fc-form>
         </Card>
     </div>
 </template>

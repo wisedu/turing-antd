@@ -6,13 +6,13 @@
             </Radio>
         </RadioGroup>
     </FormItem>
-    <iview-fc-static v-else :caption="caption" :prop="name" :value="value" :display="display"></iview-fc-static>
+    <antd-fc-static v-else :caption="caption" :prop="name" :value="value" :display="display"></antd-fc-static>
 </template>
 
 <script>
 import {ConnectItem, defaults} from 'tg-turing'
 export default {
-    name:"iview-fc-buttonlist",
+    name:"antd-fc-buttonlist",
     extends: ConnectItem,
     data(){
         return {

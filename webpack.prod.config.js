@@ -4,12 +4,12 @@ const path = require('path');
 const cleanWebpackPlugin = require("clean-webpack-plugin");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require('webpack');
-let packageName = "tg-turing-iview";
+let packageName = "tg-turing-antd";
 
 module.exports = {
     entry: {
         // 多入口文件
-        "tg-turing-iview": './entry.js',
+        "tg-turing-antd": './entry.js',
     },
     optimization: {
         splitChunks: {

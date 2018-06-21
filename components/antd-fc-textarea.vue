@@ -4,13 +4,13 @@
         :maxlength="params.maxlength" @input="onChange" :disabled="disabled" :rows="params.rows" :autosize="params.autosize">
         </Input>
     </FormItem>
-    <iview-fc-static v-else :caption="caption" :prop="name" :value="value" :display="display"></iview-fc-static>
+    <antd-fc-static v-else :caption="caption" :prop="name" :value="value" :display="display"></antd-fc-static>
 </template>
 
 <script>
 import {ConnectItem} from 'tg-turing'
 export default {
-    name:"iview-fc-textarea",
+    name:"antd-fc-textarea",
     extends: ConnectItem,
     methods:{
         onChange(value){

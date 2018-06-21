@@ -4,13 +4,13 @@
             <Option v-for="item in fullOptions" :value="item.value" :key="item.value">{{ item.label }}</Option>
         </Select>
     </FormItem>
-    <iview-fc-static v-else :caption="caption" :prop="name" :value="value" :display="display"></iview-fc-static>
+    <antd-fc-static v-else :caption="caption" :prop="name" :value="value" :display="display"></antd-fc-static>
 </template>
 
 <script>
 import {ConnectItem, defaults} from 'tg-turing'
 export default {
-    name:"iview-fc-select",
+    name:"antd-fc-select",
     extends: ConnectItem,
     data(){
         return {

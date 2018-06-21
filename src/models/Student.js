@@ -460,8 +460,8 @@ export default class extends DataAdapter{
     }
     view(name, params) {
         let props = name.split(":")
-        let iviewtype = props[1];
-        return Adapter(iviewtype, this.getView(name), params);
+        let antdtype = props[1];
+        return Adapter(antdtype, this.getView(name), params);
     }
     getAllCreatedTime() {
         return this.execute({url:"/api/user/getAllCreatedTime", method:"get"}).then(datas => datas.data.data)
