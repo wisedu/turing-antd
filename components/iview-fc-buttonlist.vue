@@ -41,7 +41,7 @@ export default {
     },
     created(){
         if (this.model.dict !== undefined) {
-            defaults.getDictData[0](this.model.dict, datas => {
+            defaults.getDictData[0](this.model.dict, {}, datas => {
                 this.localOptions = datas;
             });
         }

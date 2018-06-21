@@ -1544,9 +1544,9 @@ batch@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/batch/-/batch-0.6.1.tgz#dc34314f4e679318093fc760272525f94bf25c16"
 
-bh-iview@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/bh-iview/-/bh-iview-1.2.2.tgz#7ceb0eeef4950047a2c6fd763c48ed8132789775"
+bh-iview@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/bh-iview/-/bh-iview-1.3.0.tgz#a65e9b5bbb0d72f2de66df9469b71b8f1b722ee6"
   dependencies:
     async-validator "^1.8.2"
     deepmerge "^2.1.0"

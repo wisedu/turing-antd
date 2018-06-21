@@ -1,6 +1,6 @@
 <template>
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
-        <Select :value="value" :placeholder="placeholder" filterable remote :remote-method="search" @on-change="onChange" label-in-value :label="display">
+        <Select :value="value" :placeholder="placeholder" filterable clearable @on-open-change.once="loadData('')" @on-change="onChange" @on-query-change="search" label-in-value>
             <Option v-for="item in fullOptions" :value="item.value" :key="item.value">{{ item.label }}</Option>
         </Select>
     </FormItem>
@@ -14,7 +14,12 @@ export default {
     extends: ConnectItem,
     data(){
         return {
-            localOptions:[]
+            localOptions:[],
+            localSelectedItem:{
+                label:"",
+                value:"",
+                lastQuery:"",
+            },
         }
     },
     computed:{
@@ -27,18 +32,32 @@ export default {
         }
     },
     methods:{
-        loadData(){
+        loadData(key){
             if (this.model.dict !== undefined) {
-                defaults.getDictData[0](this.model.dict, datas => {
+                defaults.getDictData[0](this.model.dict, {key}, datas => {
                     this.localOptions = datas;
                 });
             }
         },
         onChange(item){
-            this.$emit("on-item-change", this.name, item.value, item.label, this.model)
+            let selected = item;
+            if (selected === undefined) {
+                selected = {
+                    label:undefined,
+                    value:undefined
+                }
+            }
+            this.localSelectedItem["label"] = selected.label;
+            this.localSelectedItem["value"] = selected.value;
+            this.$emit("on-item-change", this.name, selected.value, selected.label, this.model)
         },
         search(key){
-            this.loadData()
+            if (key !== this.localSelectedItem.value){
+                this.loadData(key)
+            } else if (key === this.localSelectedItem.value && this.localSelectedItem.lastQuery !== key) {
+                this.loadData('')
+            }
+            this.localSelectedItem.lastQuery = key;
         }
     }
 }
