@@ -1,6 +1,6 @@
 <template>
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
-        <Select :value="value" :placeholder="placeholder" filterable clearable @on-open-change.once="loadData('')" @on-change="onChange" @on-query-change="search" label-in-value>
+        <Select :value="value" :placeholder="placeholder" filterable clearable @on-open-change.once="loadData('')" @on-change="onChange" @on-query-change="search" label-in-value :loading="loading">
             <Option v-for="item in fullOptions" :value="item.value" :key="item.value">{{ item.label }}</Option>
         </Select>
     </FormItem>
@@ -20,6 +20,7 @@ export default {
                 value:"",
                 lastQuery:"",
             },
+            loading: false
         }
     },
     computed:{
@@ -33,9 +34,11 @@ export default {
     },
     methods:{
         loadData(key){
+            this.loading = true;
             if (this.model.dict !== undefined) {
                 defaults.getDictData[0](this.model.dict, {key}, datas => {
                     this.localOptions = datas;
+                    this.loading = false;
                 });
             }
         },

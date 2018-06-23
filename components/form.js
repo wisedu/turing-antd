@@ -9,4 +9,7 @@ export default {
     "number-range":"antd-fc-number-range",
     "number":"antd-fc-number",
     "uploadfile":"antd-fc-uploadfile",
+    "tree":"antd-fc-tree",
+    "autocomplete":"antd-fc-autocomplete",
+    "selecttable":"antd-fc-autocomplete"
 }

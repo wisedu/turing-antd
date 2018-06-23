@@ -9,11 +9,13 @@ import AntdFcButtonlist from './components/antd-fc-buttonlist';
 import AntdFcNumberRange from './components/antd-fc-number-range';
 import AntdFcNumber from './components/antd-fc-number';
 import AntdFcSelect from './components/antd-fc-select';
+import AntdFcTree from './components/antd-fc-tree';
 import AntdFcUploadfile from './components/antd-fc-uploadfile';
+import AntdFcAutocomplete from './components/antd-fc-autocomplete';
 import Form from './components/form.js';
 
 const components = {
-    AntdFcGroup,AntdFcForm,AntdFcStatic,AntdFcText,AntdFcTextArea,AntdFcDate,AntdFcButtonlist,AntdFcNumberRange,AntdFcNumber,AntdFcSelect,AntdFcUploadfile
+    AntdFcGroup,AntdFcForm,AntdFcStatic,AntdFcText,AntdFcTextArea,AntdFcDate,AntdFcButtonlist,AntdFcNumberRange,AntdFcNumber,AntdFcSelect,AntdFcUploadfile,AntdFcTree,AntdFcAutocomplete
 };
 const install = function (Vue, opts = {}) {
     if (install.installed) return;
