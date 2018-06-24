@@ -18,6 +18,7 @@ export default {
         onChange(val) {
             let label = this.options.filter(item => item.value === val )[0].label;
             this.$emit("on-item-change", this.name, val, label, this.model)
+            this.$emit("input", val)
         }
     }
 }

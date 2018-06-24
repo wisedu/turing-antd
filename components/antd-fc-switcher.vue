@@ -13,6 +13,7 @@ export default {
     methods: {
         onChange(val) {
             this.$emit("on-item-change", this.name, val, val, this.model)
+            this.$emit("input", val)
         }
     }
 }

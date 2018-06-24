@@ -31,6 +31,11 @@ export default {
             }
         }
     },
+    created(){
+        if (this.model.async === false) {
+            this.loadData('');
+        }
+    },
     methods:{
         loadData(key){
             if (this.model.dict !== undefined) {
@@ -50,6 +55,7 @@ export default {
             this.localSelectedItem["label"] = selected.label;
             this.localSelectedItem["value"] = selected.value;
             this.$emit("on-item-change", this.name, selected.value, selected.label, this.model)
+            this.$emit("input", selected.value)
         },
         search(key){
             if (key !== this.localSelectedItem.value){

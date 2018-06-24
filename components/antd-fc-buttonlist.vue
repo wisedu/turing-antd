@@ -37,6 +37,7 @@ export default {
                 label = item[0].label;
             }
             this.$emit("on-item-change", this.name, value, label, this.model);
+            this.$emit("input", value)
         }
     },
     created(){

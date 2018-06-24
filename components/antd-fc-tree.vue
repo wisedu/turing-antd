@@ -40,6 +40,7 @@ export default {
         onChange(value){
             let label = value;
             this.$emit("on-item-change", this.name, value, label, this.model)
+            this.$emit("input", value)
         },
         loadData(item, callback){
             if (this.model.dict !== undefined) {
