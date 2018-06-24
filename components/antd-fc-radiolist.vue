@@ -15,9 +15,9 @@ export default {
     name:"antd-fc-radiolist",
     extends: ConnectItem,
     methods: {
-        onChange(item) {
-            let label = value;
-            this.$emit("on-item-change", this.name, value, label, this.model)
+        onChange(val) {
+            let label = this.options.filter(item => item.value === val )[0].label;
+            this.$emit("on-item-change", this.name, val, label, this.model)
         }
     }
 }
