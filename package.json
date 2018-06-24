@@ -1,6 +1,6 @@
 {
   "name": "tg-turing-antd",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "main": "dist/tg-turing-antd.min.js",
   "packageName": "tg-turing-antd",
   "license": "MIT",

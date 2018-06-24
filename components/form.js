@@ -12,5 +12,6 @@ export default {
     "tree":"antd-fc-tree",
     "autocomplete":"antd-fc-autocomplete",
     "selecttable":"antd-fc-autocomplete",
-    "radiolist":"antd-fc-radiolist"
+    "radiolist":"antd-fc-radiolist",
+    "switcher":"antd-fc-switcher"
 }
