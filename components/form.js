@@ -11,5 +11,6 @@ export default {
     "uploadfile":"antd-fc-uploadfile",
     "tree":"antd-fc-tree",
     "autocomplete":"antd-fc-autocomplete",
-    "selecttable":"antd-fc-autocomplete"
+    "selecttable":"antd-fc-autocomplete",
+    "radiolist":"antd-fc-radiolist"
 }

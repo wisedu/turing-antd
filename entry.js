@@ -12,10 +12,11 @@ import AntdFcSelect from './components/antd-fc-select';
 import AntdFcTree from './components/antd-fc-tree';
 import AntdFcUploadfile from './components/antd-fc-uploadfile';
 import AntdFcAutocomplete from './components/antd-fc-autocomplete';
+import AntdFcRadiolist from './components/antd-fc-radiolist';
 import Form from './components/form.js';
 
 const components = {
-    AntdFcGroup,AntdFcForm,AntdFcStatic,AntdFcText,AntdFcTextArea,AntdFcDate,AntdFcButtonlist,AntdFcNumberRange,AntdFcNumber,AntdFcSelect,AntdFcUploadfile,AntdFcTree,AntdFcAutocomplete
+    AntdFcGroup,AntdFcForm,AntdFcStatic,AntdFcText,AntdFcTextArea,AntdFcDate,AntdFcButtonlist,AntdFcNumberRange,AntdFcNumber,AntdFcSelect,AntdFcUploadfile,AntdFcTree,AntdFcAutocomplete,AntdFcRadiolist
 };
 const install = function (Vue, opts = {}) {
     if (install.installed) return;
