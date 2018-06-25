@@ -1,6 +1,6 @@
 <template>
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
-        <Input :value="value" :placeholder="placeholder" :readonly="readonly" :icon="params.icon" :clearable="params.clearable"
+        <Input ref="input_com" :value="value" :placeholder="placeholder" :readonly="readonly" :icon="params.icon" :clearable="params.clearable"
         :maxlength="params.maxlength" @input="onChange" :disabled="disabled">
             <span slot="prepend" v-if="params.prepend">{{params.prepend}}</span>
             <span slot="append" v-if="params.append">{{params.append}}</span>
@@ -16,12 +16,38 @@ export default {
     extends: ConnectItem,
     methods:{
         onChange(value){
-            let label = value;
-            this.$emit("on-item-change", this.name, value, label, this.model)
-            this.$emit("input", value)
+            if (event.isComposing !== true) {
+                let label = value;
+                this.$emit("on-item-change", this.name, value, label, this.model)
+                this.$emit("input", value)
+            }
+        }
+    },
+    mounted(){
+        if (this.formReadonly !== true){
+            this.$refs.input_com.$el.addEventListener('compositionstart', onCompositionStart)
+            this.$refs.input_com.$el.addEventListener('compositionend', onCompositionEnd)
         }
     }
 }
+
+function onCompositionStart (e) {
+  e.target.composing = true
+}
+
+function onCompositionEnd (e) {
+  // prevent triggering an input event for no reason
+  if (!e.target.composing) return
+  e.target.composing = false
+  trigger(e.target, 'input')
+}
+
+function trigger (el, type) {
+  const e = document.createEvent('HTMLEvents')
+  e.initEvent(type, true, true)
+  el.dispatchEvent(e)
+}
+
 </script>
 
 <style>
