@@ -1,6 +1,6 @@
 <template>
     <div :class={readonly:readonly}>
-        <Form :model="formValue" :label-width="labelWidth" :rules="ruleValidate">
+        <Form :model="formValue" ref="form" :label-width="labelWidth" :rules="ruleValidate">
             <tg-listview :datas="tglistFields" :grid="{gutter:0, column:column}">
                 <template slot="beforeTemplate">
                     <slot name="before"></slot>
@@ -62,6 +62,17 @@ export default {
             }
         }
         this.ruleValidate = rules;
+    },
+    methods: {
+        validate(callback){
+            this.$refs.form.validate(callback)
+        },
+        validateField(){
+            this.$refs.form.validateField(prop, callback)
+        },
+        resetFields(){
+            this.$refs.form.resetFields();
+        }
     }
 }
 </script>

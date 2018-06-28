@@ -15,7 +15,7 @@ import AntdFcAutocomplete from './components/antd-fc-autocomplete';
 import AntdFcRadiolist from './components/antd-fc-radiolist';
 import AntdFcSwitcher from './components/antd-fc-switcher';
 import Form from './components/form.js';
-import { defulats } from "tg-turing";
+import { defaults } from "tg-turing";
 
 const components = {
     AntdFcGroup,AntdFcForm,AntdFcStatic,AntdFcText,AntdFcTextArea,AntdFcDate,AntdFcButtonlist,AntdFcNumberRange,AntdFcNumber,AntdFcSelect,AntdFcUploadfile,AntdFcTree,AntdFcAutocomplete,AntdFcRadiolist,AntdFcSwitcher
@@ -29,20 +29,16 @@ const install = function (Vue, opts = {}) {
     });
 };
 
-defulats.antd = {
+defaults.antd = {
     Adapter: Adapter,
     form: Form
 };
-// const init = function () {
-//     window["tg-turing"].antd = {
-//         Adapter: Adapter,
-//         form: Form
-//     };
-// }
+defaults.currentType = "antd";
+
 if (typeof window !== 'undefined' && window.Vue) {
     install(window.Vue);
 }
 export default Object.assign({}, {
-    Adapter,install, init,
+    Adapter,install,
     ...components,
 });
