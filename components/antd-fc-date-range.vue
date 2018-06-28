@@ -9,7 +9,7 @@
 import {ConnectItem} from 'tg-turing'
 
 export default {
-    name:"antd-fc-date",
+    name:"antd-fc-date-range",
     extends: ConnectItem,
     methods:{
         onChange(value){
