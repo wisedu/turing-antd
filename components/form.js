@@ -3,6 +3,7 @@ export default {
     "text": "antd-fc-text",
     "textarea": "antd-fc-textarea",
     "date": "antd-fc-date",
+    "date-range": "antd-fc-date-range",
     "date-local": "antd-fc-date",
     "select": "antd-fc-select",
     "buttonlist": "antd-fc-buttonlist",

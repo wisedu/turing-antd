@@ -1,6 +1,6 @@
 <template>
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
-        <Alert type="warning">只允许传图片、压缩包文件</Alert>
+        <Alert type="warning">可上传图片或压缩包</Alert>
         <Upload :action="saveFileUrl" :data="this.params" :default-file-list="files" multiple
         :on-success="uploaded" :on-preview="preview" :on-remove="remove">
             <Button type="ghost" icon="ios-cloud-upload-outline">上传附件</Button>

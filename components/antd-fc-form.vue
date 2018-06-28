@@ -49,7 +49,7 @@ export default {
                 rules[item.name] = []
                 if (item.required === true) {
                     rules[item.name].push({
-                        required: true, trigger: 'blur', message: `${item.name} 不能为空`
+                        required: true, trigger: 'blur', message: `不能为空`
                     });
                 }
             }
