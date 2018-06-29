@@ -32,7 +32,8 @@ export default {
         }
     },
     created(){
-        if (this.model.async === false) {
+        const def_async = defaults.antd.form["select"].async;
+        if (this.model.async === undefined && def_async === false || this.model.async === false) {
             this.loadData('');
         }
     },

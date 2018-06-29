@@ -39,7 +39,7 @@ defaults.currentType = "antd";
 if (typeof window !== 'undefined' && window.Vue) {
     install(window.Vue);
 }
-export default Object.assign({}, {
+export default {
     Adapter,install,
     ...components,
-});
+};
