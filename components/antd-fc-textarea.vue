@@ -1,8 +1,17 @@
 <template>
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
-        <Input ref="input_com" :value="value" type="textarea" :placeholder="placeholder" :readonly="readonly"
-        :maxlength="params.maxlength" @input="onChange" :disabled="disabled" :rows="params.rows" :autosize="params.autosize">
-        </Input>
+        <template v-if="!params.tooltip === true">
+            <!--input这段是一样的-->
+            <Input ref="input_com" :value="value" type="textarea" :placeholder="placeholder" :readonly="readonly"
+            :maxlength="params.maxlength" @input="onChange" :disabled="disabled" :rows="params.rows" :autosize="params.autosize">
+            </Input>
+        </template>
+        <Tooltip v-else :content="params.tooltip" class="input-hasTip">
+            <!--input这段是一样的-->
+            <Input ref="input_com" :value="value" type="textarea" :placeholder="placeholder" :readonly="readonly"
+            :maxlength="params.maxlength" @input="onChange" :disabled="disabled" :rows="params.rows" :autosize="params.autosize">
+            </Input>
+        </Tooltip>
     </FormItem>
     <antd-fc-static v-else :caption="caption" :prop="name" :value="value" :display="display"></antd-fc-static>
 </template>

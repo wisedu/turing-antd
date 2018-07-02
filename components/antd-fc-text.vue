@@ -1,10 +1,21 @@
 <template>
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
-        <Input ref="input_com" :value="value" :placeholder="placeholder" :readonly="readonly" :icon="params.icon" :clearable="params.clearable"
-        :maxlength="params.maxlength" @input="onChange" :disabled="disabled">
-            <span slot="prepend" v-if="params.prepend">{{params.prepend}}</span>
-            <span slot="append" v-if="params.append">{{params.append}}</span>
-        </Input>
+        <template v-if="!params.tooltip === true">
+            <!--input这段是一样的-->
+            <Input ref="input_com" :value="value" :placeholder="placeholder" :readonly="readonly" :icon="params.icon" :clearable="params.clearable"
+                :maxlength="params.maxlength" @input="onChange" :disabled="disabled">
+                    <span slot="prepend" v-if="params.prepend">{{params.prepend}}</span>
+                    <span slot="append" v-if="params.append">{{params.append}}</span>
+            </Input>
+        </template>
+        <Tooltip v-else :content="params.tooltip" class="input-hasTip">
+            <!--input这段是一样的-->
+            <Input ref="input_com" :value="value" :placeholder="placeholder" :readonly="readonly" :icon="params.icon" :clearable="params.clearable"
+            :maxlength="params.maxlength" @input="onChange" :disabled="disabled">
+                <span slot="prepend" v-if="params.prepend">{{params.prepend}}</span>
+                <span slot="append" v-if="params.append">{{params.append}}</span>
+            </Input>
+        </Tooltip>
     </FormItem>
     <antd-fc-static v-else :caption="caption" :prop="name" :value="value" :display="display"></antd-fc-static>
 </template>
@@ -51,5 +62,16 @@ function trigger (el, type) {
 </script>
 
 <style>
-
+.input-hasTip.ivu-tooltip{
+    width:100%;
+}
+.input-hasTip.ivu-tooltip .ivu-tooltip-rel{
+    width:100%;
+}
+.input-hasTip .ivu-input{
+    border-color: #ff9900;
+}
+.input-hasTip .ivu-input:focus{
+    box-shadow: 0 0 0 2px rgba(255,153,00,.2)
+}
 </style>

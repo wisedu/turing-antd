@@ -1,8 +1,17 @@
 <template>
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
-        <Select :value="value" :placeholder="placeholder" filterable clearable @on-open-change.once="loadData('')" @on-change="onChange" @on-query-change="search" label-in-value>
-            <Option v-for="item in fullOptions" :value="item.value" :key="item.value">{{ item.label }}</Option>
-        </Select>
+        <template v-if="!params.tooltip === true">
+            <!--DatePicker这段是一样的-->
+            <Select ref="ctl" :value="value" :placeholder="placeholder" filterable clearable @on-open-change.once="loadData('')" @on-change="onChange" @on-query-change="search" label-in-value>
+                <Option v-for="item in fullOptions" :value="item.value" :key="item.value">{{ item.label }}</Option>
+            </Select>
+        </template>
+        <Tooltip v-else :content="params.tooltip" class="input-hasTip">
+            <!--DatePicker这段是一样的-->
+            <Select ref="ctl" :value="value" :placeholder="placeholder" filterable clearable @on-open-change.once="loadData('')" @on-change="onChange" @on-query-change="search" label-in-value>
+                <Option v-for="item in fullOptions" :value="item.value" :key="item.value">{{ item.label }}</Option>
+            </Select>
+        </Tooltip>
     </FormItem>
     <antd-fc-static v-else :caption="caption" :prop="name" :value="value" :display="display"></antd-fc-static>
 </template>
@@ -48,6 +57,7 @@ export default {
         onChange(item){
             let selected = item;
             if (selected === undefined) {
+                this.$refs.ctl.clearSingleSelect();
                 selected = {
                     label:undefined,
                     value:undefined
@@ -71,5 +81,10 @@ export default {
 </script>
 
 <style>
-
+.input-hasTip .ivu-select-selection{
+    border-color: #ff9900;
+}
+.input-hasTip .ivu-select-input:focus{
+    box-shadow: 0 0 0 2px rgba(255,153,00,.2)
+}
 </style>

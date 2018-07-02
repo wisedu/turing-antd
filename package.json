@@ -1,12 +1,12 @@
 {
   "name": "tg-turing-antd",
-  "version": "1.6.1",
+  "version": "1.6.3",
   "main": "dist/tg-turing-antd.min.js",
   "packageName": "tg-turing-antd",
   "license": "MIT",
   "dependencies": {
     "@riophae/vue-treeselect": "^0.0.29",
-    "tg-turing": "^1.8.22",
+    "tg-turing": "^1.10.1",
     "uuid": "^3.2.1"
   },
   "peerDependencies": {
@@ -37,6 +37,6 @@
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.config.js --mode development",
     "build": "webpack --config webpack.prod.config.js --mode production",
-    "local": "webpack --config webpack.prod.config.js --mode production && cp -r ./dist/* ../../GitLab/funauthapp/node_modules/tg-turing-antd/dist/"
+    "local": "webpack --config webpack.prod.config.js --mode production && cp -r ./dist/* ../../GitLab/egg/project-v/node_modules/tg-turing-antd/dist/"
   }
 }
