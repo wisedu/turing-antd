@@ -15,11 +15,12 @@ import AntdFcUploadfile from './components/antd-fc-uploadfile';
 import AntdFcAutocomplete from './components/antd-fc-autocomplete';
 import AntdFcRadiolist from './components/antd-fc-radiolist';
 import AntdFcSwitcher from './components/antd-fc-switcher';
+import AntdGcGrid from './components/antd-gc-grid';
 import Form from './components/form.js';
 import { defaults } from "tg-turing";
 
 const components = {
-    AntdFcGroup,AntdFcForm,AntdFcStatic,AntdFcText,AntdFcTextArea,AntdFcDate,AntdFcDateRange,AntdFcButtonlist,AntdFcNumberRange,AntdFcNumber,AntdFcSelect,AntdFcUploadfile,AntdFcTree,AntdFcAutocomplete,AntdFcRadiolist,AntdFcSwitcher
+    AntdFcGroup,AntdFcForm,AntdFcStatic,AntdFcText,AntdFcTextArea,AntdFcDate,AntdFcDateRange,AntdFcButtonlist,AntdFcNumberRange,AntdFcNumber,AntdFcSelect,AntdFcUploadfile,AntdFcTree,AntdFcAutocomplete,AntdFcRadiolist,AntdFcSwitcher,AntdGcGrid
 };
 const install = function (Vue, opts = {}) {
     if (install.installed) return;

@@ -110,9 +110,20 @@ export default class extends DataAdapter{
                 "BZ19": {"caption": "备注19","hidden": true},
                 "BZ20": {"caption": "备注20","hidden": true}
             },
-            "grid": {
+            "grid:table": {
                 "WID": {},
-                "XSBH": {},
+                "XSBH": {
+                    // render: (h, params) => {
+                    //     return h('div', [
+                    //         h('Icon', {
+                    //             props: {
+                    //                 type: 'person'
+                    //             }
+                    //         }),
+                    //         h('strong', params.row.name)
+                    //     ]);
+                    // }
+                },
                 "XH": {},
                 "XM": {},
                 "XMPY": {},
@@ -449,6 +460,16 @@ export default class extends DataAdapter{
                 "BZ18": {},
                 "BZ19": {},
                 "BZ20": {}
+            },
+            "search:form": {
+                "WID": {},
+                "XSBH": {},
+                "XH": {},
+                "XM": {},
+                "XMPY": {},
+                "CYM": {},
+                "XBDM": {},
+                "CSRQ": {},
             }
         }
         this.actions.find.url = "/api/user";
