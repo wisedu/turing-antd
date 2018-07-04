@@ -1,15 +1,17 @@
 <template>
     <div class="antd-gc-grid-wrap">
-        <div class="tg-mb-8">
+        <div class="tg-mb-16">
             <Table :columns="columns" :data="data.rows || data" border highlight-row 
                 @on-current-change="onHighlight" @on-select-all="onSelectAll" @on-selection-change="onSelectionChange">
                 <slot :name="model.name" :slot="model.name" v-for="model in columns" slot-scope="scope" ></slot>
             </Table>
         </div>
-        <Page v-if="!!pager" :total="pager.total" :page-size="pageSize" show-total show-elevator show-sizer
-            @on-change="onChangePage" @on-page-size-change="onChangePageSize" :page-size-opts="options">
-            <slot name="pagerTotal"></slot>
-        </Page>
+        <div class="tg-clear-child">
+            <Page v-if="!!pager" class="tg-right" :total="pager.total" :page-size="pageSize" show-total show-elevator show-sizer
+                @on-change="onChangePage" @on-page-size-change="onChangePageSize" :page-size-opts="options">
+                <slot name="pagerTotal"></slot>
+            </Page>
+        </div>
     </div>
 </template>
 

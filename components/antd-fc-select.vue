@@ -2,13 +2,13 @@
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
         <template v-if="!params.tooltip === true">
             <!--DatePicker这段是一样的-->
-            <Select ref="ctl" :value="value" :placeholder="placeholder" filterable clearable @on-open-change.once="loadData('')" @on-change="onChange" @on-query-change="search" label-in-value>
+            <Select ref="ctl" :value="value" :placeholder="placeholder" dis-filterable clearable @on-open-change.once="loadData('')" @on-change="onChange" label-in-value>
                 <Option v-for="item in fullOptions" :value="item.value" :key="item.value">{{ item.label }}</Option>
             </Select>
         </template>
         <Tooltip v-else :content="params.tooltip" class="input-hasTip">
             <!--DatePicker这段是一样的-->
-            <Select ref="ctl" :value="value" :placeholder="placeholder" filterable clearable @on-open-change.once="loadData('')" @on-change="onChange" @on-query-change="search" label-in-value>
+            <Select ref="ctl" :value="value" :placeholder="placeholder" dis-filterable clearable @on-open-change.once="loadData('')" @on-change="onChange" label-in-value>
                 <Option v-for="item in fullOptions" :value="item.value" :key="item.value">{{ item.label }}</Option>
             </Select>
         </Tooltip>
@@ -33,18 +33,29 @@ export default {
     },
     computed:{
         fullOptions(){
-            if (this.localOptions.length > 0) {
-                return this.localOptions;
-            } else {
-                return this.options;
+            let selected_opt = {label: this.display, value: this.value};
+            let opts = [];
+            if (this.value !== undefined) {
+                opts.push(selected_opt);
             }
+            this.options.map(item => {
+                if (opts.filter(opt => opt.value === item.value).length === 0) {
+                    opts.push(item)
+                }
+            })
+            this.localOptions.map(item => {
+                if (opts.filter(opt => opt.value === item.value).length === 0) {
+                    opts.push(item)
+                }
+            })
+            return opts;
         }
     },
     created(){
-        const def_async = defaults.antd.form["select"].async;
-        if (this.model.async === undefined && def_async === false || this.model.async === false) {
-            this.loadData('');
-        }
+        // const def_async = defaults.antd.form["select"].async;
+        // if (this.model.async === undefined && def_async === false || this.model.async === false) {
+        //     this.loadData('');
+        // }
     },
     methods:{
         loadData(key){
