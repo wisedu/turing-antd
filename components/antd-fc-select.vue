@@ -35,7 +35,7 @@ export default {
         fullOptions(){
             let selected_opt = {label: this.display, value: this.value};
             let opts = [];
-            if (this.value !== undefined) {
+            if (this.localOptions.length === 0 && this.value !== undefined) {
                 opts.push(selected_opt);
             }
             this.options.map(item => {

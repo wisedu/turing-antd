@@ -6432,14 +6432,15 @@ textextensions@2:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/textextensions/-/textextensions-2.2.0.tgz#38ac676151285b658654581987a0ce1a4490d286"
 
-tg-turing@^1.11.1:
-  version "1.11.1"
-  resolved "https://registry.yarnpkg.com/tg-turing/-/tg-turing-1.11.1.tgz#a69af3036a25eff1bef8d369fd7a7f808d0c9e9d"
+tg-turing@^1.11.2:
+  version "1.11.2"
+  resolved "https://registry.yarnpkg.com/tg-turing/-/tg-turing-1.11.2.tgz#92e0d00aa4ae7c92504f733f242ef1f7985be1be"
   dependencies:
     accounting-js "^1.1.1"
     axios "^0.18.0"
     core-js "^2.5.7"
     moment "^2.22.1"
+    uuid "^3.3.2"
     vue "^2.5.16"
 
 through2@^2.0.0:
@@ -6734,6 +6735,10 @@ utils-merge@1.0.1:
 uuid@^3.0.1, uuid@^3.1.0, uuid@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.2.1.tgz#12c528bb9d58d0b9265d9a2f6f0fe8be17ff1f14"
+
+uuid@^3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
 
 v-click-outside-x@^3.0.0:
   version "3.0.1"
