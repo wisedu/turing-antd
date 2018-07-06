@@ -1,5 +1,5 @@
 <template>
-    <div class="antd-gc-grid-wrap">
+    <div class="antd-gb-grid-wrap">
         <div class="tg-mb-16">
             <Table :columns="columns" :data="data.rows || data" border highlight-row 
                 @on-current-change="onHighlight" @on-select-all="onSelectAll" @on-selection-change="onSelectionChange">
@@ -17,7 +17,7 @@
 
 <script>
 export default {
-    name: "antd-gc-grid",
+    name: "antd-gb-grid",
     props: {
         columns: Array,
         data: [Array, Object],

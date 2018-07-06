@@ -15,13 +15,15 @@ import AntdFcUploadfile from './components/antd-fc-uploadfile';
 import AntdFcAutocomplete from './components/antd-fc-autocomplete';
 import AntdFcRadiolist from './components/antd-fc-radiolist';
 import AntdFcSwitcher from './components/antd-fc-switcher';
-import AntdGcGrid from './components/antd-gc-grid';
-import AntdGcSearch from './components/antd-gc-search';
+import AntdGbGrid from './components/antd-gb-grid';
+import AntdGbSearch from './components/antd-gb-search';
 import Form from './components/form.js';
+import LayoutTmb from './layout/layout-tmb';
 import { defaults } from "tg-turing";
 
 const components = {
-    AntdFcGroup,AntdFcForm,AntdFcStatic,AntdFcText,AntdFcTextArea,AntdFcDate,AntdFcDateRange,AntdFcButtonlist,AntdFcNumberRange,AntdFcNumber,AntdFcSelect,AntdFcUploadfile,AntdFcTree,AntdFcAutocomplete,AntdFcRadiolist,AntdFcSwitcher,AntdGcGrid,AntdGcSearch
+    AntdFcGroup,AntdFcForm,AntdFcStatic,AntdFcText,AntdFcTextArea,AntdFcDate,AntdFcDateRange,AntdFcButtonlist,AntdFcNumberRange,AntdFcNumber,AntdFcSelect,AntdFcUploadfile,AntdFcTree,AntdFcAutocomplete,AntdFcRadiolist,AntdFcSwitcher,AntdGbGrid,AntdGbSearch,
+    LayoutTmb
 };
 const install = function (Vue, opts = {}) {
     if (install.installed) return;

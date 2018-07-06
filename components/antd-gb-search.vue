@@ -16,14 +16,15 @@
 <script>
 import {FormConnector} from "tg-turing";
 export default {
-    name: "antd-gc-search",
+    name: "antd-gb-search",
     extends: FormConnector,
     methods: {
         search() {
             this.$emit("search", this.formValue);
         },
         clear() {
-            this.formValue = {};
+            this.formValue = {}
+            this.$emit("clear");
         }
     }
 }
