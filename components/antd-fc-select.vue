@@ -2,13 +2,13 @@
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
         <template v-if="!params.tooltip === true">
             <!--DatePicker这段是一样的-->
-            <Select ref="ctl" :value="value" :placeholder="placeholder" dis-filterable clearable @on-open-change.once="loadData('')" @on-change="onChange" label-in-value>
+            <Select ref="ctl" :value="value" :placeholder="placeholder" dis-filterable clearable @on-open-change.once="loadData('')" @on-change="onChange" label-in-value transfer>
                 <Option v-for="item in fullOptions" :value="item.value" :key="item.value">{{ item.label }}</Option>
             </Select>
         </template>
         <Tooltip v-else :content="params.tooltip" class="input-hasTip">
             <!--DatePicker这段是一样的-->
-            <Select ref="ctl" :value="value" :placeholder="placeholder" dis-filterable clearable @on-open-change.once="loadData('')" @on-change="onChange" label-in-value>
+            <Select ref="ctl" :value="value" :placeholder="placeholder" dis-filterable clearable @on-open-change.once="loadData('')" @on-change="onChange" label-in-value transfer>
                 <Option v-for="item in fullOptions" :value="item.value" :key="item.value">{{ item.label }}</Option>
             </Select>
         </Tooltip>

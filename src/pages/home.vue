@@ -3,7 +3,9 @@
         <Button @click="handler">Halo</Button>
         <Card>
             <tg-form ref="form" :fields="fields" type="antd" :column=4 :value="data" displayFieldFormat="_DISPLAY">
-                
+                <div slot="XSBH">
+                    123
+                </div>
             </tg-form>
         </Card>
         <br>

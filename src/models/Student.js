@@ -125,7 +125,7 @@ export default class extends DataAdapter{
                     // }
                 },
                 "XH": {},
-                "XM": {},
+                "XM": {align:"right"},
                 "XMPY": {},
                 "CYM": {},
                 "XBDM": {},

@@ -5,6 +5,7 @@ export default {
     "date": {name:"antd-fc-date"},
     "date-range": {name:"antd-fc-date-range"},
     "date-local": {name:"antd-fc-date"},
+    "date-full": {name:"antd-fc-date"},
     "select": {name:"antd-fc-select",async:false},
     "buttonlist": {name:"antd-fc-buttonlist"},
     "number-range":{name:"antd-fc-number-range"},
