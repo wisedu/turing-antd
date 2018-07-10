@@ -10,8 +10,7 @@
 </template>
 
 <script>
-var UUIDv1 = require('uuid/v1');
-import {ConnectItem,utils} from 'tg-turing'
+import {ConnectItem,utils,uuid} from 'tg-turing'
 export default {
     name:"antd-fc-uploadfile",
     extends: ConnectItem,
@@ -25,7 +24,7 @@ export default {
     },
     created() {
         if (this.token === undefined || this.token === null) {
-            this.token = UUIDv1();
+            this.token = uuid();
             this.$set(this.params, "token", this.token);
         } else {
             this.getFileList(this.token);
@@ -34,8 +33,8 @@ export default {
     watch:{
         value:function(newValue) {
             if (newValue === undefined || newValue === null) {
-                this.token = UUIDv1();
-                this.params.token = UUIDv1();
+                this.token = uuid();
+                this.params.token = uuid();
             } else {
                 this.token = newValue;
                 this.params.token = newValue;

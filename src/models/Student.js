@@ -254,7 +254,7 @@ export default class extends DataAdapter{
                         "YKTKH": {"xtype": "text","dataSize": 30},
                         "KHM": {"dataSize": 300},
                         "KKYH": {"dataSize": 20},
-                        "YHZH": {"xtype": "text","dataSize": 40},
+                        "YHZH": {"xtype": "text","dataSize": 40,"xtype":"uploadfile"},
                         "CCQJ": {"xtype": "selecttable","url": "/axsfw/sys/swpubapp/*default/ggmk/hczzdmhss.do","dataSize": 300},
                         "JKZKDM": {"url": "/axsfw/code/70302a56-36d1-4f5f-b61f-c2e149d27413.do","xtype": "select","dataSize": 2},
                         "XXDM": {"url": "/axsfw/code/bed9e2f1-18fc-47d1-bdd9-0ea71214b7fb.do","xtype": "select","dataSize": 1},
