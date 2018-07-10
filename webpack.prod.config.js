@@ -11,25 +11,25 @@ module.exports = {
         // 多入口文件
         "tg-turing-antd": './entry.js',
     },
-    optimization: {
-        splitChunks: {
-            cacheGroups: {
-                commons: {
-                    chunks: 'initial',
-                    name: 'commons',
-                    minChunks: 2,
-                    maxInitialRequests: 5,
-                    minSize: 0
-                },
-                vendor:{ // 抽离第三插件
-                    test:/node_modules/,
-                    chunks:'initial',
-                    name:'vendor',
-                    priority:10
-                }
-            }
-        }
-    },
+    // optimization: {
+    //     splitChunks: {
+    //         cacheGroups: {
+    //             commons: {
+    //                 chunks: 'initial',
+    //                 name: 'commons',
+    //                 minChunks: 2,
+    //                 maxInitialRequests: 5,
+    //                 minSize: 0
+    //             },
+    //             vendor:{ // 抽离第三插件
+    //                 test:/node_modules/,
+    //                 chunks:'initial',
+    //                 name:'vendor',
+    //                 priority:10
+    //             }
+    //         }
+    //     }
+    // },
     output: {
         path:path.resolve(__dirname, 'dist'),
         // 打包多出口文件
@@ -63,12 +63,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
-                use: {
-                  loader: 'babel-loader',
-                  options: {
-                    presets: ['@babel/preset-env']
-                  }
-                }
+                use: ['babel-loader']
             }
         ]
     },
