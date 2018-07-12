@@ -1,7 +1,7 @@
 <template>
     <div class="antd-gb-grid-wrap">
         <div class="tg-mb-16">
-            <Table :columns="columns" :data="data.rows || data" border highlight-row 
+            <Table :columns="columns" :data="data.rows || data" border highlight-row :loading="loading"
                 @on-current-change="onHighlight" @on-select-all="onSelectAll" @on-selection-change="onSelectionChange">
                 <slot :name="model.name" :slot="model.name" v-for="model in columns" slot-scope="scope" ></slot>
             </Table>
@@ -22,6 +22,7 @@ export default {
         columns: Array,
         data: [Array, Object],
         pager: Object,
+        loading: Boolean
     },
     data() {
         return {
