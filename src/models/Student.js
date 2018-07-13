@@ -7,7 +7,7 @@ export default class extends DataAdapter{
         let views = {
             "default": {
                 "WID": {"caption": "WID","hidden": true},
-                "XSBH": {"caption": "登录名",},
+                "XSBH": {"caption": "登录名"},
                 "XH": {"caption": "学号",},
                 "XM": {"caption": "姓名",},
                 "XMPY": {"caption": "姓名拼音",},
@@ -231,12 +231,12 @@ export default class extends DataAdapter{
                 "group:[个人基本信息]":{
                     desc:"~个人基本信息~",
                     items:{
-                        "XSBH": {"xtype": "text","dataSize": 40},
+                        "XSBH": {"xtype": "text","dataSize": 40,},
                         "XH": {"xtype": "text","dataSize": 20},
                         "XM": {"xtype": "text","dataSize": 90},
                         "XMPY": {"dataSize": 120},
                         "CYM": {"dataSize": 120},
-                        "XBDM": {"dict":dict("XBDM->性别"),"xtype": "buttonlist","dataSize": 1},
+                        "XBDM": {xtype:"checkboxlist",options:[{id:"aaa",label:"女"},{id:"bbb",label:"男"}],params:{direction:"v"}},
                         "CSRQ": {"xtype": "date-local","dataSize": 10},
                         "MZDM": {"dict":dict("MZDM->民族"),"xtype": "select","dataSize": 2},
                         "SFZJLXDM": {"url": "/axsfw/code/553c0263-42d7-45c5-9cc3-049e371ce9d4.do","xtype": "select","dataSize": 1},

@@ -1,6 +1,6 @@
 <template>
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
-        <CheckboxGroup :value="value" @on-change="onChange">
+        <CheckboxGroup :value="value" @on-change="onChange" :vertical="params.direction === 'v'">
             <Checkbox v-for="item in options" :label="item.value || item.id !== undefined ? item.value || item.id : item" :key="item.value || item.id !== undefined ? item.value || item.id : item">
                 {{ item.label || item }}
             </Checkbox>
@@ -15,10 +15,17 @@ export default {
     name:"antd-fc-checkboxlist",
     extends: ConnectItem,
     methods: {
-        onChange(val) {
-            let label = this.options.filter(item => item.value || item.id === val )[0].label;
-            this.$emit("on-item-change", this.name, val, label, this.model)
-            this.$emit("input", val)
+        onChange(vals) {
+            let label = [];
+            this.options.map(item => {
+                vals.map(val => {
+                    if (item.value || item.id === val) {
+                        label.push(item.label);
+                    }
+                })
+            })
+            this.$emit("on-item-change", this.name, vals, label, this.model)
+            this.$emit("input", vals)
         }
     }
 }
