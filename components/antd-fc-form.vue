@@ -35,33 +35,35 @@ export default {
     data(){
         return {
             //当前字段隐藏时，让listview组件所占位的格子也隐藏
-            tglistFields:[],
             antdForm: antdForm,
             ruleValidate: {}
         }
     },
-    created(){
-        let rules = {};
-        this.tglistFields = this.fields.map(item => {
-            if (item.hidden === true) {
-                item._lv_hidden = true;
-            } else {
-                rules[item.name] = []
-                if (item.required === true) {
-                    rules[item.name].push({
-                        required: true, trigger: 'blur', message: `不能为空`
-                    });
+    computed:{
+        tglistFields: function(){
+            let rules = {};
+            let _newFields = this.fields.map(item => {
+                if (item.hidden === true) {
+                    item._lv_hidden = true;
+                } else {
+                    rules[item.name] = []
+                    if (item.required === true) {
+                        rules[item.name].push({
+                            required: true, trigger: 'blur', message: `不能为空`
+                        });
+                    }
+                }
+                return item;
+            })
+
+            for(let key in rules) {
+                if (rules[key].length === 0){
+                    delete rules[key];
                 }
             }
-            return item;
-        });
-
-        for(let key in rules) {
-            if (rules[key].length === 0){
-                delete rules[key];
-            }
+            this.ruleValidate = rules;
+            return _newFields;
         }
-        this.ruleValidate = rules;
     },
     methods: {
         validate(callback){

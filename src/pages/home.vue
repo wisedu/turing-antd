@@ -38,6 +38,26 @@ export default {
             let displays = this.$refs.form.getDisplay();
             debugger
         }
+    },
+    created(){
+        this.$nextTick(()=>{
+            this.fields = [{
+            "name": "group:[正文控件]",
+            "title":"正文控件",
+            "items": [{
+              "name":"nodeInfo_正文控件",
+              "xtype":"checkboxlist",
+              "caption":"",
+              "options": [{
+                id: "canTaohong",
+                label: "套红"
+              },{
+                id: "canEditWord",
+                label: "无痕迹修改"
+              }]
+            }]
+          }];
+        })
     }
 }
 </script>
