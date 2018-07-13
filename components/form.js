@@ -15,5 +15,6 @@ export default {
     "autocomplete":{name:"antd-fc-autocomplete"},
     "selecttable":{name:"antd-fc-autocomplete"},
     "radiolist":{name:"antd-fc-radiolist"},
+    "checkboxlist":{name:"antd-fc-checkboxlist"},
     "switcher":{name:"antd-fc-switcher"}
 }

@@ -14,6 +14,7 @@ import AntdFcTree from './components/antd-fc-tree';
 import AntdFcUploadfile from './components/antd-fc-uploadfile';
 import AntdFcAutocomplete from './components/antd-fc-autocomplete';
 import AntdFcRadiolist from './components/antd-fc-radiolist';
+import AntdFcCheckboxlist from './components/antd-fc-checkboxlist';
 import AntdFcSwitcher from './components/antd-fc-switcher';
 import AntdGbGrid from './components/antd-gb-grid';
 import AntdGbSearch from './components/antd-gb-search';
@@ -22,7 +23,7 @@ import LayoutTmb from './layout/layout-tmb';
 import { defaults } from "tg-turing";
 
 const components = {
-    AntdFcGroup,AntdFcForm,AntdFcStatic,AntdFcText,AntdFcTextArea,AntdFcDate,AntdFcDateRange,AntdFcButtonlist,AntdFcNumberRange,AntdFcNumber,AntdFcSelect,AntdFcUploadfile,AntdFcTree,AntdFcAutocomplete,AntdFcRadiolist,AntdFcSwitcher,AntdGbGrid,AntdGbSearch,
+    AntdFcGroup,AntdFcForm,AntdFcStatic,AntdFcText,AntdFcTextArea,AntdFcDate,AntdFcDateRange,AntdFcButtonlist,AntdFcNumberRange,AntdFcNumber,AntdFcSelect,AntdFcUploadfile,AntdFcTree,AntdFcAutocomplete,AntdFcRadiolist,AntdFcSwitcher,AntdGbGrid,AntdGbSearch,AntdFcCheckboxlist,
     LayoutTmb
 };
 const install = function (Vue, opts = {}) {
@@ -33,6 +34,49 @@ const install = function (Vue, opts = {}) {
         Vue.component(components[key].name, components[key]);
     });
 };
+
+
+if (!("classList" in document.documentElement)) {
+    Object.defineProperty(HTMLElement.prototype, 'classList', {
+        get: function() {
+            var self = this;
+            function update(fn) {
+                return function(value) {
+                    var classes = self.className.split(/\s+/g),
+                        index = classes.indexOf(value);
+
+                    fn(classes, index, value);
+                    self.className = classes.join(" ");
+                }
+            }
+
+            return {
+                add: update(function(classes, index, value) {
+                    if (!~index) classes.push(value);
+                }),
+
+                remove: update(function(classes, index) {
+                    if (~index) classes.splice(index, 1);
+                }),
+
+                toggle: update(function(classes, index, value) {
+                    if (~index)
+                        classes.splice(index, 1);
+                    else
+                        classes.push(value);
+                }),
+
+                contains: function(value) {
+                    return !!~self.className.split(/\s+/g).indexOf(value);
+                },
+
+                item: function(i) {
+                    return self.className.split(/\s+/g)[i] || null;
+                }
+            };
+        }
+    });
+}
 
 defaults.antd = {
     Adapter: Adapter,

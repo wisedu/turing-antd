@@ -1,10 +1,10 @@
 <template>
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
-        <RadioGroup :value="value" @on-change="onChange">
-            <Radio v-for="item in options" :label="item.value || item.id !== undefined ? item.value || item.id : item" :key="item.value || item.id !== undefined ? item.value || item.id : item">
+        <CheckboxGroup :value="value" @on-change="onChange">
+            <Checkbox v-for="item in options" :label="item.value || item.id !== undefined ? item.value || item.id : item" :key="item.value || item.id !== undefined ? item.value || item.id : item">
                 {{ item.label || item }}
-            </Radio>
-        </RadioGroup>
+            </Checkbox>
+        </CheckboxGroup>
     </FormItem>
     <antd-fc-static v-else :caption="caption" :prop="name" :value="value"></antd-fc-static>
 </template>
@@ -12,7 +12,7 @@
 <script>
 import {ConnectItem} from 'tg-turing'
 export default {
-    name:"antd-fc-radiolist",
+    name:"antd-fc-checkboxlist",
     extends: ConnectItem,
     methods: {
         onChange(val) {

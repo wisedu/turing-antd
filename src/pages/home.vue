@@ -22,6 +22,7 @@ import Student from "../models/Student";
 let inst = new Student();
 export default {
     data(){
+        debugger
         return {
             fields: inst.view("默认表单:form"),
             fields_scd: inst.view("平铺表单:form"),
