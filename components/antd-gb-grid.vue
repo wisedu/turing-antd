@@ -2,12 +2,12 @@
     <div class="antd-gb-grid-wrap">
         <div class="tg-mb-16">
             <Table :columns="columns" :data="data.rows || data" border highlight-row :loading="loading"
-                @on-current-change="onHighlight" @on-select-all="onSelectAll" @on-selection-change="onSelectionChange">
+                @on-current-change="onHighlight" @on-select-all="onSelectAll" @on-selection-change="onSelectionChange" @on-sort-change="onSortChange">
                 <slot :name="model.name" :slot="model.name" v-for="model in columns" slot-scope="scope" ></slot>
             </Table>
         </div>
         <div class="tg-clear-child">
-            <Page v-if="!!pager" class="tg-right" :total="pager.total" :page-size="pageSize" show-total show-elevator show-sizer
+            <Page v-if="!!pager" class="tg-right" :total="total" :page-size="pageSize" show-total show-elevator show-sizer
                 @on-change="onChangePage" @on-page-size-change="onChangePageSize" :page-size-opts="options">
                 <slot name="pagerTotal"></slot>
             </Page>
@@ -20,8 +20,16 @@ export default {
     name: "antd-gb-grid",
     props: {
         columns: Array,
-        data: [Array, Object],
-        pager: Object,
+        data: {
+            type:[Array, Object],
+            default:function() {
+                return [];
+            }
+        },
+        pager: {
+            type:Object,
+            default: {}
+        },
         loading: Boolean
     },
     data() {
@@ -31,22 +39,13 @@ export default {
             pageSize: this.pager.size || 10
         }
     },
-    watch:{
-        data:{
-            handler(newValue) {
-                if (newValue.total !== undefined) {
-                    this.pager.total = newValue.total;
-                }
-            },
-            deep: true
-        }
-    },
-    created() {
-        if (this.data.total !== undefined) {
-            if (this.pager === undefined) {
-                this.pager = {};
+    computed:{
+        total:function(){
+            let total = 0;
+            if (this.data !== undefined && this.data.count !== undefined) {
+                total = this.data.count;
             }
-            this.pager.total = this.data.total;
+            return total;
         }
     },
     methods: {
@@ -67,6 +66,9 @@ export default {
             //改变分页大小后，自动跳回第一页
             this.pageSize = pageSize;
             this.$emit("reload", 1, pageSize)
+        },
+        onSortChange(column, key, order) {
+            this.$emit("on-sort-change", column, key, order)
         }
     }
 }

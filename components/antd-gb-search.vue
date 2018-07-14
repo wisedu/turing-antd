@@ -5,8 +5,8 @@
             <slot :name="'search-' + model.name" :slot="model.name" v-for="model in fields"></slot>
             <div slot="after">
                 <FormItem>
-                    <Button @click="search" type="primary">查询</Button>
-                    <Button @click="clear" type="default">清空</Button>
+                    <Button @click="search" type="primary" shape="circle" icon="ios-search">查询</Button>
+                    <Button @click="clear" type="default" shape="circle">清空</Button>
                 </FormItem>
             </div>
         </antd-fc-form>
