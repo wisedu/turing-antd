@@ -67,8 +67,8 @@ export default {
             this.pageSize = pageSize;
             this.$emit("reload", 1, pageSize)
         },
-        onSortChange(column, key, order) {
-            this.$emit("on-sort-change", column, key, order)
+        onSortChange(params) {
+            this.$emit("on-sort-change", params.column, params.key, params.order)
         }
     }
 }
