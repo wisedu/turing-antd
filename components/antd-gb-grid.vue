@@ -1,9 +1,11 @@
-<template>
+<template >
     <div class="antd-gb-grid-wrap">
         <div class="tg-mb-16">
             <Table :columns="columns" :data="data.rows || data" border highlight-row :loading="loading"
                 @on-current-change="onHighlight" @on-select-all="onSelectAll" @on-selection-change="onSelectionChange" @on-sort-change="onSortChange">
-                <slot :name="model.name" :slot="model.name" v-for="model in columns" slot-scope="scope" ></slot>
+                <template :slot="model.key" slot-scope="scope" v-for="model in columns">
+                    <slot :name="model.key" :index="scope.index" :column="scope.column" :row="scope.row"></slot>
+                </template>
             </Table>
         </div>
         <div class="tg-clear-child">

@@ -1,33 +1,37 @@
 <template>
     <div>
-        <Table :columns="columns" :data="data.rows || data" border highlight-row>
+        <!-- <Table :columns="columns" :data="data.rows || data" border highlight-row>
             <div slot="XSBH" slot-scope="scope">
                 <span style="color:red">qiyu</span>
             </div>
-        </Table>
+        </Table> -->
 
         -------
         
         <tg-gridview :field-column="4" :fields="fields" :columns="columns" :data="data" @reload="reload">
-            <div slot="fields-XSBH">
+            <div slot="fields-XSBH" slot-scope="scope">
                 <span style="color:red">qiyu</span>
             </div>
         </tg-gridview>
 
         -------
         
-        <antd-gc-grid :columns="columns" :data="data" :pager="{size:20}" @reload="reload">
+        <antd-gb-grid :columns="columns" :data="data" :pager="{size:20}" @reload="reload">
             <div slot="XSBH" slot-scope="scope">
-                <span style="color:red">qiyu</span>
+                <span style="color:red">{{scope.index}}</span>
             </div>
-        </antd-gc-grid>
+        </antd-gb-grid>
     </div>
 </template>
 
 <script>
 import Student from "../models/Student";
+import AntdGbGrid from '../../components/antd-gb-grid';
 let inst = new Student();
 export default {
+    components:{
+        AntdGbGrid
+    },
     data() {
         return {
             fields: inst.view("search:form"),
