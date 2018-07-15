@@ -3,7 +3,7 @@
         <div class="tg-mb-16">
             <Table :columns="columns" :data="data.rows || data" border highlight-row :loading="loading"
                 @on-current-change="onHighlight" @on-select-all="onSelectAll" @on-selection-change="onSelectionChange" @on-sort-change="onSortChange">
-                <template :slot="model.key" slot-scope="scope" v-for="model in columns">
+                <template :slot="model.key" slot-scope="scope" v-for="model in columns.filter(item => {return $scopedSlots[item.key] !== undefined})">
                     <slot :name="model.key" :index="scope.index" :column="scope.column" :row="scope.row"></slot>
                 </template>
             </Table>
