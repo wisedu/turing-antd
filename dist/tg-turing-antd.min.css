@@ -1,23 +1,13 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.antd-fc-group-title {
+    font-size: 16px;
+    font-weight: 700;
+    border-left: 4px solid #3E50B4;
+    padding-left: 8px;
+    line-height: 16px;
+    min-height: 0;
+    margin-bottom: 16px
+}
 
 
 .antd-fc-static-readonly{
