@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="tg-mb-24">
         <h4 class="antd-fc-group-title">{{name}}</h4>
         <label>{{desc}}</label>
         <slot></slot>
