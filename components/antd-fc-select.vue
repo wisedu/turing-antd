@@ -2,13 +2,13 @@
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
         <template v-if="!params.tooltip === true">
             <!--DatePicker这段是一样的-->
-            <Select ref="ctl" :value="value" :placeholder="placeholder" dis-filterable clearable @on-open-change.once="loadData('')" @on-change="onChange" label-in-value transfer>
+            <Select ref="ctl" :value="value" :placeholder="placeholder" dis-filterable clearable @on-open-change.once="loadData('')" @on-change="onChange" label-in-value transfer :multiple="isMultiple">
                 <Option v-for="item in fullOptions" :value="item.value" :key="item.value">{{ item.label }}</Option>
             </Select>
         </template>
         <Tooltip v-else :content="params.tooltip" class="input-hasTip">
             <!--DatePicker这段是一样的-->
-            <Select ref="ctl" :value="value" :placeholder="placeholder" dis-filterable clearable @on-open-change.once="loadData('')" @on-change="onChange" label-in-value transfer>
+            <Select ref="ctl" :value="value" :placeholder="placeholder" dis-filterable clearable @on-open-change.once="loadData('')" @on-change="onChange" label-in-value transfer :multiple="isMultiple">
                 <Option v-for="item in fullOptions" :value="item.value" :key="item.value">{{ item.label }}</Option>
             </Select>
         </Tooltip>
@@ -17,21 +17,25 @@
 </template>
 
 <script>
-import {ConnectItem, defaults} from 'tg-turing'
+import {ConnectItem,defaults} from 'tg-turing'
 export default {
     name:"antd-fc-select",
     extends: ConnectItem,
+    props:["multiple"],
     data(){
         return {
             localOptions:[],
-            localSelectedItem:{
-                label:"",
-                value:"",
-                lastQuery:"",
-            },
+            // localSelectedItem:{
+            //     label:"",
+            //     value:"",
+            //     lastQuery:"",
+            // },
         }
     },
     computed:{
+        isMultiple(){
+            return this.multiple === true ? true : false;
+        },
         fullOptions(){
             let selected_opt = {label: this.display, value: this.value};
             let opts = [];
@@ -51,12 +55,6 @@ export default {
             return opts;
         }
     },
-    created(){
-        // const def_async = defaults.antd.form["select"].async;
-        // if (this.model.async === undefined && def_async === false || this.model.async === false) {
-        //     this.loadData('');
-        // }
-    },
     methods:{
         loadData(key){
             if (this.model.dict !== undefined) {
@@ -66,27 +64,41 @@ export default {
             }
         },
         onChange(item){
-            let selected = item;
-            if (selected === undefined) {
-                this.$refs.ctl.clearSingleSelect();
-                selected = {
-                    label:undefined,
-                    value:undefined
+            if (this.multiple === true) {
+                let values = [], labels = [];
+                item.map(i => {
+                    values.push(i.value);
+                    labels.push(i.label);
+                });
+                if (item.length === 0) {
+                    values = undefined;
+                    labels = undefined;
                 }
+                this.$emit("on-item-change", this.name, values, labels, this.model)
+                this.$emit("input", values)
+            } else {
+                let selected = item;
+                if (selected === undefined) {
+                    this.$refs.ctl.clearSingleSelect();
+                    selected = {
+                        label:undefined,
+                        value:undefined
+                    }
+                }
+                // this.localSelectedItem["label"] = selected.label;
+                // this.localSelectedItem["value"] = selected.value;
+                this.$emit("on-item-change", this.name, selected.value, selected.label, this.model)
+                this.$emit("input", selected.value)
             }
-            this.localSelectedItem["label"] = selected.label;
-            this.localSelectedItem["value"] = selected.value;
-            this.$emit("on-item-change", this.name, selected.value, selected.label, this.model)
-            this.$emit("input", selected.value)
         },
-        search(key){
-            if (key !== this.localSelectedItem.value){
-                this.loadData(key)
-            } else if (key === this.localSelectedItem.value && this.localSelectedItem.lastQuery !== key) {
-                this.loadData('')
-            }
-            this.localSelectedItem.lastQuery = key;
-        }
+        // search(key){
+        //     if (key !== this.localSelectedItem.value){
+        //         this.loadData(key)
+        //     } else if (key === this.localSelectedItem.value && this.localSelectedItem.lastQuery !== key) {
+        //         this.loadData('')
+        //     }
+        //     this.localSelectedItem.lastQuery = key;
+        // }
     }
 }
 </script>
