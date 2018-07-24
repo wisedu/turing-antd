@@ -130,6 +130,7 @@ export default {
 }
 .layout-footer-center{
     text-align: center;
+    font-size: 12px;
 }
 .user-dropdown-menu-con{
     width: 180px;
