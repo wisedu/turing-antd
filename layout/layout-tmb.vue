@@ -1,7 +1,7 @@
 <template>
     <Layout>
         <Header>
-            <slot name="menu">
+            <slot name="header">
                 <Menu mode="horizontal" theme="dark" :active-name="activeName" @on-select="menuSelect">
                     <div class="layout-logo">
                         <slot name="logo">
@@ -21,22 +21,24 @@
                         <img :src="userImage" class="avatar">
                     </div>
                     <div class="layout-nav">
-                        <template v-for="item in menu">
-                            <menuItem :name="item.name" v-if="item.items === undefined" :key="item.name">
-                                <Icon :type="item.icon" v-if="item.icon !== undefined"></Icon>
-                                {{item.name}}
-                            </menuItem>
-                            <Submenu name="3" v-if="item.items !== undefined" :key="item.name">
-                                <template slot="title">
+                        <slot name="menu">
+                            <template v-for="item in menu">
+                                <menuItem :name="item.name" v-if="item.items === undefined" :key="item.name">
                                     <Icon :type="item.icon" v-if="item.icon !== undefined"></Icon>
                                     {{item.name}}
-                                </template>
-                                <MenuItem :name="subitem.name" v-for="subitem in item.items" :key="subitem.name">
-                                    <Icon :type="subitem.icon" v-if="subitem.icon !== undefined"></Icon>
-                                    {{subitem.name}}
-                                </MenuItem>
-                            </Submenu>
-                        </template>
+                                </menuItem>
+                                <Submenu name="3" v-if="item.items !== undefined" :key="item.name">
+                                    <template slot="title">
+                                        <Icon :type="item.icon" v-if="item.icon !== undefined"></Icon>
+                                        {{item.name}}
+                                    </template>
+                                    <MenuItem :name="subitem.name" v-for="subitem in item.items" :key="subitem.name">
+                                        <Icon :type="subitem.icon" v-if="subitem.icon !== undefined"></Icon>
+                                        {{subitem.name}}
+                                    </MenuItem>
+                                </Submenu>
+                            </template>
+                        </slot>
                     </div>
                 </Menu>
             </slot>
@@ -44,9 +46,10 @@
         <Content :style="{padding: '0 50px'}">
             <slot name="nav">
                 <Breadcrumb :style="{margin: '20px 0'}">
-                    <Breadcrumb-item>Home</Breadcrumb-item>
-                    <Breadcrumb-item>Components</Breadcrumb-item>
-                    <Breadcrumb-item>Layout</Breadcrumb-item>
+                    <Breadcrumb-item v-for="item in navPath" :key="item.name" :to="item.url">
+                        <Icon :type="item.icon" v-if="item.icon !== undefined"></Icon>
+                        {{item.name}}
+                    </Breadcrumb-item>
                 </Breadcrumb>
             </slot>
             <Card>
@@ -69,7 +72,7 @@ export default {
                 return [];
             }
         },
-        navPath: Object,
+        navPath: Array,
         dropMenu: Array,
         logo: String,
         userImage: String,
