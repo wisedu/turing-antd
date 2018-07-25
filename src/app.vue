@@ -3,9 +3,6 @@
         <div slot="content">
             <router-view></router-view>
         </div>
-        <div slot="footer">
-            金智教育
-        </div>
     </layout-tmb>
 </template>
 <script>
@@ -14,6 +11,7 @@ export default {
     data(){
         return {
             header:{
+                appName: "测试的应用",
                 activeName:"B",
                 logo:"http://my.wisedu.com/new/portal/custom/img/logo/logo-mini.png",
                 userImage:"http://my.wisedu.com/portal/img/icon/user-role-teacher.png",
@@ -49,7 +47,11 @@ export default {
                     callback: function() {
                         alert("退出");
                     }
-                }]
+                }],
+                footer:{
+                    type:"text",
+                    data:"金智教育1"
+                }
             }
         };
     },

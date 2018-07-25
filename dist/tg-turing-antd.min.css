@@ -688,34 +688,40 @@
 
 
 
-.layout[data-v-6837da66]{
+.layout{
     border: 1px solid #d7dde4;
     background: #f5f7f9;
     position: relative;
     border-radius: 4px;
     overflow: hidden;
 }
-.layout-logo[data-v-6837da66]{
+.layout-logo{
     float: left;
 }
-.layout-logo img.logo[data-v-6837da66]{
+.layout-logo img.logo{
     height: 48px;
 }
-.layout-nav[data-v-6837da66]{
+.layout-logo .appName {
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 44px;
+}
+.layout-nav{
     float: right;
     margin: 0 auto;
     margin-right: 20px;
 }
-.layout-footer-center[data-v-6837da66]{
+.layout-footer-center{
     text-align: center;
     font-size: 12px;
 }
-.user-dropdown-menu-con[data-v-6837da66]{
+.user-dropdown-menu-con{
     width: 180px;
     float: right;
     text-align: right;
 }
-.user-dropdown-menu-con .main-user-name[data-v-6837da66]{
+.user-dropdown-menu-con .main-user-name{
     display: inline-block;
     width: 80px;
     font-size: 14px;
@@ -726,7 +732,7 @@
     text-overflow: ellipsis;
     text-align: right;
 }
-.user-dropdown-menu-con .avatar[data-v-6837da66]{
+.user-dropdown-menu-con .avatar{
     margin-left: 10px;
     text-align: right;
 }

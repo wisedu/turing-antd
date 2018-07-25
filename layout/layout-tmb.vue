@@ -7,6 +7,7 @@
                         <slot name="logo">
                             <img class="logo" :src="logo">
                         </slot>
+                        <label v-text="appName" class="appName"></label>
                     </div>
                     <div class="user-dropdown-menu-con">
                         <Dropdown transfer trigger="click" @on-click="handleClickUserDropdown">
@@ -15,7 +16,7 @@
                                 <Icon type="arrow-down-b"></Icon>
                             </a>
                             <DropdownMenu slot="list">
-                                <DropdownItem :name="item.name" v-for="item in dropMenu" :key="item.name" >{{item.name}}</DropdownItem>
+                                <DropdownItem :name="item.text" v-for="item in dropMenu" :key="item.id" >{{item.text}}</DropdownItem>
                             </DropdownMenu>
                         </Dropdown>
                         <img :src="userImage" class="avatar">
@@ -57,7 +58,10 @@
             </Card>
         </Content>
         <Footer class="layout-footer-center">
-            <slot name="footer"></slot>
+            <slot name="footer">
+                <span v-if="footer.type === 'text'" v-text="footer.data"></span>
+                <div v-if="footer.type === 'html'" v-html="footer.data"></div>
+            </slot>
         </Footer>
     </Layout>
 </template>
@@ -66,10 +70,17 @@
 export default {
     name: "layout-tmb",
     props: {
+        appName: String,
         menu: {
             type: Array,
             default: function() {
                 return [];
+            }
+        },
+        footer: {
+            type:Object,
+            default: function() {
+                return {}
             }
         },
         navPath: Array,
@@ -109,7 +120,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .layout{
     border: 1px solid #d7dde4;
     background: #f5f7f9;
@@ -122,6 +133,12 @@ export default {
 }
 .layout-logo img.logo{
     height: 48px;
+}
+.layout-logo .appName {
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 44px;
 }
 .layout-nav{
     float: right;

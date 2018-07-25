@@ -21,7 +21,7 @@ import {ConnectItem,defaults} from 'tg-turing'
 export default {
     name:"antd-fc-select",
     extends: ConnectItem,
-    props:["multiple"],
+    props:["multiple","async"],
     data(){
         return {
             localOptions:[],
@@ -53,6 +53,11 @@ export default {
                 }
             })
             return opts;
+        }
+    },
+    created() {
+        if (this.async === false) {
+            this.loadData('');
         }
     },
     methods:{
