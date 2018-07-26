@@ -17,7 +17,7 @@
                             </a>
                             <DropdownMenu slot="list">
                                 <span class="dropdown-title">选择角色</span>
-                                <DropdownItem :name="item.text" v-for="item in dropMenu" :key="item.id" >{{item.text}}</DropdownItem>
+                                <DropdownItem :name="item.id" v-for="item in dropMenu" :key="item.id" >{{item.text}}</DropdownItem>
                             </DropdownMenu>
                         </Dropdown>
                         <Dropdown transfer trigger="click" @on-click="userDropdown">
@@ -116,7 +116,7 @@ export default {
     },
     methods:{
         roleDropdown(name) {
-            this.$emti("roleChange", name);
+            this.$emit("roleChange", name);
         },
         userDropdown (name) {
             let clickitem = this.dropMenu.find(item => item.name === name);
@@ -210,6 +210,7 @@ export default {
 .dropdown-title {
     padding: 8px;
     line-height: 32px;
+    font-size: 12px;
     color: #666;
 }
 </style>
