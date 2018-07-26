@@ -25,7 +25,7 @@
                             <div slot="list" class="userDropdown-userInfo">
                                 <div v-text="userName" class="username"></div>
                                 <div class="delimiter" v-if="logoutUrl"></div>
-                                <Button type="error" long @click="logOut" v-if="logoutUrl">退出</Button>
+                                <Button type="error" long @click="logOut" v-if="logoutUrl" size="small">退出</Button>
                             </div>
                         </Dropdown>
                     </div>
