@@ -116,7 +116,7 @@ export default {
     },
     methods:{
         roleDropdown(name) {
-            this.$emit("roleChange", name);
+            this.$emit("role-change", name);
         },
         userDropdown (name) {
             let clickitem = this.dropMenu.find(item => item.name === name);
