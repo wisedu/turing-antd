@@ -735,6 +735,24 @@
 .user-dropdown-menu-con .avatar{
     margin-left: 10px;
     text-align: right;
+    max-width: 40px;
+    max-height: 40px;
+    border-radius: 4px;
+}
+.userDropdown-userInfo{
+    width: 200px;
+    padding: 8px;
+}
+.userDropdown-userInfo .username {
+}
+.delimiter{
+    border-bottom: 1px solid #ddd;
+    margin: 8px 0;
+}
+.dropdown-title {
+    padding: 8px;
+    line-height: 32px;
+    color: #666;
 }
 
 

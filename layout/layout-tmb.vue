@@ -10,16 +10,24 @@
                         <label v-text="appName" class="appName"></label>
                     </div>
                     <div class="user-dropdown-menu-con">
-                        <Dropdown transfer trigger="click" @on-click="handleClickUserDropdown">
+                        <Dropdown transfer trigger="click" @on-click="roleDropdown">
                             <a href="javascript:void(0)">
-                                <span class="main-user-name"> {{userName}} </span>
+                                <span class="main-user-name"> {{currentRole.text}} </span>
                                 <Icon type="arrow-down-b"></Icon>
                             </a>
                             <DropdownMenu slot="list">
+                                <span class="dropdown-title">选择角色</span>
                                 <DropdownItem :name="item.text" v-for="item in dropMenu" :key="item.id" >{{item.text}}</DropdownItem>
                             </DropdownMenu>
                         </Dropdown>
-                        <img :src="userImage" class="avatar">
+                        <Dropdown transfer trigger="click" @on-click="userDropdown">
+                            <img :src="userImage" class="avatar">
+                            <div slot="list" class="userDropdown-userInfo">
+                                <div v-text="userName" class="username"></div>
+                                <div class="delimiter" v-if="logoutUrl"></div>
+                                <Button type="error" long @click="logOut" v-if="logoutUrl">退出</Button>
+                            </div>
+                        </Dropdown>
                     </div>
                     <div class="layout-nav">
                         <slot name="menu">
@@ -86,6 +94,7 @@ export default {
         navPath: Array,
         dropMenu: Array,
         logo: String,
+        logoutUrl: String,
         userImage: String,
         userName: String,
         userInfo: {
@@ -96,8 +105,20 @@ export default {
         },
         activeName:String
     },
+    computed: {
+        currentRole(){
+            let role = this.dropMenu.find(item => item.active === "true");
+            if (role === undefined) {
+                role = {text: ""}
+            }
+            return role;
+        }
+    },
     methods:{
-        handleClickUserDropdown (name) {
+        roleDropdown(name) {
+            this.$emti("roleChange", name);
+        },
+        userDropdown (name) {
             let clickitem = this.dropMenu.find(item => item.name === name);
             if (clickitem !== undefined){ 
                 if (clickitem.url !== undefined) {
@@ -115,6 +136,9 @@ export default {
                     window.location.href = clickitem.url;
                 }
             }
+        },
+        logOut(){
+            window.location.href = this.logoutUrl;
         }
     }
 };
@@ -168,5 +192,24 @@ export default {
 .user-dropdown-menu-con .avatar{
     margin-left: 10px;
     text-align: right;
+    max-width: 40px;
+    max-height: 40px;
+    border-radius: 4px;
+}
+
+.userDropdown-userInfo{
+    width: 200px;
+    padding: 8px;
+}
+.userDropdown-userInfo .username {
+}
+.delimiter{
+    border-bottom: 1px solid #ddd;
+    margin: 8px 0;
+}
+.dropdown-title {
+    padding: 8px;
+    line-height: 32px;
+    color: #666;
 }
 </style>

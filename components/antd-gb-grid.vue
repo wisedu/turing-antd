@@ -10,7 +10,7 @@
                 </template>
             </Table>
         </div>
-        <div class="tg-clear-child">
+        <div class="tg-clear-child" v-if="total > 0">
             <Page v-if="!!pager" class="tg-right" :total="total" :page-size="pageSize" show-total show-elevator show-sizer
                 @on-change="onChangePage" @on-page-size-change="onChangePageSize" :page-size-opts="options">
                 <slot name="pagerTotal"></slot>
