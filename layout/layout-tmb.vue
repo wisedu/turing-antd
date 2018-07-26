@@ -10,7 +10,7 @@
                         <label v-text="appName" class="appName"></label>
                     </div>
                     <div class="user-dropdown-menu-con">
-                        <Dropdown transfer trigger="click" @on-click="roleDropdown">
+                        <Dropdown v-if="dropMenu !== undefined && dropMenu.length > 0" transfer trigger="click" @on-click="roleDropdown">
                             <a href="javascript:void(0)">
                                 <span class="main-user-name"> {{currentRole.text}} </span>
                                 <Icon type="arrow-down-b"></Icon>
@@ -162,7 +162,7 @@ export default {
     color: white;
     font-size: 24px;
     font-weight: 700;
-    line-height: 44px;
+    line-height: 60px;
 }
 .layout-nav{
     float: right;
