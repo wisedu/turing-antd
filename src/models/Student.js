@@ -231,8 +231,8 @@ export default class extends DataAdapter{
                 "group:[个人基本信息]":{
                     desc:"~个人基本信息~",
                     items:{
-                        "XSBH": {"xtype": "text","dataSize": 40,},
-                        "XH": {"xtype": "text","dataSize": 20},
+                        "XSBH": {"xtype": "text","dataSize": 40,required: true},
+                        "XH": {"xtype": "text","dataSize": 20,required: true},
                         "XM": {"xtype": "text","dataSize": 90},
                         "XMPY": {"dataSize": 120},
                         "CYM": {"dataSize": 120},
@@ -357,8 +357,8 @@ export default class extends DataAdapter{
                 },
             },
             "平铺表单:form": {
-                "WID": {},
-                "XSBH": {},
+                "WID": {required: true},
+                "XSBH": {required: true},
                 "XH": {},
                 "XM": {},
                 "XMPY": {},

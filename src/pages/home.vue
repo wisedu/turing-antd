@@ -2,7 +2,7 @@
     <div>
         <Button @click="handler">Halo</Button>
         <Card>
-            <tg-form ref="form" :fields="fields" type="antd" :column=4 :value="data" displayFieldFormat="_DISPLAY">
+            <tg-form ref="form" :fields="fields" :column=4 :value="data" displayFieldFormat="_DISPLAY">
                 <div slot="XSBH">
                     123
                 </div>
@@ -10,9 +10,9 @@
         </Card>
         <br>
         <Card>
-            <antd-fc-form ref="form" :fields="fields_scd" type="antd" :column=4 :value="data" :readonly="true" displayFieldFormat="_DISPLAY">
+            <tg-form ref="form" :fields="fields_scd" :column=4 :value="data" displayFieldFormat="_DISPLAY">
                 
-            </antd-fc-form>
+            </tg-form>
         </Card>
     </div>
 </template>
@@ -40,24 +40,24 @@ export default {
         }
     },
     created(){
-        this.$nextTick(()=>{
-            this.fields = [{
-            "name": "group:[正文控件]",
-            "title":"正文控件",
-            "items": [{
-              "name":"nodeInfo_正文控件",
-              "xtype":"checkboxlist",
-              "caption":"",
-              "options": [{
-                id: "canTaohong",
-                label: "套红"
-              },{
-                id: "canEditWord",
-                label: "无痕迹修改"
-              }]
-            }]
-          }];
-        })
+        // this.$nextTick(()=>{
+        //     this.fields = [{
+        //     "name": "group:[正文控件]",
+        //     "title":"正文控件",
+        //     "items": [{
+        //       "name":"nodeInfo_正文控件",
+        //       "xtype":"checkboxlist",
+        //       "caption":"",
+        //       "options": [{
+        //         id: "canTaohong",
+        //         label: "套红"
+        //       },{
+        //         id: "canEditWord",
+        //         label: "无痕迹修改"
+        //       }]
+        //     }]
+        //   }];
+        // })
     }
 }
 </script>

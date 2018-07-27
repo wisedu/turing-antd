@@ -1,7 +1,7 @@
 <template>
     <div :class={readonly:readonly}>
-        <Form :model="formValue" ref="form" :label-width="labelWidth" :rules="ruleValidate">
-            <tg-listview :datas="tglistFields" :grid="{gutter:0, column:column}">
+        <Form :model="formValue" ref="form" :label-width="labelWidth" :rules="validateRules">
+            <tg-listview :datas="fields" :grid="{gutter:0, column:column}">
                 <template slot="beforeTemplate">
                     <slot name="before"></slot>
                 </template>
@@ -34,49 +34,28 @@ export default {
         return {
             //当前字段隐藏时，让listview组件所占位的格子也隐藏
             antdForm: antdForm,
-            ruleValidate: {}
-        }
-    },
-    computed:{
-        tglistFields: function(){
-            let rules = {};
-            let _newFields = this.fields.map(item => {
-                if (item.hidden === true) {
-                    item._lv_hidden = true;
-                } else {
-                    rules[item.name] = []
-                    if (item.required === true) {
-                        rules[item.name].push({
-                            required: true, trigger: 'blur', message: `不能为空`
-                        });
-                    }
-                }
-                return item;
-            })
-
-            for(let key in rules) {
-                if (rules[key].length === 0){
-                    delete rules[key];
-                }
-            }
-            this.ruleValidate = rules;
-            return _newFields;
         }
     },
     methods: {
-        validate(callback){
+        validate(callback) {
             this.$refs.form.validate(callback)
         },
-        validateField(){
+        validateField() {
             this.$refs.form.validateField(prop, callback)
         },
-        resetFields(){
+        resetFields() {
             this.$refs.form.resetFields();
         },
-        mergeDefaultParams(model){
-            let defaultParams = JSON.parse(JSON.stringify(antdForm[model.xtype]));
-            delete defaultParams.name;
-            return Object.assign({}, defaultParams, model);
+        mergeDefaultParams(model) {
+            let defineType = antdForm[model.xtype];
+            if (defineType !== undefined) {
+                let defaultParams = JSON.parse(JSON.stringify(antdForm[model.xtype]));
+                delete defaultParams.name;
+                return Object.assign({}, defaultParams, model);
+            } else {
+                return model;
+            }
+            
         }
     }
 }
