@@ -1,7 +1,7 @@
 <template >
     <div class="antd-gb-grid-wrap">
         <div class="tg-mb-16">
-            <Table :columns="columns" :data="data.rows || data" border highlight-row :loading="loading"
+            <Table :columns="columns" :data="data.rows || data" border highlight-row :loading="loading" :row-class-name="rowRending"
                 @on-current-change="onHighlight" @on-select-all="onSelectAll" @on-selection-change="onSelectionChange" @on-sort-change="onSortChange">
                 <template :slot="model.key" slot-scope="scope" v-for="model in columns">
                     <slot :name="model.key" :index="scope.index" :column="scope.column" :row="scope.row">
@@ -38,7 +38,8 @@ export default {
         displayFieldFormat: {
             type:String,
             default:""
-        }
+        },
+        rowRending: Function
     },
     data() {
         return {
@@ -77,7 +78,7 @@ export default {
         },
         onSortChange(params) {
             this.$emit("on-sort-change", params.column, params.key, params.order)
-        }
+        },
     }
 }
 </script>
