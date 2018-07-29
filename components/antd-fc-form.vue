@@ -47,11 +47,9 @@ export default {
             this.$refs.form.resetFields();
         },
         mergeDefaultParams(model) {
-            let defineType = antdForm[model.xtype];
-            if (defineType !== undefined) {
-                let defaultParams = JSON.parse(JSON.stringify(antdForm[model.xtype]));
-                delete defaultParams.name;
-                return Object.assign({}, defaultParams, model);
+            let defaultParams = antdForm[model.xtype].default;
+            if (defaultParams !== undefined) {
+                return Object.assign({}, JSON.parse(JSON.stringify(defaultParams)), model);
             } else {
                 return model;
             }
