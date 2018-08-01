@@ -22,7 +22,7 @@
 
 <script>
 import antdForm from "./form";
-import AntdFcStatic from "./antd-fc-static";
+import AntdFcStatic from "./antd-fc-static.vue";
 import {FormConnector} from "tg-turing";
 export default {
     name:"antd-fc-form",

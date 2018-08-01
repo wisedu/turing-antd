@@ -1,6 +1,6 @@
 <template>
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
-        <template v-if="!params.tooltip === true">
+        <template v-if="params.tooltip !== 0 && !params.tooltip === true">
             <!--DatePicker这段是一样的-->
             <DatePicker :value="value" type="date" :placeholder="placeholder" style="width:100%" @on-change="onChange" transfer></DatePicker>
         </template>

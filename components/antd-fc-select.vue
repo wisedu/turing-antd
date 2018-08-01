@@ -1,6 +1,6 @@
 <template>
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
-        <template v-if="!params.tooltip === true">
+        <template v-if="params.tooltip !== 0 && !params.tooltip === true">
             <!--DatePicker这段是一样的-->
             <Select ref="ctl" :value="value" :placeholder="placeholder" dis-filterable clearable @on-open-change.once="loadData('')" @on-change="onChange" label-in-value transfer :multiple="isMultiple">
                 <Option v-for="item in fullOptions" :value="item.value" :key="item.value">{{ item.label }}</Option>

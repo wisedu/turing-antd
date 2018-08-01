@@ -1,6 +1,6 @@
 <template>
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
-        <template v-if="!params.tooltip === true">
+        <template v-if="params.tooltip !== 0 && !params.tooltip === true">
             <!--input这段是一样的-->
             <Input ref="input_com" :value="value" :placeholder="placeholder" :readonly="readonly" number :icon="params.icon" :clearable="params.clearable" :maxlength="params.maxlength" @input="onChange" :disabled="disabled">
                 <span slot="prepend" v-if="params.prepend">{{params.prepend}}</span>
