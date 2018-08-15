@@ -1,12 +1,12 @@
 {
   "name": "tg-turing-antd",
-  "version": "1.12.11",
+  "version": "1.12.12",
   "main": "dist/tg-turing-antd.min.js",
   "packageName": "tg-turing-antd",
   "license": "MIT",
   "dependencies": {
     "bh-iview": "^1.3.1",
-    "tg-turing": "^1.16.2",
+    "tg-turing": "^1.16.3",
     "vue": "^2.5.16"
   },
   "peerDependencies": {
