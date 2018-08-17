@@ -7,7 +7,7 @@
                 </template>
                 <template slot="itemTemplate" slot-scope="props" v-if="props.data.hidden !== true">
                     <slot :name="props.data.name" :model="props.data" :value="formValue[props.data.name]" :display="formValue[props.data.name + displayFieldFormat]" :ref="'field_' + props.data.name" :formReadonly="readonly">
-                        <component :ref="'field_' + props.data.name" :model="props.data" :is="registedComponentList(props.data, antdForm, 'antd-fc-static', props.index)" 
+                        <component :ref="'field_' + props.data.name" :model="props.data" :is="registedComponentList(props.data, antdForm, 'static', props.index)" 
                         v-model="formValue[props.data.name]" :display="formValue[props.data.name + displayFieldFormat]" :formReadonly="readonly"
                         @on-item-change="updateValue" v-bind="mergeDefaultParams(props.data)"></component>
                     </slot>
