@@ -3,7 +3,7 @@
         <Alert type="warning">可上传图片或压缩包</Alert>
         <Upload :action="saveFileUrl" :data="this.params" :default-file-list="files" multiple
         :on-success="uploaded" :on-preview="preview" :on-remove="remove">
-            <Button type="ghost" icon="ios-cloud-upload-outline">上传附件</Button>
+            <Button icon="ios-cloud-upload-outline">上传附件</Button>
         </Upload>
     </FormItem>
     <Upload v-else action :data="params" :default-file-list="files" :on-preview="preview"></Upload>
