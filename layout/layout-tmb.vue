@@ -132,8 +132,8 @@ export default {
         menuSelect(name) {
             let clickitem = this.menu.find(item => item.name === name);
             if (clickitem !== undefined){ 
-                if (clickitem.url !== undefined && clickitem.url !== "") {
-                    window.location.href = clickitem.url;
+                if (clickitem.uri !== undefined && clickitem.uri !== "") {
+                    window.location.href = clickitem.uri;
                 }
             }
         },
