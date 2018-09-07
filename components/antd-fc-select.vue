@@ -37,10 +37,14 @@ export default {
             return this.multiple === true ? true : false;
         },
         fullOptions(){
-            let selected_opt = {label: this.display, value: this.value};
             let opts = [];
-            if (this.localOptions.length === 0 && this.value !== undefined) {
-                opts.push(selected_opt);
+            if (this.async === false) {
+
+            }else{
+                let selected_opt = {label: this.display, value: this.value};
+                if (this.localOptions.length === 0 && this.value !== undefined) {
+                    opts.push(selected_opt);
+                }
             }
             this.options.map(item => {
                 if (opts.filter(opt => opt.value === item.value).length === 0) {
