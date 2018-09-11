@@ -18,6 +18,11 @@ import {FormConnector} from "tg-turing";
 export default {
     name: "antd-gb-search",
     extends: FormConnector,
+    props:{
+        column:{
+            default:3
+        }
+    },
     computed: {
         shownFields() {
             return this.fields.filter(item => item.hidden !== true);
