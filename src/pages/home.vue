@@ -9,11 +9,11 @@
             </tg-form>
         </Card>
         <br>
-        <Card>
+        <!-- <Card>
             <tg-form ref="form" :fields="fields_scd" :column=4 :value="data" displayFieldFormat="_DISPLAY" :validateRules.sync="tiledRules">
                 
             </tg-form>
-        </Card>
+        </Card> -->
     </div>
 </template>
 

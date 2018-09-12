@@ -7,7 +7,7 @@ export default class extends DataAdapter{
         let views = {
             "default": {
                 "WID": {"caption": "WID","hidden": true},
-                "XSBH": {"caption": "登录名"},
+                "XSBH": {"caption": "登录名","xtype":"autocomplete"},
                 "XH": {"caption": "学号",},
                 "XM": {"caption": "姓名",},
                 "XMPY": {"caption": "姓名拼音",},
@@ -231,7 +231,7 @@ export default class extends DataAdapter{
                 "group:[个人基本信息]":{
                     desc:"~个人基本信息~",
                     items:{
-                        "XSBH": {"xtype": "text","dataSize": 40,required: true},
+                        "XSBH": {"xtype": "autocomplete","dict":dict("GJDQDM->国家地区"),"dataSize": 40,required: true},
                         "XH": {"xtype": "text","dataSize": 20,required: true},
                         "XM": {"xtype": "text","dataSize": 90},
                         "XMPY": {"dataSize": 120},
@@ -255,7 +255,7 @@ export default class extends DataAdapter{
                         "KHM": {"dataSize": 300},
                         "KKYH": {"dataSize": 20},
                         "YHZH": {"xtype": "text","dataSize": 40,"xtype":"uploadfile"},
-                        "CCQJ": {"xtype": "selecttable","url": "/axsfw/sys/swpubapp/*default/ggmk/hczzdmhss.do","dataSize": 300},
+                        "CCQJ": {"xtype": "selecttable","dict":dict("GJDQDM->国家地区"),"dataSize": 300},
                         "JKZKDM": {"url": "/axsfw/code/70302a56-36d1-4f5f-b61f-c2e149d27413.do","xtype": "select","dataSize": 2},
                         "XXDM": {"url": "/axsfw/code/bed9e2f1-18fc-47d1-bdd9-0ea71214b7fb.do","xtype": "select","dataSize": 1},
                         "TZ": {"xtype": "text","dataSize": [5,2]},
