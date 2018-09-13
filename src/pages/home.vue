@@ -1,19 +1,13 @@
 <template>
     <div>
         <Button @click="handler">Halo</Button>
-        <Card>
-            <tg-form ref="form" :fields="fields" :column=4 :value="data" displayFieldFormat="_DISPLAY" :validateRules.sync="groupedRules">
-                <!-- <div slot="XSBH">
-                    123
-                </div> -->
-            </tg-form>
-        </Card>
-        <br>
         <!-- <Card>
-            <tg-form ref="form" :fields="fields_scd" :column=4 :value="data" displayFieldFormat="_DISPLAY" :validateRules.sync="tiledRules">
-                
-            </tg-form>
+            <tg-form ref="form" :fields="fields" :column=4 :value="data" displayFieldFormat="_DISPLAY" :validateRules.sync="groupedRules"></tg-form>
         </Card> -->
+        <br>
+        <Card>
+            <tg-form ref="form" :fields="fields_scd" :column=4 :value="data" displayFieldFormat="_DISPLAY" :validateRules.sync="tiledRules"></tg-form>
+        </Card>
     </div>
 </template>
 
@@ -39,10 +33,11 @@ export default {
             let values = this.$refs.form.getValue();
             let displays = this.$refs.form.getDisplay();
             debugger
+            this.$refs.form.submit("http://localhost:2500/sys/eetablemanage/modules/dsManager/cxggsjy.do");
             this.tiledRules["XM"] = [{}];
         }
     },
-    created(){
+    mounted(){
         // this.$nextTick(()=>{
         //     this.fields = [{
         //     "name": "group:[正文控件]",

@@ -84,6 +84,9 @@ export default {
     "uploadfile": {
         name: "antd-fc-uploadfile"
     },
+    "uploadfile-sync": {
+        name: "antd-fc-uploadfile-sync"
+    },
     "tree": {
         name: "antd-fc-tree",
         required: {

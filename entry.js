@@ -12,6 +12,7 @@ import AntdFcNumber from './components/antd-fc-number.vue';
 import AntdFcSelect from './components/antd-fc-select.vue';
 import AntdFcTree from './components/antd-fc-tree.vue';
 import AntdFcUploadfile from './components/antd-fc-uploadfile.vue';
+import AntdFcUploadfileSync from './components/antd-fc-uploadfile-sync.vue';
 import AntdFcAutocomplete from './components/antd-fc-autocomplete.vue';
 import AntdFcRadiolist from './components/antd-fc-radiolist.vue';
 import AntdFcCheckboxlist from './components/antd-fc-checkboxlist.vue';
@@ -23,7 +24,7 @@ import Form from './components/form.js';
 import { defaults } from "tg-turing";
 
 const components = {
-    AntdFcGroup,AntdFcForm,AntdFcStatic,AntdFcText,AntdFcTextArea,AntdFcDate,AntdFcDateRange,AntdFcButtonlist,AntdFcNumberRange,AntdFcNumber,AntdFcSelect,AntdFcUploadfile,AntdFcTree,AntdFcAutocomplete,AntdFcRadiolist,AntdFcSwitcher,AntdGbGrid,AntdGbSearch,AntdFcCheckboxlist,
+    AntdFcGroup,AntdFcForm,AntdFcStatic,AntdFcText,AntdFcTextArea,AntdFcDate,AntdFcDateRange,AntdFcButtonlist,AntdFcNumberRange,AntdFcNumber,AntdFcSelect,AntdFcUploadfile,AntdFcTree,AntdFcAutocomplete,AntdFcRadiolist,AntdFcSwitcher,AntdGbGrid,AntdGbSearch,AntdFcCheckboxlist,AntdFcUploadfileSync,
     LayoutTmb
 };
 const install = function (Vue, opts = {}) {

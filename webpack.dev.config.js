@@ -98,14 +98,8 @@ module.exports = {
         host: '127.0.0.1',
         port: 2500,
         historyApiFallback: true,
-        // proxy: {
-        //     "/axsfw/code": {
-        //         target: "http://127.0.0.1:2500",
-        //         pathRewrite: {"^/axsfw/code" : "/mock"},
-        //         // ignorePath: true,
-        //         changeOrigin: true,//必配
-        //         secure: false
-        //     }
-        // }
+        proxy: {
+            "/sys": "http://localhost:8080/emap"
+        }
     }
 }

@@ -12,6 +12,7 @@ window["tg-turing"] = tgTuring;
 
 import home from './pages/home.vue';
 import table from './pages/table.vue';
+import upload from './pages/upload.vue';
 
 import COMS from "../entry";
 Vue.use(COMS)
@@ -27,6 +28,7 @@ if(process.env.NODE_ENV === 'development'){
 const routes = [
     { path: '/', component: home, name:"首页" },
     { path: '/table', component: table, name:"table" },
+    { path: '/upload', component: upload, name:"upload" },
 ]
 const router = new VueRouter({
     routes,

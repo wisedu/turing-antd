@@ -1,5 +1,5 @@
 import {DataAdapter} from 'tg-turing'
-import {Adapter} from "../../components/Adapter";
+import {Adapter} from "../../components/adapter";
 import {dict} from "./dictionary";
 export default class extends DataAdapter{
     constructor() {
@@ -7,8 +7,8 @@ export default class extends DataAdapter{
         let views = {
             "default": {
                 "WID": {"caption": "WID","hidden": true},
-                "XSBH": {"caption": "登录名","xtype":"autocomplete"},
-                "XH": {"caption": "学号",},
+                "XSBH": {"caption": "登录名"},
+                "XH": {"caption": "学号"},
                 "XM": {"caption": "姓名",},
                 "XMPY": {"caption": "姓名拼音",},
                 "CYM": {"caption": "曾用名",},
@@ -232,7 +232,7 @@ export default class extends DataAdapter{
                     desc:"~个人基本信息~",
                     items:{
                         "XSBH": {"xtype": "autocomplete","dict":dict("GJDQDM->国家地区"),"dataSize": 40,required: true},
-                        "XH": {"xtype": "text","dataSize": 20,required: true},
+                        "XH": {"xtype":"uploadfile-sync","dataSize": 20,required: true},
                         "XM": {"xtype": "text","dataSize": 90},
                         "XMPY": {"dataSize": 120},
                         "CYM": {"dataSize": 120},
@@ -359,7 +359,7 @@ export default class extends DataAdapter{
             "平铺表单:form": {
                 "WID": {required: true},
                 "XSBH": {required: true},
-                "XH": {},
+                "XH": {"xtype":"uploadfile-sync"},
                 "XM": {},
                 "XMPY": {},
                 "CYM": {},
