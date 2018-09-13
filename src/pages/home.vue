@@ -33,7 +33,7 @@ export default {
             let values = this.$refs.form.getValue();
             let displays = this.$refs.form.getDisplay();
             debugger
-            this.$refs.form.submit("http://localhost:2500/sys/eetablemanage/modules/dsManager/cxggsjy.do");
+            this.$refs.form.submit("http://localhost:8080/emap/sys/eetablemanage/modules/dsManager.do");
             this.tiledRules["XM"] = [{}];
         }
     },
