@@ -14,6 +14,11 @@ export function dict(key){
             value:"id",
             label:"name",
             url: "/axsfw/code/e8bdc02d-2d5b-4367-b832-cd47e6ac42c1.do"
+        },
+        "学生编号":{
+            value:"id",
+            label:"name",
+            url: "/axsfw/code/e8bdc02d-2d5b-4367-b832-cd47e6ac42c1.do"
         }
     }
     return dictionary[key];

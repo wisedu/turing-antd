@@ -358,7 +358,7 @@ export default class extends DataAdapter{
             },
             "平铺表单:form": {
                 "WID": {required: true},
-                "XSBH": {required: true,"xtype": "autocomplete","dict":dict("")},
+                "XSBH": {required: true,"xtype": "autocomplete","dict":dict("学生编号")},
                 "XH": {"xtype":"uploadfile-sync"},
                 "XM": {},
                 "XMPY": {},

@@ -19,6 +19,7 @@ Vue.use(COMS)
 
 Vue.use(VueRouter)
 
+
 if(process.env.NODE_ENV === 'development'){
     window.apiPath = "http://amptest.wisedu.com";
 }else{

@@ -1,6 +1,6 @@
 <template>
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
-        <AutoComplete ref="input_com" :value="value" icon="ios-search" :data="fullOptions" :placeholder="placeholder" style="width:100%" @on-focus.once="loadData('')" @input="onChange"></AutoComplete>
+        <AutoComplete ref="input_com" :value="value" icon="ios-search" :data="fullOptions" :placeholder="placeholder" style="width:100%" @on-search="loadData" @on-focus.once="loadData('')" @input="onChange"></AutoComplete>
     </FormItem>
     <antd-fc-static v-else :caption="caption" :prop="name" :value="value" :display="display"></antd-fc-static>
 </template>
@@ -18,10 +18,9 @@ export default {
     methods: {
         loadData(key){
             if (this.model.dict !== undefined) {
-                defaults.getDictData[0](this.model.dict, {key}, datas => {
+                defaults.getDictData[0](this.model.dict, {key,pageSize:8}, datas => {
                     this.localOptions = datas;
                 });
-                // this.localOptions = ["中国","澳门","台湾","阿尔巴尼亚"];
             }
         },
         onChange(value){
@@ -38,12 +37,12 @@ export default {
 
             this.options.map(item => {
                 if (opts.filter(opt => opt === item).length === 0) {
-                    opts.push(item)
+                    opts.push(item.label)
                 }
             })
             this.localOptions.map(item => {
                 if (opts.filter(opt => opt === item).length === 0) {
-                    opts.push(item)
+                    opts.push(item.label)
                 }
             })
             return opts;
