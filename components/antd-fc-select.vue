@@ -66,10 +66,16 @@ export default {
     },
     methods:{
         loadData(key){
-            if (this.model.dict !== undefined) {
-                defaults.getDictData[0](this.model.dict, {key}, datas => {
-                    this.localOptions = datas;
+            if (this.loaddata !== undefined) {
+                this.loaddata(this.name, items => {
+                    this.localOptions = items;
                 });
+            } else {
+                if (this.model.dict !== undefined) {
+                    defaults.getDictData[0](this.model.dict, {key}, datas => {
+                        this.localOptions = datas;
+                    });
+                }
             }
         },
         onChange(item){

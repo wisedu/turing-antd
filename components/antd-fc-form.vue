@@ -9,7 +9,7 @@
                     <slot :name="props.data.name" :model="props.data" :value="formValue[props.data.name]" :display="formValue[props.data.name + displayFieldFormat]" :ref="'field_' + props.data.name" :formReadonly="readonly">
                         <component :ref="'field_' + props.data.name" :model="props.data" :is="registedComponentList(props.data, antdForm, 'static', props.index)" 
                         v-model="formValue[props.data.name]" :display="formValue[props.data.name + displayFieldFormat]" :formReadonly="readonly"
-                        @on-item-change="updateValue" v-bind="mergeDefaultParams(props.data)"></component>
+                        :loaddata="loaddata" @on-item-change="updateValue" v-bind="mergeDefaultParams(props.data)"></component>
                     </slot>
                 </template>
                 <template slot="afterTemplate">
