@@ -2,13 +2,13 @@
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
         <template v-if="params.tooltip !== 0 && !params.tooltip === true">
             <!--DatePicker这段是一样的-->
-            <Select ref="ctl" :value="value" :placeholder="placeholder" :disabled="readonly" dis-filterable :clearable="!readonly" @on-open-change.once="loadData('')" @on-change="onChange" label-in-value transfer :multiple="isMultiple">
+            <Select ref="ctl" :value="value" :placeholder="placeholder" :disabled="readonly" dis-filterable :clearable="!readonly" @on-open-change="loadData('')" @on-change="onChange" label-in-value transfer :multiple="isMultiple">
                 <Option v-for="item in fullOptions" :value="item.value" :key="item.value">{{ item.label }}</Option>
             </Select>
         </template>
         <Tooltip v-else :content="params.tooltip" class="input-hasTip">
             <!--DatePicker这段是一样的-->
-            <Select ref="ctl" :value="value" :placeholder="placeholder" :disabled="readonly" dis-filterable :clearable="!readonly" @on-open-change.once="loadData('')" @on-change="onChange" label-in-value transfer :multiple="isMultiple">
+            <Select ref="ctl" :value="value" :placeholder="placeholder" :disabled="readonly" dis-filterable :clearable="!readonly" @on-open-change="loadData('')" @on-change="onChange" label-in-value transfer :multiple="isMultiple">
                 <Option v-for="item in fullOptions" :value="item.value" :key="item.value">{{ item.label }}</Option>
             </Select>
         </Tooltip>
