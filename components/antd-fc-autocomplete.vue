@@ -19,7 +19,11 @@ export default {
         loadData(key){
             if (this.loaddata !== undefined) {
                 this.loaddata(this.name, items => {
-                    this.localOptions = items;
+                    if (Array.isArray(items) === false) {
+                        this.localOptions = [];
+                    } else {
+                        this.localOptions = items;
+                    }
                 });
             } else {
                 if (this.model.dict !== undefined) {
