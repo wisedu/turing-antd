@@ -19,12 +19,13 @@ import AntdFcCheckboxlist from './components/antd-fc-checkboxlist.vue';
 import AntdFcSwitcher from './components/antd-fc-switcher.vue';
 import AntdGbGrid from './components/antd-gb-grid.vue';
 import AntdGbSearch from './components/antd-gb-search.vue';
+import AntdGbEditGrid from './components/antd-gb-editgrid.vue';
 import LayoutTmb from './layout/layout-tmb.vue';
 import Form from './components/form.js';
 import { defaults } from "tg-turing";
 
 const components = {
-    AntdFcGroup,AntdFcForm,AntdFcStatic,AntdFcText,AntdFcTextArea,AntdFcDate,AntdFcDateRange,AntdFcButtonlist,AntdFcNumberRange,AntdFcNumber,AntdFcSelect,AntdFcUploadfile,AntdFcTree,AntdFcAutocomplete,AntdFcRadiolist,AntdFcSwitcher,AntdGbGrid,AntdGbSearch,AntdFcCheckboxlist,AntdFcUploadfileSync,
+    AntdFcGroup,AntdFcForm,AntdFcStatic,AntdFcText,AntdFcTextArea,AntdFcDate,AntdFcDateRange,AntdFcButtonlist,AntdFcNumberRange,AntdFcNumber,AntdFcSelect,AntdFcUploadfile,AntdFcTree,AntdFcAutocomplete,AntdFcRadiolist,AntdFcSwitcher,AntdGbGrid,AntdGbSearch,AntdFcCheckboxlist,AntdFcUploadfileSync,AntdGbEditGrid,
     LayoutTmb
 };
 const install = function (Vue, opts = {}) {
@@ -50,23 +51,19 @@ if (!("classList" in document.documentElement)) {
                     self.className = classes.join(" ");
                 }
             }
-
             return {
                 add: update(function(classes, index, value) {
                     if (!~index) classes.push(value);
                 }),
-
                 remove: update(function(classes, index) {
                     if (~index) classes.splice(index, 1);
                 }),
-
                 toggle: update(function(classes, index, value) {
                     if (~index)
                         classes.splice(index, 1);
                     else
                         classes.push(value);
                 }),
-
                 contains: function(value) {
                     return !!~self.className.split(/\s+/g).indexOf(value);
                 },

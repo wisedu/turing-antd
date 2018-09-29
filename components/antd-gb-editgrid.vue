@@ -1,25 +1,20 @@
 <template>
     <div>
-        <div id="grid" ref="grid"></div>
+        <div ref="editableGrid"></div>
     </div>
 </template>
 
 <script>
-const Hypergrid = require('fin-hypergrid');
-let grid;
+import {defaults} from 'tg-turing'
 export default {
-    name: "antd-gb-datagrid",
+    name: "antd-gb-editgrid",
     props: {
         columns: Array,
-        data: {
-            type:[Array, Object],
+        value: {
+            type:Array,
             default:function() {
                 return [];
             }
-        },
-        pager: {
-            type:Object,
-            default: {}
         },
         loading: Boolean,
         displayFieldFormat: {
@@ -33,35 +28,28 @@ export default {
         }
     },
     mounted(){
-        Hypergrid.defaults.hoverCellHighlight = {
-            enabled: true,
-            backgroundColor: 'rgba(255,255,255)'
+        let EditableGrid = window["tg-editable-grid"].default;
+        let inst = new EditableGrid(this.$refs.editableGrid, {displayFieldFormat:this.displayFieldFormat});
+        inst.onEditorLoadData = function(model, value, callback) {
+            switch (model.xtype) {
+                case "tree":
+                    if (model.dict !== undefined) {
+                        defaults.getDictTreeData[0](model.dict, {key:value}, datas => {
+                            let treedatas = inst.utils.toTreeData(datas, "", {ukey:"id", pkey:'pId', toCKey:'children'})
+                            callback(treedatas);
+                        });
+                    }
+                    break;
+                default:
+                    if (model.dict !== undefined) {
+                        defaults.getDictData[0](model.dict, {key:value}, datas => {
+                            callback(datas);
+                        });
+                    }
+                    break;
+            }
         }
-        Hypergrid.defaults.hoverRowHighlight = {
-            enabled: false
-        }
-        Hypergrid.defaults.hoverColumnHighlight = {
-            enabled: false
-        }
-
-        Hypergrid.registerTheme(require('../../grid-themes/js/excel'));
-        grid = new Hypergrid(this.$refs.grid);
-        Hypergrid.applyTheme('excel');
-        let customSchema = [
-            { name: 'name', header: 'Full Name' },
-            { name: 'price', header: 'Price' },
-        ];
-        const data = require("../../static/data.json");
-        grid.setData({data: data, schema: customSchema});
-        var behavior = grid.behavior;
-        var dataModel = behavior.dataModel;
-        dataModel.getCellEditorAt = function(columnIndex, rowIndex, declaredEditorName, options) {
-            var editorName = declaredEditorName;
-            // if (...) {
-                editorName = 'textfield'; // case-insensitive
-            // }
-            return grid.cellEditors.create(editorName, options);
-        }
+        inst.setData(this.value, this.columns);
     },
     methods:{
         addrow(){
