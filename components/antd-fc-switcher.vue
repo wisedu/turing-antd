@@ -1,6 +1,6 @@
 <template>
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
-        <i-switch :value="value" :true-value="true" :false-value="false" @on-change="onChange"></i-switch>
+        <i-switch :value="value" :true-value="true" :false-value="false" @on-change="onChange" v-bind="params"></i-switch>
     </FormItem>
     <antd-fc-static v-else :caption="caption" :prop="name" :value="value"></antd-fc-static>
 </template>

@@ -1,6 +1,6 @@
 <template>
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
-        <Cascader :data="fullOptions" :value="values" :placeholder="placeholder" @on-visible-change.once="initLoad" :load-data="loadData" filterable @on-change="onChange"></Cascader>
+        <Cascader :data="fullOptions" :value="values" :placeholder="placeholder" @on-visible-change.once="initLoad" :load-data="loadData" filterable @on-change="onChange" v-bind="params"></Cascader>
     </FormItem>
     <antd-fc-static v-else :caption="caption" :prop="name" :value="value"></antd-fc-static>
 </template>

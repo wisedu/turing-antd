@@ -1,6 +1,6 @@
 <template>
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
-        <AutoComplete ref="input_com" :value="value" icon="ios-search" :data="fullOptions" :placeholder="placeholder" style="width:100%" @on-search="loadData" @on-focus.once="loadData('')" @input="onChange"></AutoComplete>
+        <AutoComplete ref="input_com" :value="value" icon="ios-search" :data="fullOptions" :placeholder="placeholder" style="width:100%" @on-search="loadData" @on-focus.once="loadData('')" @input="onChange" v-bind="params"></AutoComplete>
     </FormItem>
     <antd-fc-static v-else :caption="caption" :prop="name" :value="value" :display="display"></antd-fc-static>
 </template>

@@ -1,6 +1,6 @@
 <template>
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
-        <DatePicker :value="value" type="daterange" :placeholder="placeholder" style="width:100%" @on-change="onChange" transfer></DatePicker>
+        <DatePicker :value="value" type="daterange" :placeholder="placeholder" style="width:100%" @on-change="onChange" transfer v-bind="params"></DatePicker>
     </FormItem>
     <antd-fc-static v-else :caption="caption" :prop="name" :value="value"></antd-fc-static>
 </template>

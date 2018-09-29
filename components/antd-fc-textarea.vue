@@ -2,14 +2,12 @@
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
         <template v-if="params.tooltip !== 0 && !params.tooltip === true">
             <!--input这段是一样的-->
-            <Input ref="input_com" :value="value" type="textarea" :placeholder="placeholder" :readonly="readonly"
-            :maxlength="params.maxlength" @input="onChange" :disabled="disabled" :rows="params.rows" :autosize="params.autosize">
+            <Input ref="input_com" :value="value" type="textarea" :placeholder="placeholder" :readonly="readonly" v-bind="params" @input="onChange" :disabled="disabled">
             </Input>
         </template>
         <Tooltip v-else :content="params.tooltip" class="input-hasTip">
             <!--input这段是一样的-->
-            <Input ref="input_com" :value="value" type="textarea" :placeholder="placeholder" :readonly="readonly"
-            :maxlength="params.maxlength" @input="onChange" :disabled="disabled" :rows="params.rows" :autosize="params.autosize">
+            <Input ref="input_com" :value="value" type="textarea" :placeholder="placeholder" :readonly="readonly" v-bind="params" @input="onChange" :disabled="disabled">
             </Input>
         </Tooltip>
     </FormItem>
