@@ -1,7 +1,5 @@
 <template>
-    <div>
-        <div ref="editableGrid"></div>
-    </div>
+    <div ref="editableGrid"></div>
 </template>
 
 <script>
@@ -25,35 +23,69 @@ export default {
     },
     data() {
         return {
+            inst:null
+        }
+    },
+    watch:{
+        columns(newVal, oldVal){
+            if (this.inst !== null) {
+                this.inst.grid.terminate();
+            }
+            this.initGrid();
+        },
+        value(newVal, oldVal){
+            this.setData(newVal);
         }
     },
     mounted(){
-        let EditableGrid = window["tg-editable-grid"].default;
-        let inst = new EditableGrid(this.$refs.editableGrid, {displayFieldFormat:this.displayFieldFormat});
-        inst.onEditorLoadData = function(model, value, callback) {
-            switch (model.xtype) {
-                case "tree":
-                    if (model.dict !== undefined) {
-                        defaults.getDictTreeData[0](model.dict, {key:value}, datas => {
-                            let treedatas = inst.utils.toTreeData(datas, "", {ukey:"id", pkey:'pId', toCKey:'children'})
-                            callback(treedatas);
-                        });
-                    }
-                    break;
-                default:
-                    if (model.dict !== undefined) {
-                        defaults.getDictData[0](model.dict, {key:value}, datas => {
-                            callback(datas);
-                        });
-                    }
-                    break;
-            }
-        }
-        inst.setData(this.value, this.columns);
+        this.initGrid();
     },
     methods:{
-        addrow(){
-            grid.setData([{"name":"a","price":123}]);
+        addrow(row){
+            this.inst.grid.setData(this.inst.grid.getData());
+        },
+        initGrid(){
+            if (this.columns.length > 0) {
+                let EditableGrid = window["tg-editable-grid"].default;
+                this.inst = new EditableGrid(this.$refs.editableGrid, {displayFieldFormat:this.displayFieldFormat});
+                this.inst.onEditorLoadData = function(model, value, callback) {
+                    switch (model.xtype) {
+                        case "tree":
+                            if (model.dict !== undefined) {
+                                defaults.getDictTreeData[0](model.dict, {key:value}, datas => {
+                                    let treedatas = inst.utils.toTreeData(datas, "", {ukey:"id", pkey:'pId', toCKey:'children'})
+                                    callback(treedatas);
+                                });
+                            } else if (model.options !== undefined) {
+                                callback(model.options);
+                            }
+                            break;
+                        default:
+                            if (model.dict !== undefined) {
+                                defaults.getDictData[0](model.dict, {key:value}, datas => {
+                                    callback(datas);
+                                });
+                            } else if (model.options !== undefined) {
+                                callback(model.options);
+                            }
+                            break;
+                    }
+                }
+                this.inst.setSchema(this.columns);
+                this.inst.grid.addEventListener('fin-editor-data-change', function(event){
+                    // console.log(event)
+                    let params = {
+                        newValue:event.detail.newValue,
+                        oldValue:event.detail.oldValue,
+                        schema:event.detail.input.column.schema,
+                        name:event.detail.input.column.schema.name
+                    };
+                    this.$emit("data-change", params)
+                })
+            }
+        },
+        setData(datas){
+            this.inst.setData(datas);
         }
     }
 }

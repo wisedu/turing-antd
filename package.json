@@ -1,6 +1,6 @@
 {
   "name": "tg-turing-antd",
-  "version": "1.18.0",
+  "version": "1.18.8",
   "main": "dist/tg-turing-antd.min.js",
   "packageName": "tg-turing-antd",
   "license": "MIT",
@@ -41,7 +41,7 @@
   },
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.config.js --mode development",
-    "build": "webpack --config webpack.prod.config.js --mode production",
+    "build": "webpack --config webpack.prod.config.js --mode development",
     "local": "webpack --config webpack.prod.config.js --mode production && cp -r ./dist/* ../turing-example/node_modules/tg-turing-antd/dist/",
     "local2": "webpack --config webpack.prod.config.js --mode production && cp -r ./dist/* ../../GitLab/egg/project-v/node_modules/tg-turing-antd/dist/",
     "esm": "rollup --config ./rollup.config.js"
