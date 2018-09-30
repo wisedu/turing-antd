@@ -72,15 +72,14 @@ export default {
                     }
                 }
                 this.inst.setSchema(this.columns);
-                this.inst.grid.addEventListener('fin-editor-data-change', function(event){
+                this.inst.grid.addEventListener('fin-editor-data-change', event => {
                     // console.log(event)
-                    let params = {
-                        newValue:event.detail.newValue,
-                        oldValue:event.detail.oldValue,
-                        schema:event.detail.input.column.schema,
-                        name:event.detail.input.column.schema.name
-                    };
-                    this.$emit("data-change", params)
+                    let name = event.detail.input.column.schema.name;
+                    let newValue = event.detail.newValue;
+                    let oldValue = event.detail.oldValue;
+                    let schema = event.detail.input.column.schema;
+                    let row = event.detail.input.event.dataRow;
+                    this.$emit("on-item-change", name, newValue, oldValue, schema, row);
                 })
             }
         },
