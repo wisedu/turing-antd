@@ -83,11 +83,35 @@ export default {
                     let schema = event.detail.input.column.schema;
                     let row = event.detail.input.event.dataRow;
                     this.$emit("on-item-change", name, newValue, oldValue, schema, row);
-                })
+                });
+                this.inst.grid.addEventListener('fin-row-header-clicked', event => {
+                    let row = event.detail.input.event.dataRow;
+                    this.$emit("on-highlight", row);
+                });
+                this.inst.grid.addEventListener('fin-row-selection-changed', event => {
+                    let row = event.detail.input.event.dataRow;
+                    this.$emit("on-selection-change", row);
+                });
+                this.inst.grid.addEventListener('fin-grid-rendered', event => {
+                    this.$emit("ready");
+                });
             }
         },
         setData(datas){
             this.inst.setData(datas);
+        },
+        setErrorCells(datas){
+            // let datas = [{row:1,name:""}];
+            let cells = {};
+            datas.map(item => {
+                if (cells[item.row] === undefined){
+                    cells[item.row] = {}
+                }
+                cells[item.row][item.name] = { borderLeft: "red", borderTop: "red", borderTop: "red", borderRight: "red" };
+            })
+            this.inst.grid.addProperties({
+                cells: cells
+            });
         }
     }
 }
