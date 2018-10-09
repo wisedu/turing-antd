@@ -39,6 +39,9 @@ export default {
     },
     mounted(){
         this.initGrid();
+        if (this.value !== undefined && this.value.length > 0) {
+            this.setData(this.value);
+        }
     },
     methods:{
         addrow(row){
