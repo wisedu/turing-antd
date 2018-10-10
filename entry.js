@@ -19,13 +19,12 @@ import AntdFcCheckboxlist from './components/antd-fc-checkboxlist.vue';
 import AntdFcSwitcher from './components/antd-fc-switcher.vue';
 import AntdGbGrid from './components/antd-gb-grid.vue';
 import AntdGbSearch from './components/antd-gb-search.vue';
-import AntdGbEditGrid from './components/antd-gb-editgrid.vue';
 import LayoutTmb from './layout/layout-tmb.vue';
 import Form from './components/form.js';
 import { defaults } from "tg-turing";
 
 const components = {
-    AntdFcGroup,AntdFcForm,AntdFcStatic,AntdFcText,AntdFcTextArea,AntdFcDate,AntdFcDateRange,AntdFcButtonlist,AntdFcNumberRange,AntdFcNumber,AntdFcSelect,AntdFcUploadfile,AntdFcTree,AntdFcAutocomplete,AntdFcRadiolist,AntdFcSwitcher,AntdGbGrid,AntdGbSearch,AntdFcCheckboxlist,AntdFcUploadfileSync,AntdGbEditGrid,
+    AntdFcGroup,AntdFcForm,AntdFcStatic,AntdFcText,AntdFcTextArea,AntdFcDate,AntdFcDateRange,AntdFcButtonlist,AntdFcNumberRange,AntdFcNumber,AntdFcSelect,AntdFcUploadfile,AntdFcTree,AntdFcAutocomplete,AntdFcRadiolist,AntdFcSwitcher,AntdGbGrid,AntdGbSearch,AntdFcCheckboxlist,AntdFcUploadfileSync,
     LayoutTmb
 };
 const install = function (Vue, opts = {}) {
