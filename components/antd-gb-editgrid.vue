@@ -85,13 +85,14 @@ export default {
                     this.$emit("on-item-change", name, newValue, oldValue, schema, row);
                 });
                 this.inst.grid.addEventListener('fin-row-header-clicked', event => {
-                    let row = event.detail.input.event.dataRow;
-                    this.$emit("on-highlight", row);
+                    let row = event.detail.row;
+                    let rowIndex = event.detail.dataCell.y;
+                    this.$emit("on-highlight", row, rowIndex);
                 });
-                this.inst.grid.addEventListener('fin-row-selection-changed', event => {
-                    let row = event.detail.input.event.dataRow;
-                    this.$emit("on-selection-change", row);
-                });
+                // this.inst.grid.addEventListener('fin-row-selection-changed', event => {
+                //     let row = event.detail.input.event.dataRow;
+                //     this.$emit("on-selection-change", row);
+                // });
                 this.inst.grid.addEventListener('fin-grid-rendered', event => {
                     this.$emit("ready");
                 });
@@ -107,10 +108,13 @@ export default {
                 if (cells[item.row] === undefined){
                     cells[item.row] = {}
                 }
-                cells[item.row][item.name] = { borderLeft: "red", borderTop: "red", borderTop: "red", borderRight: "red" };
+                cells[item.row][item.name] = { borderLeft: "red", borderTop: "red", borderBottom: "red", borderRight: "red" };
             })
             this.inst.grid.addProperties({
-                cells: cells
+                renderer:['SimpleCell', 'Borders'],
+                cells: {
+                    data: cells
+                }
             });
         }
     }
