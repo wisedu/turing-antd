@@ -1,13 +1,13 @@
 {
   "name": "tg-turing-antd",
-  "version": "1.19.1",
+  "version": "1.19.4",
   "main": "dist/tg-turing-antd.min.js",
   "packageName": "tg-turing-antd",
   "license": "MIT",
   "dependencies": {
     "bh-iview": "^2.0.5",
     "fin-hypergrid": "^3.0.2",
-    "tg-turing": "^1.23.1",
+    "tg-turing": "^1.23.4",
     "vue": "^2.5.17",
     "vue-upload-component": "^2.8.11"
   },
