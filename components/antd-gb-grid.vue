@@ -8,6 +8,7 @@
                         {{scope.row[model.key + "" + displayFieldFormat] !== undefined ? scope.row[model.key + "" + displayFieldFormat] : scope.row[model.key]}}
                     </slot>
                 </template>
+                <slot name="footer" slot="footer"></slot>
             </Table>
         </div>
         <div class="tg-clear-child" v-if="total > 0">
