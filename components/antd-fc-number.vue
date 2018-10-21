@@ -2,14 +2,14 @@
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
         <template v-if="params.tooltip !== 0 && !params.tooltip === true">
             <!--input这段是一样的-->
-            <Input ref="input_com" :value="value" :placeholder="placeholder" :readonly="readonly" number v-bind="params" @input="onChange" :disabled="disabled">
+            <Input ref="input_com" :value="value" :placeholder="placeholder" :readonly="readonly" number v-bind="params" @input="onChange" :disabled="disabled" type="number">
                 <span slot="prepend" v-if="params.prepend">{{params.prepend}}</span>
                 <span slot="append" v-if="params.append">{{params.append}}</span>
             </Input>
         </template>
         <Tooltip v-else :content="params.tooltip" class="input-hasTip">
             <!--input这段是一样的-->
-            <Input ref="input_com" :value="value" :placeholder="placeholder" :readonly="readonly" number v-bind="params" @input="onChange" :disabled="disabled">
+            <Input ref="input_com" :value="value" :placeholder="placeholder" :readonly="readonly" number v-bind="params" @input="onChange" :disabled="disabled" type="number">
                 <span slot="prepend" v-if="params.prepend">{{params.prepend}}</span>
                 <span slot="append" v-if="params.append">{{params.append}}</span>
             </Input>
