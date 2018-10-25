@@ -65,7 +65,7 @@ export default {
         },
         getOneData(value){
             if (this.model.dict !== undefined) {
-                defaults.getDictTreeOneData[0](this.model.dict, {key:value}, datas => {
+                defaults.getDictTreeDataAsync[0](this.model.dict, {key:value}, datas => {
                     this.localOptions = datas;
                     this.values = getChildrenValue({children:datas}, [])
                 });
