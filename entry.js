@@ -80,6 +80,9 @@ defaults.antd = {
     form: Form
 };
 defaults.currentType = "antd";
+defaults.test = function(){
+    console.log(2);
+}
 
 if (typeof window !== 'undefined' && window.Vue) {
     install(window.Vue);
