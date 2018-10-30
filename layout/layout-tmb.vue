@@ -33,7 +33,7 @@
                         <slot name="menu">
                             <template v-for="(item, index) in menu">
                                 <menuItem :name="item.name" v-if="item.items === undefined" :key="index">
-                                    <Icon :type="item.icon" v-if="item.icon !== undefined"></Icon>
+                                    <Icon :type="item.icon" v-if="item.icon !== undefined" :key="'__' + index"></Icon>
                                     {{item.name}}
                                 </menuItem>
                                 <Submenu name="3" v-if="item.items !== undefined" :key="index">
