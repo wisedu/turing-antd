@@ -1,4 +1,5 @@
 import turing from 'tg-turing';
+import defaults from '../Defaults';
 export function Adapter(type, model, params){
     let antdModel = [];
     switch (type) {
@@ -9,9 +10,9 @@ export function Adapter(type, model, params){
                 }
                 let newTableItem = turing.utils.extend({}, {
                     title:model[prop].caption, 
-                    key:prop, 
-                    minWidth:120
-                }, model[prop], params);
+                    key:prop,
+                    className: "antd-gb-grid__header--center"
+                }, defaults.table, model[prop], params);
                 if (newTableItem.dict !== undefined && newTableItem.dict.display !== undefined) {
                     newTableItem["key"] = newTableItem.dict.display;
                 }

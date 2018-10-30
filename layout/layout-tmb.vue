@@ -31,17 +31,17 @@
                     </div>
                     <div class="layout-nav">
                         <slot name="menu">
-                            <template v-for="item in menu">
-                                <menuItem :name="item.name" v-if="item.items === undefined" :key="item.name">
+                            <template v-for="(item, index) in menu">
+                                <menuItem :name="item.name" v-if="item.items === undefined" :key="index">
                                     <Icon :type="item.icon" v-if="item.icon !== undefined"></Icon>
                                     {{item.name}}
                                 </menuItem>
-                                <Submenu name="3" v-if="item.items !== undefined" :key="item.name">
+                                <Submenu name="3" v-if="item.items !== undefined" :key="index">
                                     <template slot="title">
                                         <Icon :type="item.icon" v-if="item.icon !== undefined"></Icon>
                                         {{item.name}}
                                     </template>
-                                    <MenuItem :name="subitem.name" v-for="subitem in item.items" :key="subitem.name">
+                                    <MenuItem :name="subitem.name" v-for="(subitem, subindex) in item.items" :key="index + '_' + subindex">
                                         <Icon :type="subitem.icon" v-if="subitem.icon !== undefined"></Icon>
                                         {{subitem.name}}
                                     </MenuItem>

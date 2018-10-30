@@ -85,5 +85,7 @@ export default {
 </script>
 
 <style>
-
+th.antd-gb-grid__header--center{
+    text-align: center!important;
+}
 </style>

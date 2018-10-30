@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import antdForm from "./form";
+import comDefs from "../Defaults.js";
 import AntdFcStatic from "./antd-fc-static.vue";
 import {FormConnector} from "tg-turing";
 export default {
@@ -33,7 +33,7 @@ export default {
     data(){
         return {
             //当前字段隐藏时，让listview组件所占位的格子也隐藏
-            antdForm: antdForm,
+            antdForm: comDefs.form,
         }
     },
     methods: {

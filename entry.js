@@ -20,8 +20,8 @@ import AntdFcSwitcher from './components/antd-fc-switcher.vue';
 import AntdGbGrid from './components/antd-gb-grid.vue';
 import AntdGbSearch from './components/antd-gb-search.vue';
 import LayoutTmb from './layout/layout-tmb.vue';
-import Form from './components/form.js';
 import { defaults } from "tg-turing";
+import comDefs from "./Defaults";
 
 const components = {
     AntdFcGroup,AntdFcForm,AntdFcStatic,AntdFcText,AntdFcTextArea,AntdFcDate,AntdFcDateRange,AntdFcButtonlist,AntdFcNumberRange,AntdFcNumber,AntdFcSelect,AntdFcUploadfile,AntdFcTree,AntdFcAutocomplete,AntdFcRadiolist,AntdFcSwitcher,AntdGbGrid,AntdGbSearch,AntdFcCheckboxlist,AntdFcUploadfileSync,
@@ -77,7 +77,8 @@ if (!("classList" in document.documentElement)) {
 
 defaults.antd = {
     Adapter: Adapter,
-    form: Form
+    form: comDefs.form,
+    table: comDefs.table
 };
 defaults.currentType = "antd";
 defaults.test = function(){
