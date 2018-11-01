@@ -4,6 +4,7 @@ const path = require('path');
 const cleanWebpackPlugin = require("clean-webpack-plugin");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require('webpack');
+const SvgStore = require('webpack-svgstore-plugin');
 
 module.exports = {
     entry: {
@@ -48,13 +49,22 @@ module.exports = {
                 }
             },
             { 
-                test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
+                test: /\.(gif|jpg|png|woff|eot|ttf)\??.*$/,
                 use: [{ loader: 'url-loader',options: { limit: 8192 } }] 
             },
             {
                 test: /\.css$/,
                 use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader']
-            }
+            },
+            {
+				test: /\.(svg)(\?.*)?$/,
+				use: {
+					loader: 'file-loader',
+					options: {
+						name: `src/icons/svg.[ext]`,
+					},
+				},
+			},
         ]
     },
     plugins:[
@@ -79,6 +89,17 @@ module.exports = {
         //     chunks: ["vendor","commons",'detail'],  // 按需引入对应名字的js文件
         //     template: "./src/detail.html"
         // }),
+        // svg icons
+		new SvgStore({
+			prefix: 'icon--',
+			svgoOptions: {
+				plugins: [
+					{ cleanupIDs: false },
+					{ collapseGroups: false },
+					{ removeTitle: true },
+				],
+			},
+		}),
 
     ],
     resolve: {  //导入的时候不用写拓展名

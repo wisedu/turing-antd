@@ -1,12 +1,11 @@
 <template>
-    <antd-gb-editgrid :columns="columns" v-model="datas" displayFieldFormat="_DISPLAY"></antd-gb-editgrid>
 </template>
 
 <script>
-import AntdGbEditGrid from '../../components/antd-gb-editgrid';
+
 export default {
     components:{
-        AntdGbEditGrid
+        
     },
     data(){
         return {
