@@ -14,11 +14,16 @@ import home from './pages/home.vue';
 import table from './pages/table.vue';
 import grid from './pages/grid.vue';
 import upload from './pages/upload.vue';
+import editor from './pages/editor.vue';
 
 import COMS from "../entry";
 Vue.use(COMS)
 
 Vue.use(VueRouter)
+
+import svgSpriteLoader from './svg-sprite-loader'
+const __svg__ = { path: './icons/*.svg', name: './icons/svg.svg' }
+svgSpriteLoader(__svg__.filename)
 
 tgTuring.defaults.getDictData[0] = function (dict, params, callback){
     tgTuring.utils.Get(dict.url, {"searchValue": params.key}).then(function(result) {
@@ -86,6 +91,7 @@ const routes = [
     { path: '/table', component: table, name:"table" },
     { path: '/grid', component: grid, name:"grid" },
     { path: '/upload', component: upload, name:"upload" },
+    { path: '/editor', component: editor, name:"editor" },
 ]
 const router = new VueRouter({
     routes,
