@@ -49,7 +49,7 @@ export default {
             })
         },
         preview(file) {
-            window.open(window.apiPath + file.url)
+            window.open(window.apiPath + file.response[0].url)
         },
         uploaded(token){
             this.$emit("on-item-change", this.name, this.token, "", this.model)
