@@ -13,10 +13,10 @@ export default {
     extends: ConnectItem,
     methods:{
         onChange(value){
-            let label = value;
             if (value[0] === "" && value[1] === "") {
-                label = null;
+                value = null;
             }
+            let label = value;
             this.$emit("on-item-change", this.name, value, label, this.model)
             this.$emit("input", value)
         }
