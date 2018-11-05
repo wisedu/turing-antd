@@ -14,6 +14,9 @@ export default {
     methods:{
         onChange(value){
             let label = value;
+            if (value[0] === "" && value[1] === "") {
+                label = null;
+            }
             this.$emit("on-item-change", this.name, value, label, this.model)
             this.$emit("input", value)
         }
