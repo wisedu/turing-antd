@@ -44,8 +44,22 @@ export default {
                 message: "不能为空"
             }
         },
+        "date-ym": {
+            name: "antd-fc-date",
+            default: {
+                type:"datetime",
+                format:"yyyy-MM"
+            },
+            required: {
+                trigger: "blur,change",
+                message: "不能为空"
+            }
+        },
         "date-full": {
             name: "antd-fc-date",
+            default: {
+                type:"datetime"
+            },
             required: {
                 trigger: "blur,change",
                 message: "不能为空"
