@@ -58,7 +58,8 @@ export default {
         "date-full": {
             name: "antd-fc-date",
             default: {
-                type:"datetime"
+                type:"datetime",
+                format:"yyyy-MM-dd HH:mm",
             },
             required: {
                 trigger: "blur,change",
