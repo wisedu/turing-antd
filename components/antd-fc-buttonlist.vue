@@ -1,6 +1,6 @@
 <template>
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
-        <RadioGroup v-model="pData" type="button" @on-change="onChange">
+        <RadioGroup :value="value" type="button" @on-change="onChange">
             <Radio :label="item.value" v-for="item in fullOptions" :key="item.value">
                 {{item.label}}
             </Radio>
@@ -16,7 +16,6 @@ export default {
     extends: ConnectItem,
     data(){
         return {
-            pData:this.value,
             localOptions:[]
         }
     },
