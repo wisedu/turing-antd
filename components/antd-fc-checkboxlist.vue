@@ -31,7 +31,7 @@ export default {
     methods: {
         onChange(vals) {
             let label = [];
-            this.options.map(item => {
+            this.fullOptions.map(item => {
                 vals.map(val => {
                     if (item.value || item.id === val) {
                         label.push(item.label);

@@ -30,7 +30,8 @@ export default {
     },
     methods: {
         onChange(val) {
-            let label = this.options.filter(item => item.value || item.id === val )[0].label;
+            let option = this.fullOptions.find(item => item.value || item.id === val );
+            let label = option !== undefined ? option.label : "";
             this.$emit("on-item-change", this.name, val, label, this.model)
             this.$emit("input", val)
         },
