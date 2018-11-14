@@ -10,17 +10,19 @@
                         <label v-text="appName" class="appName"></label>
                     </div>
                     <div class="user-dropdown-menu-con">
-                        <Dropdown v-if="dropMenu !== undefined && dropMenu.length > 0" transfer trigger="click" @on-click="roleDropdown">
-                            <a href="javascript:void(0)">
-                                <span class="main-user-name"> {{currentRole.text}} </span>
-                                <Icon type="arrow-down-b"></Icon>
-                            </a>
-                            <DropdownMenu slot="list">
-                                <span class="dropdown-title">选择角色</span>
-                                <DropdownItem :name="item.id" v-for="item in dropMenu" :key="item.id" >{{item.text}}</DropdownItem>
-                            </DropdownMenu>
-                        </Dropdown>
-                        <Dropdown transfer trigger="click" @on-click="userDropdown">
+                        <slot name="right">
+                            <Dropdown v-if="dropMenu !== undefined && dropMenu.length > 0" transfer trigger="click" @on-click="roleDropdown">
+                                <a href="javascript:void(0)">
+                                    <span class="main-user-name"> {{currentRole.text}} </span>
+                                    <Icon type="arrow-down-b"></Icon>
+                                </a>
+                                <DropdownMenu slot="list">
+                                    <span class="dropdown-title">选择角色</span>
+                                    <DropdownItem :name="item.id" v-for="item in dropMenu" :key="item.id" >{{item.text}}</DropdownItem>
+                                </DropdownMenu>
+                            </Dropdown>
+                        </slot>
+                        <Dropdown v-if="userImage !== undefined" transfer trigger="click" @on-click="userDropdown">
                             <img :src="userImage" class="avatar">
                             <div slot="list" class="userDropdown-userInfo">
                                 <div v-text="userName" class="username"></div>
