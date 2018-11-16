@@ -25,6 +25,10 @@ import LayoutTmb from './layout/layout-tmb.vue';
 import { defaults } from "tg-turing";
 import comDefs from "./Defaults";
 
+import svgSpriteLoader from './src/svg-sprite-loader'
+const __svg__ = { path: './src/icons/*.svg', name: './src/icons/svg.svg' }
+svgSpriteLoader(__svg__.filename)
+
 const components = {
     AntdFcGroup,AntdFcForm,AntdFcStatic,AntdFcText,AntdFcTextArea,AntdFcDate,AntdFcDateRange,AntdFcButtonlist,AntdFcNumberRange,AntdFcNumber,AntdFcSelect,AntdFcUploadfile,AntdFcTree,AntdFcAutocomplete,AntdFcRadiolist,AntdFcSwitcher,AntdFcEditor,AntdGbGrid,AntdGbSearch,AntdFcCheckboxlist,AntdFcUploadfileSync,AntdGbCollection,
     LayoutTmb
