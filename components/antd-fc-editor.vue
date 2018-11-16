@@ -118,7 +118,7 @@
 				</div>
 			</div>
 
-			<div class="editor__content" slot="content" slot-scope="props">
+			<div class="editor__content" slot="content" slot-scope="props" style="min-height:100px;">
 				
 			</div>
 
