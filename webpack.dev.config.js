@@ -5,6 +5,7 @@ const cleanWebpackPlugin = require("clean-webpack-plugin");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require('webpack');
 const SvgStore = require('webpack-svgstore-plugin');
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
 module.exports = {
     entry: {
@@ -57,14 +58,30 @@ module.exports = {
                 use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader']
             },
             {
-				test: /\.(svg)(\?.*)?$/,
+                test: /\.(svg)(\?.*)?$/,
+                exclude: [
+                    path.resolve(__dirname, './src/icons'),
+                ],
 				use: {
 					loader: 'file-loader',
 					options: {
 						name: `src/icons/svg.[ext]`,
 					},
 				},
-			},
+            },
+            {
+                test: /\.svg$/,
+                include: [
+                    path.resolve(__dirname, './src/icons'),
+                ],
+                loader: 'svg-sprite-loader?' + JSON.stringify({
+                    name: '[name]',
+                    prefixize: true,
+                }),
+                options: {
+                    symbolId: filePath => 'icon--'+path.basename(filePath,'.svg'),
+                }
+            },
         ]
     },
     plugins:[
@@ -90,16 +107,22 @@ module.exports = {
         //     template: "./src/detail.html"
         // }),
         // svg icons
-		new SvgStore({
-			prefix: 'icon--',
-			svgoOptions: {
-				plugins: [
-					{ cleanupIDs: false },
-					{ collapseGroups: false },
-					{ removeTitle: true },
-				],
-			},
-		}),
+		// new SvgStore({
+		// 	prefix: 'icon--',
+		// 	svgoOptions: {
+		// 		plugins: [
+		// 			{ cleanupIDs: false },
+		// 			{ collapseGroups: false },
+		// 			{ removeTitle: true },
+		// 		],
+		// 	},
+        // }),
+        // new SpriteLoaderPlugin({
+        //     plainSprite: true,
+        //     spriteAttrs: {
+        //       id: 'my-custom-sprite-id'
+        //     }
+        // })
 
     ],
     resolve: {  //导入的时候不用写拓展名

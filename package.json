@@ -1,6 +1,6 @@
 {
   "name": "tg-turing-antd",
-  "version": "1.25.18",
+  "version": "1.25.20",
   "main": "dist/tg-turing-antd.min.js",
   "packageName": "tg-turing-antd",
   "license": "MIT",
@@ -32,6 +32,7 @@
     "rollup-plugin-css-only": "^0.4.0",
     "rollup-plugin-vue": "^4.3.1",
     "style-loader": "^0.21.0",
+    "svg-sprite-loader": "^4.1.3",
     "url-loader": "^1.0.1",
     "vue-loader": "^15.0.9",
     "vue-router": "^3.0.1",

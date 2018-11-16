@@ -25,9 +25,23 @@ import LayoutTmb from './layout/layout-tmb.vue';
 import { defaults } from "tg-turing";
 import comDefs from "./Defaults";
 
-import svgSpriteLoader from './src/svg-sprite-loader'
-const __svg__ = { path: './src/icons/*.svg', name: './src/icons/svg.svg' }
-svgSpriteLoader(__svg__.filename)
+import alignCenter from "./src/icons/align-center.svg";
+import alignLeft from "./src/icons/align-left.svg";
+import alignRight from "./src/icons/align-right.svg";
+import bold from "./src/icons/bold.svg";
+import checklist from "./src/icons/checklist.svg";
+import code from "./src/icons/code.svg";
+import github from "./src/icons/github.svg";
+import image from "./src/icons/image.svg";
+import italic from "./src/icons/italic.svg";
+import link from "./src/icons/link.svg";
+import ol from "./src/icons/ol.svg";
+import paragraph from "./src/icons/paragraph.svg";
+import quote from "./src/icons/quote.svg";
+import remove from "./src/icons/remove.svg";
+import strike from "./src/icons/strike.svg";
+import ul from "./src/icons/ul.svg";
+import underline from "./src/icons/underline.svg";
 
 const components = {
     AntdFcGroup,AntdFcForm,AntdFcStatic,AntdFcText,AntdFcTextArea,AntdFcDate,AntdFcDateRange,AntdFcButtonlist,AntdFcNumberRange,AntdFcNumber,AntdFcSelect,AntdFcUploadfile,AntdFcTree,AntdFcAutocomplete,AntdFcRadiolist,AntdFcSwitcher,AntdFcEditor,AntdGbGrid,AntdGbSearch,AntdFcCheckboxlist,AntdFcUploadfileSync,AntdGbCollection,

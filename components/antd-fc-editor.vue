@@ -175,7 +175,6 @@ import {
 } from 'tiptap-extensions'
 import {ConnectItem} from 'tg-turing'
 import Icon from '../src/icons';
-import BoldIcon from '../src/icons/bold.svg';
 export default {
     name:"antd-fc-editor",
     extends: ConnectItem,
@@ -219,7 +218,6 @@ export default {
     components: {
         Editor,
         Icon,
-        BoldIcon
     }
 }
 </script>

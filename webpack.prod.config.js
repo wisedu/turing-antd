@@ -54,7 +54,23 @@ module.exports = {
             },
             { 
                 test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
+                exclude: [
+                    path.resolve(__dirname, './src/icons'),
+                ],
                 use: [{ loader: 'url-loader',options: { limit: 8192 } }] 
+            },
+            {
+                test: /\.svg$/,
+                include: [
+                    path.resolve(__dirname, './src/icons'),
+                ],
+                loader: 'svg-sprite-loader?' + JSON.stringify({
+                    name: '[name]',
+                    prefixize: true,
+                }),
+                options: {
+                    symbolId: filePath => 'icon--'+path.basename(filePath,'.svg'),
+                }
             },
             {
                 test: /\.css$/,

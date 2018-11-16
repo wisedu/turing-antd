@@ -21,9 +21,27 @@ Vue.use(COMS)
 
 Vue.use(VueRouter)
 
-import svgSpriteLoader from './svg-sprite-loader'
-const __svg__ = { path: './icons/*.svg', name: './icons/svg.svg' }
-svgSpriteLoader(__svg__.filename)
+import alignCenter from "./icons/align-center.svg";
+import alignLeft from "./icons/align-left.svg";
+import alignRight from "./icons/align-right.svg";
+import bold from "./icons/bold.svg";
+import checklist from "./icons/checklist.svg";
+import code from "./icons/code.svg";
+import github from "./icons/github.svg";
+import image from "./icons/image.svg";
+import italic from "./icons/italic.svg";
+import link from "./icons/link.svg";
+import ol from "./icons/ol.svg";
+import paragraph from "./icons/paragraph.svg";
+import quote from "./icons/quote.svg";
+import remove from "./icons/remove.svg";
+import strike from "./icons/strike.svg";
+import ul from "./icons/ul.svg";
+import underline from "./icons/underline.svg";
+
+// import svgSpriteLoader from './svg-sprite-loader'
+// const __svg__ = { path: './icons/*.svg', name: './icons/svg.svg' }
+// svgSpriteLoader(__svg__.filename)
 
 tgTuring.defaults.getDictData[0] = function (dict, params, callback){
     tgTuring.utils.Get(dict.url, {"searchValue": params.key}).then(function(result) {
