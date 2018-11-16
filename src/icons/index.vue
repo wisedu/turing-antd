@@ -23,7 +23,7 @@ export default {
 }
 </script>
 
-<style  scoped>
+<style>
 .icon {
 	position: relative;
 	display: inline-block;
