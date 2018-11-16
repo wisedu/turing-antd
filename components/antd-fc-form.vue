@@ -8,7 +8,7 @@
                 <template slot="itemTemplate" slot-scope="props" v-if="props.data.hidden !== true">
                     <slot :name="props.data.name" :model="props.data" :value="formValue[props.data.name]" :display="formValue[props.data.name + displayFieldFormat]" :ref="'field_' + props.data.name" :formReadonly="readonly">
                         <component :ref="'field_' + props.data.name" :model="props.data" :is="registedComponentList(props.data, antdForm, 'static', props.index)" 
-                        v-model="formValue[props.data.name]" :display="formValue[props.data.name + displayFieldFormat]" :formReadonly="readonly"
+                        v-model="formValue[props.data.name]" :display="formValue[props.data.name + displayFieldFormat]" :formReadonly="readonly" @on-enter="onEnter"
                         :loaddata="loaddata" @on-item-change="updateValue" v-bind="mergeDefaultParams(props.data)"></component>
                     </slot>
                 </template>
@@ -57,6 +57,9 @@ export default {
             } else {
                 return model;
             }
+        },
+        onEnter(e) {
+            this.$emit('on-enter', this.formValue);
         }
     }
 }

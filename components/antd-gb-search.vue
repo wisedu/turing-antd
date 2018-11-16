@@ -1,6 +1,6 @@
 <template>
     <div>
-        <antd-fc-form :fields="shownFields" :value="formValue" :displayFieldFormat="displayFieldFormat"
+        <antd-fc-form :fields="shownFields" :value="formValue" :displayFieldFormat="displayFieldFormat" @on-enter="search"
             :column="column" :labelWidth="labelWidth" @on-value-change="updateValue" :readonly="readonly">
             <slot :name="'search-' + model.name" :slot="model.name" v-for="model in shownFields"></slot>
             <div slot="after">

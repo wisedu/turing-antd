@@ -40,6 +40,7 @@ export default {
         "date-local": {
             name: "antd-fc-date",
             required: {
+                type:"date",
                 trigger: "blur,change",
                 message: "不能为空"
             }
@@ -47,7 +48,7 @@ export default {
         "date-ym": {
             name: "antd-fc-date",
             default: {
-                type:"datetime",
+                type:"month",
                 format:"yyyy-MM"
             },
             required: {
