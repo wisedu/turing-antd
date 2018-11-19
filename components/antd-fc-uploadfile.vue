@@ -23,7 +23,7 @@ export default {
         }
     },
     created() {
-        if (this.token === undefined || this.token === null) {
+        if (this.token === undefined || this.token === null || this.token === "") {
             this.token = uuid();
             this.$set(this.params, "token", this.token);
         } else {
@@ -32,7 +32,7 @@ export default {
     },
     watch:{
         value:function(newValue) {
-            if (newValue === undefined || newValue === null) {
+            if (newValue === undefined || newValue === null || newValue === "") {
                 this.token = uuid();
                 this.params.token = uuid();
             } else {
@@ -51,7 +51,10 @@ export default {
         preview(file) {
             window.open(window.apiPath + file.url)
         },
-        uploaded(token){
+        uploaded(response, file){
+            file.token = this.token;
+            file.url = response[0].url;
+            file.id = response[0].id;
             this.$emit("on-item-change", this.name, this.token, "", this.model)
             this.$emit("input", this.token)
         },
