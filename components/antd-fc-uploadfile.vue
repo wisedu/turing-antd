@@ -56,9 +56,9 @@ export default {
             this.$emit("input", this.token)
         },
         remove(file, fileList) {
-            utils.Get(`${window.apiPath}/removeFile/${file.response[0].id}/${file.response[0].token}`).then(results => {
+            utils.Get(`${window.apiPath}/removeFile/${file.id}/${file.token}`).then(results => {
                 this.token = results.data;
-                this.$emit("on-item-change", this.name, file.response[0].token, file.response[0].name, this.model)
+                this.$emit("on-item-change", this.name, file.token, file.name, this.model)
                 this.$emit("input", this.token)
             })
         }
