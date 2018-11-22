@@ -1,12 +1,12 @@
 {
   "name": "tg-turing-antd",
-  "version": "1.25.36",
+  "version": "1.25.37",
   "main": "dist/tg-turing-antd.min.js",
   "packageName": "tg-turing-antd",
   "license": "MIT",
   "dependencies": {
     "bh-iview": "^2.0.5",
-    "tg-turing": "^1.28.23",
+    "tg-turing": "^1.28.24",
     "tiptap": "^0.19.0",
     "tiptap-extensions": "^0.21.0",
     "vue": "^2.5.17",
@@ -47,6 +47,7 @@
     "build": "webpack --config webpack.prod.config.js --mode development",
     "local": "webpack --config webpack.prod.config.js --mode production && cp -r ./dist/* ../turing-example/node_modules/tg-turing-antd/dist/",
     "local2": "webpack --config webpack.prod.config.js --mode production && cp -r ./dist/* ../../GitLab/egg/project-v/node_modules/tg-turing-antd/dist/",
-    "esm": "rollup --config ./rollup.config.js"
+    "esm": "rollup --config ./rollup.config.js",
+    "prepublish": "yarn add tg-turing && npm run build"
   }
 }
