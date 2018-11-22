@@ -12,6 +12,7 @@ window["tg-turing"] = tgTuring;
 
 import home from './pages/home.vue';
 import table from './pages/table.vue';
+import person from './pages/person.vue';
 import grid from './pages/grid.vue';
 import upload from './pages/upload.vue';
 import editor from './pages/editor.vue';
@@ -107,6 +108,7 @@ if(process.env.NODE_ENV === 'development'){
 const routes = [
     { path: '/', component: home, name:"首页" },
     { path: '/table', component: table, name:"table" },
+    { path: '/person', component: person, name:"person" },
     { path: '/grid', component: grid, name:"grid" },
     { path: '/upload', component: upload, name:"upload" },
     { path: '/editor', component: editor, name:"editor" },
