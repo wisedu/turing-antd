@@ -48,6 +48,6 @@
     "local": "webpack --config webpack.prod.config.js --mode production && cp -r ./dist/* ../turing-example/node_modules/tg-turing-antd/dist/",
     "local2": "webpack --config webpack.prod.config.js --mode production && cp -r ./dist/* ../../GitLab/egg/project-v/node_modules/tg-turing-antd/dist/",
     "esm": "rollup --config ./rollup.config.js",
-    "prepublish": "yarn add tg-turing && npm run build"
+    "prepublish": "npm run build"
   }
 }
