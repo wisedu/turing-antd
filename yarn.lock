@@ -6601,10 +6601,10 @@ textextensions@2:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/textextensions/-/textextensions-2.2.0.tgz#38ac676151285b658654581987a0ce1a4490d286"
 
-tg-turing@^1.28.24:
-  version "1.28.24"
-  resolved "https://registry.yarnpkg.com/tg-turing/-/tg-turing-1.28.24.tgz#ac47dbbaff1e62d1811d1b31359fdc6a80963762"
-  integrity sha512-iO+OHQ+ixKmnXCC6moVrpS2BmTxrpNHGfy0CtCfndKT8MTsb+TGd1hrwzLVWRghNcoaD93Uy5P8H+Z00x+cj6g==
+tg-turing@^1.28.25:
+  version "1.28.25"
+  resolved "https://registry.yarnpkg.com/tg-turing/-/tg-turing-1.28.25.tgz#5c36143039b77bbc8a53f4c7036271795f10d420"
+  integrity sha512-aGI/lqjpf1/GPiiMOWWPOf4tDn8ku7q8mXXSXLbKplQHwe01w8dV7BYTPGTtSj42Fx2o9hdS4JLrxDuw0a7vWg==
   dependencies:
     accounting-js "^1.1.1"
     axios "^0.18.0"
