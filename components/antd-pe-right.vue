@@ -31,18 +31,29 @@
 export default {
     name: "antd-pe-right",
     props: {
-        selected: Array,
+        value: Array,
     },
     data() {
         return {
+            selected: this.value,
             isSelectedAll: false, // 左侧已选择区域 控制是否全选/清除
         }
     },
-    computed:{
-        
+    watch:{
+        value: {
+            handler:function(newVal){
+                this.selected = newVal;
+            },
+            deep:true
+        },
+        selected: {
+            handler:function(newVal){
+                this.$emit('input',newVal);
+            },
+            deep:true
+        }
     },
     methods: {
-        //this.$emit("on-treeItemSelect", data);
         selectAllOrClear: function(){
             var vm = this;
             this.isSelectedAll = !this.isSelectedAll;

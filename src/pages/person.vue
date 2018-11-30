@@ -3,7 +3,7 @@
         <div class="tjyh-main">
             <antd-pe-left :treeData="treeData" :tabData="tabData" @on-treeItemSelect="treeItemSelect_p"></antd-pe-left>
             <antd-pe-center :users="users" @on-check="check_p"></antd-pe-center>
-            <antd-pe-right :selected="selected" @on-delete="delete_p"></antd-pe-right>
+            <antd-pe-right  v-model="selected" @on-delete="delete_p"></antd-pe-right>
         </div>
     </div>
 </template>
@@ -59,7 +59,7 @@ export default {
             this.selected = data;
         },
         delete_p(data){
-            this.selected = data;
+            console.log(data)
         }
     }
 }
