@@ -3,12 +3,12 @@
         <div class="tjyh-main-right">
             <div class="tjyh-main-right-top">
                 <span>已选 <span class="tjyh-main-right-count">{{selected.length}}</span></span>
-                <div>
+<!--                 <div>
                     <a @click="selectAllOrClear">全选/清除 </a>|<a @click="setTop"> 置顶 </a>|<a @click="setBottom"> 置底 </a>|<a @click="moveUp"> 上移 </a>|<a @click="moveDown"> 下移 </a>|<a @click="deleteRecords"> 删除</a>
-                </div>
+                </div> -->
             </div>
             <div class="tjyh-main-right-main">
-                <div v-for="item in selected" class="gm-member-row bh-clearfix tjyh-selected-item" :userItem="item" :class="{'bh-ch-active': item._isSelected}" @click="selectOne(item)" >
+                <div v-for="item in selected" class="gm-member-row bh-clearfix tjyh-selected-item" :userItem="item" :class="{'bh-ch-active': false}" @click="selectOne(item)" >
                     <Col span="6" :title="item.XM" class="xm">
                         {{item.XM}}
                     </Col>
@@ -32,6 +32,7 @@ export default {
     name: "antd-pe-right",
     props: {
         value: Array,
+        users: Array
     },
     data() {
         return {
@@ -43,12 +44,6 @@ export default {
         value: {
             handler:function(newVal){
                 this.selected = newVal;
-            },
-            deep:true
-        },
-        selected: {
-            handler:function(newVal){
-                this.$emit('input',newVal);
             },
             deep:true
         }
@@ -130,12 +125,12 @@ export default {
             this.$emit("on-delete",this.selected);
         },
         deleteRecords_in: function(item){
-            this.isCheckedAll = false;
-            item._isLeftSelected = false;
-            this.selected = this.selected.filter(function(item){
-              return item._isLeftSelected;
+            // this.isCheckedAll = false;
+            this.selected = this.selected.filter(function(obj){
+              return item.ZGH !== obj.ZGH;
             });
-            this.$emit("on-delete",this.selected)
+            console.log(this.selected)
+            this.$emit('input',this.selected);
         },
         selectOne: function(user){
             var index = this.selected.indexOf(user);

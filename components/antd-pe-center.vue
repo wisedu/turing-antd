@@ -2,12 +2,12 @@
     <div class="antd-pe-center">
         <div class="tjyh-main-middle">
             <div class="tjyh-main-middle-top">
-                <span>待选人员</span> <span class="tjyh-main-middel-count">{{users.length}}</span>
+                <span>待选人员</span> <span class="tjyh-main-middel-count">{{options.length}}</span>
             </div>
             <div class="tjyh-main-middle-main">
                 <div class="tjyh-middle-table">
-                    <span v-if="users.length == 0" style="color: #999">无数据</span>
-                    <template v-if="users.length != 0">
+                    <span v-if="options.length == 0" style="color: #999">无数据</span>
+                    <template v-if="options.length != 0">
                         <Row>
                             <Col span="2">
                                 <Checkbox v-model="isCheckedAll" @on-change="checkAll"></Checkbox>
@@ -23,18 +23,18 @@
                             </Col>
                         </Row>
                         <div class="tjyh-middle-scroll">
-                            <div v-for="user in users" class="gm-member-row tjyh-middle-item">
+                            <div v-for="option in options" class="gm-member-row tjyh-middle-item">
                                 <Col span="2">
-                                    <Checkbox v-model="user._isLeftSelected" @on-change="checkOne(user)" :disabled="user._disabled"></Checkbox>
+                                    <Checkbox v-model="option._isSelected" @on-change="checkOne(option)" :disabled="option._disabled"></Checkbox>
                                 </Col>
-                                <Col span="6" :title="user.XM" class="xm">
-                                    {{user.XM}}
+                                <Col span="6" :title="option.XM" class="xm">
+                                    {{option.XM}}
                                 </Col>
-                                <Col span="6" :title="user.ZGH" class="zgh">
-                                    {{user.ZGH}}
+                                <Col span="6" :title="option.ZGH" class="zgh">
+                                    {{option.ZGH}}
                                 </Col>
-                                <Col span="10" :title="user.deptName" class="dept">
-                                    {{user.deptName}}
+                                <Col span="10" :title="option.deptName" class="dept">
+                                    {{option.deptName}}
                                 </Col>
                             </div>
                         </div>
@@ -49,56 +49,52 @@
 export default {
     name: "antd-pe-center",
     props: {
-        users: {
-            type:[Array, Object],
-            default:function() {
-                return [];
-            }
-        },
+        users: Array
     },
     data() {
         return {
-            isCheckedAll: false,
-            selected: [], // 选中值
-            isSelectedAll: false, // 左侧已选择区域 控制是否全选/清除
+            selected: [],
+            options: [], // 页面渲染源数据，数据来源基于父级users
+            isCheckedAll: false
         }
     },
-    computed:{
-        
+    watch: {
+        users: function(value){
+            this.options = value;
+        }
     },
     methods: {
-        checkOne: function(user){
-            var i = this.selected.indexOf(user);
-            if(!user._isLeftSelected){
-                this.selected.splice(i, 1);
-                this.isCheckedAll = false;
-            }else{
-                if(i == -1){
-                    this.selected.push(user);
-                    if(this.selected.length == this.users.length){
-                        this.isCheckedAll = true;
-                    }
-                }
-            }
+        checkOne: function(option){
+            // 联动是否全选
+            var flag = true;
+            this.options.forEach(function(user){
+                if(!user._isSelected) flag = false;
+            });
+            this.isCheckedAll = flag;
+            // 获取选中只向外抛出
+            this.selected = this.options.filter(function(user){
+                return user._isSelected
+            });
             this.$emit("on-check", this.selected);
         },
-        checkAll: function(){
-            var vm = this;
-            if(this.isCheckedAll){
-              this.selected = this.users.filter(function(item){
-                return !item._isSelected;
-              });
-              this.users.forEach(function(obj,i){
-                vm.$set(obj, '_isLeftSelected', true);
-              });
-            }else{
-              this.selected = [];
-              this.users.forEach(function(obj,i){
-                vm.$set(obj, '_isLeftSelected', false);
-              });
-            }
+        checkAll: function(value){
+            this.options.map(function(user){
+                user._isSelected = value;
+                return user;
+            });
+            this.selected = value?this.options:[];
             this.$emit("on-check", this.selected);
         },
+        dataChange: function(users){
+            this.options = [];
+            // 利用vue 2.0 的concat()方法监听修改数据
+            this.options = this.options.concat(users);
+            var flag = true;
+            this.options.forEach(function(user){
+                if(!user._isSelected) flag = false;
+            });
+            this.isCheckedAll = flag;
+        }
     }
 }
 </script>

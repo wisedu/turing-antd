@@ -2,8 +2,9 @@
     <div class="us-modal">
         <div class="tjyh-main">
             <antd-pe-left :treeData="treeData" :tabData="tabData" @on-treeItemSelect="treeItemSelect_p"></antd-pe-left>
-            <antd-pe-center :users="users" @on-check="check_p"></antd-pe-center>
-            <antd-pe-right  v-model="selected" @on-delete="delete_p"></antd-pe-right>
+            <antd-pe-center ref="antd-pe-center" :users="users" @on-check="check_p"></antd-pe-center>
+            <antd-pe-right  v-model="selected"></antd-pe-right>
+            <button @click="getCurrentVal">获取当前选中值</button>
         </div>
     </div>
 </template>
@@ -45,21 +46,36 @@ export default {
             ]
         }
     },
+    watch: {
+        selected: {
+            handler:function(newVal){
+                var arr = newVal.map(function(val){
+                    return val.ZGH;
+                });
+                this.users.forEach(function(user){
+                    if(arr.indexOf(user.ZGH) === -1) user._isSelected = false;
+                    return user
+                });
+                this.$refs['antd-pe-center'].dataChange(this.users);
+            },
+            deep:true
+        }
+    },
     methods: {
         treeItemSelect_p(data){
-            console.log(data);
+            // console.log(data);
             //取到树节点去查询
             this.users = [
                 {XM: '张三',ZGH: '01120010',deptName: '学工',_disabled: false},
-                {XM: '李四',ZGH: '01120010',deptName: '人事',_disabled: false},
-                {XM: '王五',ZGH: '01120010',deptName: '教务',_disabled: false}
+                {XM: '李四',ZGH: '01120011',deptName: '人事',_disabled: false},
+                {XM: '王五',ZGH: '01120012',deptName: '教务',_disabled: false}
             ]
         },
         check_p(data){
             this.selected = data;
         },
-        delete_p(data){
-            console.log(data)
+        getCurrentVal(){
+            console.log(this.selected);
         }
     }
 }
