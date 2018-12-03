@@ -61,6 +61,7 @@ export default {
     watch: {
         users: function(value){
             this.options = value;
+            this.isCheckedAll = false;
         }
     },
     methods: {
@@ -75,6 +76,7 @@ export default {
             this.selected = this.options.filter(function(user){
                 return user._isSelected
             });
+            console.log(this.options);
             this.$emit("on-check", this.selected);
         },
         checkAll: function(value){
@@ -128,7 +130,6 @@ export default {
     padding: 8px 16px;
     background: #f9fafc;
     color: #515a6e;
-    /* border-bottom: 1px solid #e8eaec; */
     overflow: hidden;
     top: 0;
     left: 0;
@@ -248,13 +249,11 @@ export default {
 }
 
 .us-modal .tjyh-middle-scroll {
-    /* width: 293px; */
     height: 286px;
     overflow-x: hidden;
 }
 
 .us-modal .tjyh-middle-page{
-    /*text-align: center;*/
     margin: 0 auto;
     height: 24px;
     line-height: 24px;
@@ -282,7 +281,6 @@ export default {
 
 .us-modal .gm-member-row {
     height: 24px;
-    /* line-height: 24px; */
 }
 
 .us-modal .gm-member-row .bh-checkbox,

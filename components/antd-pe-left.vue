@@ -37,7 +37,7 @@ export default {
     methods: {
         //抛出到父集去查询树节点对应的人员的数据
         treeItemSelect (data){
-            this.$emit("on-treeItemSelect", data);
+            this.$emit("on-select", data);
         },
     }
 }

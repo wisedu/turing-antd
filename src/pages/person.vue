@@ -1,7 +1,7 @@
 <template>
     <div class="us-modal">
         <div class="tjyh-main">
-            <antd-pe-left :treeData="treeData" :tabData="tabData" @on-treeItemSelect="treeItemSelect_p"></antd-pe-left>
+            <antd-pe-left :treeData="treeData" :tabData="tabData" @on-select="treeItemSelect_p"></antd-pe-left>
             <antd-pe-center ref="antd-pe-center" :users="users" @on-check="check_p"></antd-pe-center>
             <antd-pe-right  v-model="selected"></antd-pe-right>
             <button @click="getCurrentVal">获取当前选中值</button>
@@ -63,7 +63,6 @@ export default {
     },
     methods: {
         treeItemSelect_p(data){
-            // console.log(data);
             //取到树节点去查询
             this.users = [
                 {XM: '张三',ZGH: '01120010',deptName: '学工',_disabled: false},

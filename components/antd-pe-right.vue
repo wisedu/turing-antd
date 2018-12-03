@@ -9,14 +9,11 @@
             </div>
             <div class="tjyh-main-right-main">
                 <div v-for="item in selected" class="gm-member-row bh-clearfix tjyh-selected-item" :userItem="item" :class="{'bh-ch-active': false}" @click="selectOne(item)" >
-                    <Col span="6" :title="item.XM" class="xm">
+                    <Col span="10" :title="item.XM" class="xm">
                         {{item.XM}}
                     </Col>
-                    <Col span="6" :title="item.ZGH" class="zgh">
+                    <Col span="10" :title="item.ZGH" class="zgh">
                         {{item.ZGH}}
-                    </Col>
-                    <Col span="10" :title="item.deptName" class="dept">
-                        {{item.deptName}}
                     </Col>
                     <Col span="2" class="">
                         <Icon type="md-trash" size="16" @click="deleteRecords_in(item)"/>
