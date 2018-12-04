@@ -1,0 +1,44 @@
+{
+	"cxzzry":{
+		"pageNumber": 1,
+		"pageSize": 15,
+		"totalSize": 2,
+		"rows": [{
+				"CANWRITE": "0",
+				"DM": "TD_LSDEPT",
+				"LS": null,
+				"WID": "TD_LSDEPT",
+				"title": "临时人员"
+			},{
+				"CANWRITE": "1",
+				"DM": "TD_5H6Qlv1",
+				"LS": "TD_LSDEPT",
+				"WID": "TD_5H6Qlv1",
+				"title": "临时部门-20181113"
+			},{
+				"CANWRITE": "0",
+				"DM": "4",
+				"LS": null,
+				"WID": "4",
+				"title": "酱油部2"
+			},{
+				"CANWRITE": "0",
+				"DM": "1",
+				"LS": null,
+				"WID": "1",
+				"title": "云工厂"
+			},{
+				"CANWRITE": "0",
+				"DM": "2",
+				"LS": "1",
+				"WID": "2",
+				"title": "研发部"
+			},{
+				"CANWRITE": "0",
+				"DM": "3",
+				"LS": null,
+				"WID": "3",
+				"title": "行政部"
+			}]
+	}
+}

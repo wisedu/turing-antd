@@ -7,7 +7,7 @@
             <div class="tjyh-main-middle-main">
                 <div class="tjyh-middle-table">
                     <span v-if="options.length == 0" style="color: #999">无数据</span>
-                    <template v-if="options.length != 0">
+                    <template v-if="options.length != 0 && type ==='checkbox'">
                         <Row>
                             <Col span="2">
                                 <Checkbox v-model="isCheckedAll" @on-change="checkAll"></Checkbox>
@@ -39,6 +39,38 @@
                             </div>
                         </div>
                     </template>
+                    <template v-if="options.length != 0 && type ==='radio'">
+                        <Row>
+                            <Col span="2">
+                                 <Radio disabled style="visibility: hidden;"></Radio>
+                            </Col>
+                            <Col span="6">
+                                <B>姓名</B>
+                            </Col>
+                            <Col span="6">
+                                <B>工号</B>
+                            </Col>
+                            <Col span="10">
+                                <B>组织机构</B>
+                            </Col>
+                        </Row>
+                        <div class="tjyh-middle-scroll">
+                            <div v-for="option in options" class="gm-member-row tjyh-middle-item">
+                                <Col span="2">
+                                    <Radio v-model="option._isSelected" @on-change="checkOne(option)" :disabled="option._disabled"></Radio>
+                                </Col>
+                                <Col span="6" :title="option.XM" class="xm">
+                                    {{option.XM}}
+                                </Col>
+                                <Col span="6" :title="option.ZGH" class="zgh">
+                                    {{option.ZGH}}
+                                </Col>
+                                <Col span="10" :title="option.deptName" class="dept">
+                                    {{option.deptName}}
+                                </Col>
+                            </div>
+                        </div>
+                    </template>
                 </div>
             </div>
         </div>
@@ -49,13 +81,17 @@
 export default {
     name: "antd-pe-center",
     props: {
-        users: Array
+        users: Array,
+        type: {
+            type: String,
+            default: 'checkbox'
+        }
     },
     data() {
         return {
             selected: [],
             options: [], // 页面渲染源数据，数据来源基于父级users
-            isCheckedAll: false
+            isCheckedAll: false,
         }
     },
     watch: {
@@ -66,17 +102,25 @@ export default {
     },
     methods: {
         checkOne: function(option){
-            // 联动是否全选
-            var flag = true;
-            this.options.forEach(function(user){
-                if(!user._isSelected) flag = false;
-            });
-            this.isCheckedAll = flag;
-            // 获取选中只向外抛出
-            this.selected = this.options.filter(function(user){
-                return user._isSelected
-            });
-            console.log(this.options);
+            if(this.type === 'checkbox') {
+                // 联动是否全选
+                var flag = true;
+                this.options.forEach(function(user){
+                    if(!user._isSelected) flag = false;
+                });
+                this.isCheckedAll = flag;
+                // 获取选中只向外抛出
+                this.selected = this.options.filter(function(user){
+                    return user._isSelected
+                });
+            }else{
+                this.options.forEach(function(user){
+                    if(user.ZGH !== option.ZGH) {
+                        user._isSelected = false;
+                    }
+                });
+                this.selected = [option];
+            }
             this.$emit("on-check", this.selected);
         },
         checkAll: function(value){
@@ -91,11 +135,13 @@ export default {
             this.options = [];
             // 利用vue 2.0 的concat()方法监听修改数据
             this.options = this.options.concat(users);
-            var flag = true;
-            this.options.forEach(function(user){
-                if(!user._isSelected) flag = false;
-            });
-            this.isCheckedAll = flag;
+            if(this.type === 'checkbox'){
+                var flag = true;
+                this.options.forEach(function(user){
+                    if(!user._isSelected) flag = false;
+                });
+                this.isCheckedAll = flag;
+            }
         }
     }
 }

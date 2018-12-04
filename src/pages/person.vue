@@ -2,7 +2,7 @@
     <div class="us-modal">
         <div class="tjyh-main">
             <antd-pe-left :treeData="treeData" :tabData="tabData" @on-select="treeItemSelect_p"></antd-pe-left>
-            <antd-pe-center ref="antd-pe-center" :users="users" @on-check="check_p"></antd-pe-center>
+            <antd-pe-center ref="antd-pe-center" :users="users" @on-check="check_p" type="radio"></antd-pe-center>
             <antd-pe-right  v-model="selected"></antd-pe-right>
             <button @click="getCurrentVal">获取当前选中值</button>
         </div>
@@ -13,6 +13,7 @@
 import AntdPeLeft from '../../components/antd-pe-left';
 import AntdPeCenter from '../../components/antd-pe-center';
 import AntdPeRight from '../../components/antd-pe-right';
+import tgTurning from 'tg-turing';
 export default {
     components:{
         AntdPeLeft,
@@ -25,25 +26,7 @@ export default {
             tabData: [],
             selected:[],
             // tabData: [{id: '1',name: '组织机构'},{id: '2',name: '学工机构'}],
-            treeData: [
-                {
-                    title: '云工厂',
-                    expand: true,
-                    children: [
-                        {
-                            title: '研发部',
-                            expand: true,
-                            children: []
-                        },
-                        {
-                            title: '产品部',
-                            selected: true,
-                            expand: true,
-                            children: []
-                        }
-                    ]
-                }
-            ]
+            treeData: []
         }
     },
     watch: {
@@ -63,6 +46,7 @@ export default {
     },
     methods: {
         treeItemSelect_p(data){
+            console.log(data)
             //取到树节点去查询
             this.users = [
                 {XM: '张三',ZGH: '01120010',deptName: '学工',_disabled: false},
@@ -76,6 +60,13 @@ export default {
         getCurrentVal(){
             console.log(this.selected);
         }
+    },
+    mounted(){
+        var that = this;
+        tgTurning.utils.Get('../static/cxzzry.json').then(function(res){
+            var rows = res.data.cxzzry.rows;
+            that.treeData = tgTurning.utils.toTreeData(rows, null, {ukey:"DM", pkey:'LS', toCKey:'children'})
+        });
     }
 }
 </script>
