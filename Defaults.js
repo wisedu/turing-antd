@@ -11,28 +11,28 @@ export default {
         "text": {
             name: "antd-fc-text",
             required: {
-                trigger: "blur,change",
+                trigger: "blur",
                 message: "不能为空"
             }
         },
         "textarea": {
             name: "antd-fc-textarea",
             required: {
-                trigger: "blur,change",
+                trigger: "blur",
                 message: "不能为空"
             }
         },
         "date": {
             name: "antd-fc-date",
             required: {
-                trigger: "blur,change",
+                trigger: "blur",
                 message: "不能为空"
             }
         },
         "date-range": {
             name: "antd-fc-date-range",
             required: {
-                trigger: "blur,change",
+                trigger: "blur",
                 type: "array",
                 message: "不能为空"
             }
@@ -41,7 +41,7 @@ export default {
             name: "antd-fc-date",
             required: {
                 type:"date",
-                trigger: "blur,change",
+                trigger: "blur",
                 message: "不能为空"
             }
         },
@@ -52,7 +52,7 @@ export default {
                 format:"yyyy-MM"
             },
             required: {
-                trigger: "blur,change",
+                trigger: "blur",
                 message: "不能为空"
             }
         },
@@ -63,7 +63,7 @@ export default {
                 format:"yyyy-MM-dd HH:mm",
             },
             required: {
-                trigger: "blur,change",
+                trigger: "blur",
                 message: "不能为空"
             }
         },
