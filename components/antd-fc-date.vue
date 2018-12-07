@@ -2,10 +2,10 @@
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
         <template v-if="params.tooltip !== 0 && !params.tooltip === true">
             <!--DatePicker这段是一样的-->
-            <DatePicker :value="value" :type="type" :format="format" :placeholder="placeholder" style="width:100%" @on-change="onChange" transfer v-bind="params"></DatePicker>
+            <DatePicker :value="value" :type="type" :format="format" :placeholder="placeholder" style="width:100%" @on-change="onChange" transfer :readonly="readonly" :disabled="disabled" v-bind="params"></DatePicker>
         </template>
         <Tooltip v-else :content="params.tooltip" class="input-hasTip">
-            <DatePicker :value="value" :type="type" :format="format" :placeholder="placeholder" style="width:100%" @on-change="onChange" transfer v-bind="params"></DatePicker>
+            <DatePicker :value="value" :type="type" :format="format" :placeholder="placeholder" style="width:100%" @on-change="onChange" transfer :readonly="readonly" :disabled="disabled" v-bind="params"></DatePicker>
         </Tooltip>
     </FormItem>
     <antd-fc-static v-else :caption="caption" :prop="name" :value="value"></antd-fc-static>

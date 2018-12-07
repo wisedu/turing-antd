@@ -5,7 +5,9 @@
                 @on-current-change="onHighlight" @on-select-all="onSelectAll" @on-selection-change="onSelectionChange" @on-sort-change="onSortChange">
                 <template :slot="model.key" slot-scope="scope" v-for="model in columns">
                     <slot :name="model.key" :index="scope.index" :column="scope.column" :row="scope.row">
-                        {{scope.row[model.key + "" + displayFieldFormat] !== undefined ? scope.row[model.key + "" + displayFieldFormat] : scope.row[model.key]}}
+                        <span :key="scope.index" :title="cellValue(scope, model)">
+                            {{cellValue(scope, model)}}
+                        </span>
                     </slot>
                 </template>
                 <slot name="footer" slot="footer"></slot>
@@ -98,6 +100,9 @@ export default {
         onSortChange(params) {
             this.$emit("on-sort-change", params.column, params.key, params.order)
         },
+        cellValue(scope, model) {
+            return scope.row[model.key + "" + this.displayFieldFormat] !== undefined ? scope.row[model.key + "" + this.displayFieldFormat] : scope.row[model.key];
+        }
     }
 }
 </script>
