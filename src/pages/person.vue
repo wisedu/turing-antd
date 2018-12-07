@@ -2,7 +2,7 @@
     <div class="us-modal">
         <div class="tjyh-main">
             <antd-pe-left :treeData="treeData" :tabData="tabData" @on-select="treeItemSelect_p"></antd-pe-left>
-            <antd-pe-center ref="antd-pe-center" :users="users" @on-check="check_p" type="radio"></antd-pe-center>
+            <antd-pe-center ref="antd-pe-center" :users="users" @on-check="check_p" ></antd-pe-center>
             <antd-pe-right  v-model="selected"></antd-pe-right>
             <button @click="getCurrentVal">获取当前选中值</button>
         </div>
@@ -48,11 +48,17 @@ export default {
         treeItemSelect_p(data){
             console.log(data)
             //取到树节点去查询
-            this.users = [
-                {XM: '张三',ZGH: '01120010',deptName: '学工',_disabled: false},
-                {XM: '李四',ZGH: '01120011',deptName: '人事',_disabled: false},
-                {XM: '王五',ZGH: '01120012',deptName: '教务',_disabled: false}
-            ]
+            if(data[0].DM === '4'){
+                this.users = [
+                    {XM: '啊哈哈',ZGH: '01120000',deptName: '学工',_disabled: false},
+                ]
+            }else{
+                this.users = [
+                    {XM: '张三',ZGH: '01120010',deptName: '学工',_disabled: false},
+                    {XM: '李四',ZGH: '01120011',deptName: '人事',_disabled: false},
+                    {XM: '王五',ZGH: '01120012',deptName: '教务',_disabled: false}
+                ]
+            }
         },
         check_p(data){
             this.selected = data;

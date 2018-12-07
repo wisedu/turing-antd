@@ -95,8 +95,11 @@ export default {
         }
     },
     watch: {
-        users: function(value){
-            this.options = value;
+        users: function(values){
+            this.options = values.map(function(val){
+                val._isSelected = false;
+                return val;
+            });
             this.isCheckedAll = false;
         }
     },
@@ -133,7 +136,7 @@ export default {
         },
         dataChange: function(users){
             this.options = [];
-            // 利用vue 2.0 的concat()方法监听修改数据
+            // 利用vue 2.0 的concat()方法监听并修改数据
             this.options = this.options.concat(users);
             if(this.type === 'checkbox'){
                 var flag = true;
