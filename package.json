@@ -9,6 +9,7 @@
     "tg-turing": "^1.28.58",
     "tiptap": "^0.19.0",
     "tiptap-extensions": "^0.21.0",
+    "turing": "^0.0.74",
     "vue": "^2.5.17",
     "vue-upload-component": "^2.8.11"
   },
