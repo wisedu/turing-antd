@@ -15,10 +15,10 @@
                             <Col span="6">
                                 <B>姓名</B>
                             </Col>
-                            <Col span="6">
+                            <Col span="8">
                                 <B>工号</B>
                             </Col>
-                            <Col span="10">
+                            <Col span="8">
                                 <B>组织机构</B>
                             </Col>
                         </Row>
@@ -30,10 +30,10 @@
                                 <Col span="6" :title="option.XM" class="xm">
                                     {{option.XM}}
                                 </Col>
-                                <Col span="6" :title="option.ZGH" class="zgh">
+                                <Col span="8" :title="option.ZGH" class="zgh">
                                     {{option.ZGH}}
                                 </Col>
-                                <Col span="10" :title="option.deptName" class="dept">
+                                <Col span="8" :title="option.deptName" class="dept">
                                     {{option.deptName}}
                                 </Col>
                             </div>
@@ -48,10 +48,10 @@
                             <Col span="6">
                                 <B>姓名</B>
                             </Col>
-                            <Col span="6">
+                            <Col span="8">
                                 <B>工号</B>
                             </Col>
-                            <Col span="10">
+                            <Col span="8">
                                 <B>组织机构</B>
                             </Col>
                         </Row>
@@ -63,10 +63,10 @@
                                 <Col span="6" :title="option.XM" class="xm">
                                     {{option.XM}}
                                 </Col>
-                                <Col span="6" :title="option.ZGH" class="zgh">
+                                <Col span="8" :title="option.ZGH" class="zgh">
                                     {{option.ZGH}}
                                 </Col>
-                                <Col span="10" :title="option.deptName" class="dept">
+                                <Col span="8" :title="option.deptName" class="dept">
                                     {{option.deptName}}
                                 </Col>
                             </div>
@@ -337,9 +337,6 @@ export default {
     clear: both;
 }
 
-.us-modal .gm-member-row {
-    height: 24px;
-}
 
 .us-modal .gm-member-row .bh-checkbox,
 .us-modal .gm-member-row .bh-radio {
@@ -350,10 +347,6 @@ export default {
 
 .us-modal .gm-member-row:nth-child(2n) {
     background-color: #f8f8f8;
-}
-
-.us-modal .gm-member-row {
-    background-color: #fff;
 }
 
 .us-modal .gm-member-row:hover {
@@ -367,4 +360,11 @@ export default {
 .us-modal .tjyh-middle-scroll .gm-member-row {
     background-color: #f8f8f8;
 }
+.us-modal .tjyh-middle-scroll .gm-member-row .zgh{
+    word-break: break-all;
+}
+.us-modal .gm-member-row .zgh,.us-modal .gm-member-row .dept{
+    padding-left: 4px;
+}
+
 </style>

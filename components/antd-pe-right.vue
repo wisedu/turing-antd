@@ -3,12 +3,12 @@
         <div class="tjyh-main-right">
             <div class="tjyh-main-right-top">
                 <span>已选 <span class="tjyh-main-right-count">{{selected.length}}</span></span>
-<!--                 <div>
+                <div>
                     <a @click="selectAllOrClear">全选/清除 </a>|<a @click="setTop"> 置顶 </a>|<a @click="setBottom"> 置底 </a>|<a @click="moveUp"> 上移 </a>|<a @click="moveDown"> 下移 </a>|<a @click="deleteRecords"> 删除</a>
-                </div> -->
+                </div>
             </div>
             <div class="tjyh-main-right-main">
-                <div v-for="item in selected" class="gm-member-row bh-clearfix tjyh-selected-item" :userItem="item" :class="{'bh-ch-active': false}" @click="selectOne(item)" >
+                <div v-for="item in selected" class="gm-member-row bh-clearfix tjyh-selected-item" :class="{'bh-ch-active': item.active}" @click="selectOne(item)" >
                     <Col span="10" :title="item.XM" class="xm">
                         {{item.XM}}
                     </Col>
@@ -16,7 +16,7 @@
                         {{item.ZGH}}
                     </Col>
                     <Col span="2" class="">
-                        <Icon type="md-trash" size="16" @click="deleteRecords_in(item)"/>
+                        <Icon type="md-trash" size="16" @click.native.stop="deleteRecords_in(item)"/>
                     </Col>
                 </div>
             </div>
@@ -28,8 +28,7 @@
 export default {
     name: "antd-pe-right",
     props: {
-        value: Array,
-        users: Array
+        value: Array
     },
     data() {
         return {
@@ -131,21 +130,24 @@ export default {
         },
         selectOne: function(user){
             var index = this.selected.indexOf(user);
-            if(user._isSelected == true){
-              this.$set(user, '_isSelected', false);
-              this.isSelectedAll = false;
-            }else{
-              this.$set(user, '_isSelected', true);
-              // 判断是否已经全选
-              var selectedUsers = this.selected.filter(function(item){
-                return item._isSelected == true
-              });
-              if(selectedUsers.length == this.selected.length && selectedUsers.length != 0){
-                this.isSelectedAll = true;
-              }else{
+            if(user.active === true){
+                user.active = false;
+                this.$set(this.selected, index, user);
                 this.isSelectedAll = false;
-              }
+            }else{
+                user.active = true;
+                this.$set(this.selected, index, user);
+                // 判断是否已经全选
+                var selectedUsers = this.selected.filter(function(item){
+                    return item._isSelected == true
+                });
+                if(selectedUsers.length == this.selected.length && selectedUsers.length != 0){
+                    this.isSelectedAll = true;
+                }else{
+                    this.isSelectedAll = false;
+                }
             }
+
         }
     }
 }
@@ -303,10 +305,6 @@ export default {
     clear: both;
 }
 
-.us-modal .gm-member-row {
-    height: 24px;
-    /* line-height: 24px; */
-}
 
 .us-modal .gm-member-row .bh-checkbox,
 .us-modal .gm-member-row .bh-radio {
@@ -320,6 +318,7 @@ export default {
 }
 
 .us-modal .gm-member-row {
+    overflow: hidden;
     background-color: #fff;
 }
 
