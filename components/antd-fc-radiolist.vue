@@ -6,7 +6,7 @@
             </Radio>
         </RadioGroup>
     </FormItem>
-    <antd-fc-static v-else :caption="caption" :prop="name" :value="value"></antd-fc-static>
+    <antd-fc-static v-else :caption="caption" :prop="name" :value="value" :display="display"></antd-fc-static>
 </template>
 
 <script>
