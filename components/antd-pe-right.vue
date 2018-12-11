@@ -4,7 +4,7 @@
             <div class="tjyh-main-right-top">
                 <span>已选 <span class="tjyh-main-right-count">{{selected.length}}</span></span>
                 <div>
-                    <a @click="selectAllOrClear">全选/清除 </a>|<a @click="setTop"> 置顶 </a>|<a @click="setBottom"> 置底 </a>|<a @click="moveUp"> 上移 </a>|<a @click="moveDown"> 下移 </a>|<a @click="deleteRecords"> 删除</a>
+  <!--                   <a @click="selectAllOrClear">全选/清除 </a>|<a @click="setTop"> 置顶 </a>|<a @click="setBottom"> 置底 </a>|<a @click="moveUp"> 上移 </a>|<a @click="moveDown"> 下移 </a>|<a @click="deleteRecords"> 删除</a> -->
                 </div>
             </div>
             <div class="tjyh-main-right-main">
