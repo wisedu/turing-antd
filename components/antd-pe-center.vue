@@ -37,6 +37,7 @@
                                     {{option.deptName}}
                                 </Col>
                             </div>
+                            <div v-show="isShowLoadmore" class="tjyh-middle-page"><a href="javascript:void(0);" @click="searchUser('loadmore')">加载更多</a></div>
                         </div>
                     </template>
                     <template v-if="options.length != 0 && type ==='radio'">
@@ -69,6 +70,7 @@
                                     {{option.deptName}}
                                 </Col>
                             </div>
+                            <div v-show="isShowLoadmore" class="tjyh-middle-page"><a href="javascript:void(0);" @click="searchUser('loadmore')">加载更多</a></div>
                         </div>
                     </template>
                 </div>
@@ -85,6 +87,10 @@ export default {
         type: {
             type: String,
             default: 'checkbox'
+        },
+        isShowLoadmore: {  //是否显示加载更多
+            type: Boolean,
+            default: false
         }
     },
     data() {
@@ -145,6 +151,9 @@ export default {
                 });
                 this.isCheckedAll = flag;
             }
+        },
+        searchUser(ele){
+            this.$emit("on-searchUser", ele);
         }
     }
 }

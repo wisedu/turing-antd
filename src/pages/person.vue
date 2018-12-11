@@ -2,7 +2,7 @@
     <div class="us-modal">
         <div class="tjyh-main">
             <antd-pe-left :treeData="treeData" :tabData="tabData" @on-select="treeItemSelect_p"></antd-pe-left>
-            <antd-pe-center ref="antd-pe-center" :users="users" @on-check="check_p" ></antd-pe-center>
+            <antd-pe-center ref="antd-pe-center" :users="users" @on-check="check_p" :isShowLoadmore="isShowLoadmore" @on-searchUser="searchUser"></antd-pe-center>
             <antd-pe-right  v-model="selected"></antd-pe-right>
             <button @click="getCurrentVal">获取当前选中值</button>
         </div>
@@ -26,7 +26,9 @@ export default {
             tabData: [],
             selected:[],
             // tabData: [{id: '1',name: '组织机构'},{id: '2',name: '学工机构'}],
-            treeData: []
+            treeData: [],
+            isShowLoadmore: true,
+            totalSize: 15,
         }
     },
     watch: {
@@ -42,6 +44,13 @@ export default {
                 this.$refs['antd-pe-center'].dataChange(this.users);
             },
             deep:true
+        },
+        users(val){
+            if(this.totalSize > val.length){
+                this.isShowLoadmore = true
+            }else{
+                this.isShowLoadmore = false
+            } 
         }
     },
     methods: {
@@ -56,8 +65,13 @@ export default {
                 this.users = [
                     {XM: '张三',ZGH: '01120010',deptName: '学工',_disabled: false},
                     {XM: '李四',ZGH: '01120011',deptName: '人事',_disabled: false},
-                    {XM: '王五',ZGH: '01120012',deptName: '教务',_disabled: false}
+                    {XM: '王五',ZGH: '01120012',deptName: '教务',_disabled: false},
                 ]
+            }
+            if(data[0].DM === '4'){
+                this.totalSize = 1
+            }else{
+                this.totalSize = 15
             }
         },
         check_p(data){
@@ -65,6 +79,11 @@ export default {
         },
         getCurrentVal(){
             console.log(this.selected);
+        },
+        searchUser(element){
+            if(element == 'loadmore'){
+                this.users = this.users.concat(this.users);
+            }
         }
     },
     mounted(){
