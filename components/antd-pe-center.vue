@@ -102,11 +102,28 @@ export default {
     },
     watch: {
         users: function(values){
-            this.options = values.map(function(val){
-                val._isSelected = false;
+            var result = [],
+                _that = this,
+                flag = true; 
+            if(this.$parent && this.$parent.$refs['antd-pe-right']){
+                var antdPeRightVM = this.$parent.$refs['antd-pe-right'];
+                antdPeRightVM.selected.map(function(obj){
+                    result.push(obj.ZGH);
+                });
+            }
+            // 脱离vue中数组监听
+            var arr = JSON.parse(JSON.stringify(values));
+            arr.map(function(val){
+                if(result.indexOf(val.ZGH) > -1){
+                    val._isSelected = true;
+                }else{
+                    flag = false;
+                    val._isSelected = false;
+                }
                 return val;
             });
-            this.isCheckedAll = false;
+            this.options = arr;
+            this.isCheckedAll = flag;
         }
     },
     methods: {
@@ -119,38 +136,25 @@ export default {
                 });
                 this.isCheckedAll = flag;
                 // 获取选中只向外抛出
-                this.selected = this.options.filter(function(user){
-                    return user._isSelected
-                });
+                this.$emit("on-check", option);
             }else{
                 this.options.forEach(function(user){
                     if(user.ZGH !== option.ZGH) {
                         user._isSelected = false;
                     }
                 });
-                this.selected = [option];
+                this.$emit("on-check", [option]);
             }
-            this.$emit("on-check", this.selected);
         },
         checkAll: function(value){
-            this.options.map(function(user){
-                user._isSelected = value;
-                return user;
-            });
-            this.selected = value?this.options:[];
-            this.$emit("on-check", this.selected);
-        },
-        dataChange: function(users){
+            var _that = this;
+            var arr = JSON.parse(JSON.stringify(this.options));
             this.options = [];
-            // 利用vue 2.0 的concat()方法监听并修改数据
-            this.options = this.options.concat(users);
-            if(this.type === 'checkbox'){
-                var flag = true;
-                this.options.forEach(function(user){
-                    if(!user._isSelected) flag = false;
-                });
-                this.isCheckedAll = flag;
-            }
+            arr.map(function(obj){
+                obj._isSelected = value;
+                _that.options.push(obj);
+            });
+            this.$emit("on-check", this.options);
         },
         searchUser(ele){
             this.$emit("on-searchUser", ele);

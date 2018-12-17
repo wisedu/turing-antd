@@ -3,8 +3,8 @@
         <div class="tjyh-main-right">
             <div class="tjyh-main-right-top">
                 <span>已选 <span class="tjyh-main-right-count">{{selected.length}}</span></span>
-                <div>
-  <!--                   <a @click="selectAllOrClear">全选/清除 </a>|<a @click="setTop"> 置顶 </a>|<a @click="setBottom"> 置底 </a>|<a @click="moveUp"> 上移 </a>|<a @click="moveDown"> 下移 </a>|<a @click="deleteRecords"> 删除</a> -->
+                <div v-if="selected.length>1">
+<!--                     <a @click="selectAllOrClear">全选/清除 </a>|<a @click="setTop"> 置顶 </a>|<a @click="setBottom"> 置底 </a>|<a @click="moveUp"> 上移 </a>|<a @click="moveDown"> 下移 </a>|<a @click="deleteRecords"> 删除</a> -->
                 </div>
             </div>
             <div class="tjyh-main-right-main">
@@ -116,37 +116,37 @@ export default {
                 }
             });
             this.selected = this.selected.filter(function(item){
-              return !item._isSelected;
+                return !item._isSelected;
             });
             this.$emit("on-delete",this.selected);
         },
         deleteRecords_in: function(item){
             // this.isCheckedAll = false;
             this.selected = this.selected.filter(function(obj){
-              return item.ZGH !== obj.ZGH;
+                return item.ZGH !== obj.ZGH;
             });
-            console.log(this.selected)
             this.$emit('input',this.selected);
+            this.$emit('on-delete',item);
         },
         selectOne: function(user){
-            var index = this.selected.indexOf(user);
-            if(user.active === true){
-                user.active = false;
-                this.$set(this.selected, index, user);
-                this.isSelectedAll = false;
-            }else{
-                user.active = true;
-                this.$set(this.selected, index, user);
-                // 判断是否已经全选
-                var selectedUsers = this.selected.filter(function(item){
-                    return item._isSelected == true
-                });
-                if(selectedUsers.length == this.selected.length && selectedUsers.length != 0){
-                    this.isSelectedAll = true;
-                }else{
-                    this.isSelectedAll = false;
-                }
-            }
+            // var index = this.selected.indexOf(user);
+            // if(user.active === true){
+            //     user.active = false;
+            //     this.$set(this.selected, index, user);
+            //     this.isSelectedAll = false;
+            // }else{
+            //     user.active = true;
+            //     this.$set(this.selected, index, user);
+            //     判断是否已经全选
+            //     var selectedUsers = this.selected.filter(function(item){
+            //         return item._isSelected == true
+            //     });
+            //     if(selectedUsers.length == this.selected.length && selectedUsers.length != 0){
+            //         this.isSelectedAll = true;
+            //     }else{
+            //         this.isSelectedAll = false;
+            //     }
+            // }
 
         }
     }
@@ -158,9 +158,6 @@ export default {
     width: calc(100% / 3 - 3px);
     float: left;
 }
-
-
-
 .tgPerson .ivu-tabs-bar{
     margin-bottom: 0px;
     display: none;

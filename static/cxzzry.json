@@ -20,25 +20,7 @@
 				"DM": "4",
 				"LS": null,
 				"WID": "4",
-				"title": "酱油部2"
-			},{
-				"CANWRITE": "0",
-				"DM": "1",
-				"LS": null,
-				"WID": "1",
 				"title": "云工厂"
-			},{
-				"CANWRITE": "0",
-				"DM": "2",
-				"LS": "1",
-				"WID": "2",
-				"title": "研发部"
-			},{
-				"CANWRITE": "0",
-				"DM": "3",
-				"LS": null,
-				"WID": "3",
-				"title": "行政部"
 			}]
 	}
 }
