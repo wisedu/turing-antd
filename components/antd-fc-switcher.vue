@@ -1,8 +1,9 @@
 <template>
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
         <i-switch :value="value" :true-value="trueValue" :false-value="falseValue" @on-change="onChange" v-bind="params" size="large" :disabled="disabled || readonly">
-            <template v-for="item in options">
-                <span :slot="item.value" :key="item.value">{{item.label}}</span>
+            <template v-if="options.length >= 2">
+                <span slot="open" :key="options[0].value">{{options[0].label}}</span>
+                <span slot="close" :key="options[1].value">{{options[1].label}}</span>
             </template>
         </i-switch>
     </FormItem>
