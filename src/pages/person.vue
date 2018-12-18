@@ -27,7 +27,7 @@ export default {
             selected:[],
             // tabData: [{id: '1',name: '组织机构'},{id: '2',name: '学工机构'}],
             treeData: [],
-            type: 'checkbox',
+            type: 'radio',
             isShowLoadmore: true,
             totalSize: 15,
         }
