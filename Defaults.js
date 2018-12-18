@@ -22,6 +22,13 @@ export default {
                 message: "不能为空"
             }
         },
+        "editor": {
+            name: "antd-fc-editor",
+            required: {
+                trigger: "blur",
+                message: "不能为空"
+            }
+        },
         "date": {
             name: "antd-fc-date",
             required: {
