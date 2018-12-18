@@ -118,7 +118,7 @@
 				</div>
 			</div>
 
-			<div class="editor__content" slot="content" slot-scope="props" style="min-height:100px;" @input="onChange">
+			<div class="editor__content" slot="content" slot-scope="props" style="" @input="onChange">
 				
 			</div>
 
@@ -186,8 +186,8 @@ export default {
     methods:{
         onChange(value){
             let label = value;
-            this.$emit("on-item-change", this.name, value, label, this.model)
-            this.$emit("input", value)
+            this.$emit("on-item-change", this.name, value.data, label.data, this.model)
+            this.$emit("input", value.data)
         },
 		showImagePrompt(command) {
 			const src = prompt('Enter the url of your image here')
@@ -232,6 +232,9 @@ export default {
 }
 .editor__content {
 	border: solid 1px #ddd;
+}
+.editor__content > div {
+	min-height:100px;
 }
 .editor__content pre {
     padding: 0.7rem 1rem;
