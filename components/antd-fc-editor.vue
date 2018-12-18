@@ -144,7 +144,7 @@ import {
 import {ConnectItem} from 'tg-turing'
 export default {
 	name:"antd-fc-editor",
-    extends: ConnectItem,
+  extends: ConnectItem,
   components: {
     EditorContent,
     EditorMenuBar,
@@ -172,9 +172,7 @@ export default {
           new Image(),
           new History(),
         ],
-        content: `
-          
-        `,
+        content:this.value,
         onUpdate:this.updateeditor
       }),
     }
@@ -223,7 +221,7 @@ export default {
 .editor {
   position: relative;
 
-  margin: 0 auto 0rem auto;
+  margin: 0 auto 0 auto;
 }
 .editor__content {
 	border: solid 1px #ddd;
