@@ -1,6 +1,6 @@
 <template>
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
-        <RadioGroup :value="value" @on-change="onChange">
+        <RadioGroup :value="value" @on-change="onChange" :vertical="vertical">
             <Radio v-for="item in fullOptions" :label="item.value || item.id !== undefined ? item.value || item.id : item" :key="item.value || item.id !== undefined ? item.value || item.id : item">
                 {{ item.label || item }}
             </Radio>
@@ -18,6 +18,9 @@ export default {
         return {
             localOptions:[]
         }
+    },
+    props:{
+        vertical:Boolean
     },
     computed:{
         fullOptions(){
