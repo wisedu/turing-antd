@@ -1907,6 +1907,11 @@ core-js@^2.4.0, core-js@^2.4.1, core-js@^2.5.0, core-js@^2.5.7:
   version "2.5.7"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.7.tgz#f972608ff0cead68b841a16a932d0b183791814e"
 
+core-js@^2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.1.tgz#87416ae817de957a3f249b3b5ca475d4aaed6042"
+  integrity sha512-L72mmmEayPJBejKIWe2pYtGis5r0tQ5NaJekdhyXgeMQTpJoBsH0NL4ElY2LfSoV15xeQWKQ+XTTOZdyero5Xg==
+
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
@@ -6864,14 +6869,14 @@ textextensions@2:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/textextensions/-/textextensions-2.2.0.tgz#38ac676151285b658654581987a0ce1a4490d286"
 
-tg-turing@^1.29.2:
-  version "1.29.2"
-  resolved "https://registry.yarnpkg.com/tg-turing/-/tg-turing-1.29.2.tgz#df83557e1cd291010766872e205704ff57645193"
-  integrity sha512-c9TEirKNJ/Ot8KXFXaatDdLND5i7x3Xl8RQdM5SV89b7v8UOT/eRvnM4IPRNQho12LdFGj9QRTQWoy0eQviyvQ==
+tg-turing@^1.29.3:
+  version "1.29.3"
+  resolved "https://registry.yarnpkg.com/tg-turing/-/tg-turing-1.29.3.tgz#1928b1c0b2b0fd55d2c7aca1cfa43c3f172d0a6e"
+  integrity sha512-OP5WBojyvmPWzz3AugGxVXWk+tKVGbv5LCUOGVHmlBuATxqN0BBYmiXd7KVuD1XmVl6rSYFdM4XoX8QXFRRhsA==
   dependencies:
     accounting-js "^1.1.1"
     axios "^0.18.0"
-    core-js "^2.5.7"
+    core-js "^2.6.1"
     moment "^2.22.1"
     uuid "^3.3.2"
 
