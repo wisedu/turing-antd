@@ -27,13 +27,13 @@
                                 <Col span="2">
                                     <Checkbox v-model="option._isSelected" @on-change="checkOne(option)" :disabled="option._disabled"></Checkbox>
                                 </Col>
-                                <Col span="6" :title="option.XM" class="xm">
+                                <Col span="6" :title="option.XM" class="xm word_overflow">
                                     {{option.XM}}
                                 </Col>
-                                <Col span="8" :title="option.ZGH" class="zgh">
+                                <Col span="8" :title="option.ZGH" class="zgh word_overflow">
                                     {{option.ZGH}}
                                 </Col>
-                                <Col span="8" :title="option.deptName" class="dept">
+                                <Col span="8" :title="option.deptName" class="dept word_overflow">
                                     {{option.deptName}}
                                 </Col>
                             </div>
@@ -60,13 +60,13 @@
                                 <Col span="2">
                                     <Radio v-model="option._isSelected" @on-change="checkOne(option)" :disabled="option._disabled"></Radio>
                                 </Col>
-                                <Col span="6" :title="option.XM" class="xm">
+                                <Col span="6" :title="option.XM" class="xm word_overflow">
                                     {{option.XM}}
                                 </Col>
-                                <Col span="8" :title="option.ZGH" class="zgh">
+                                <Col span="8" :title="option.ZGH" class="zgh word_overflow">
                                     {{option.ZGH}}
                                 </Col>
-                                <Col span="8" :title="option.deptName" class="dept">
+                                <Col span="8" :title="option.deptName" class="dept word_overflow">
                                     {{option.deptName}}
                                 </Col>
                             </div>
@@ -209,7 +209,11 @@ export default {
     border-right: 1px solid #dcdee2;
 }
 
-
+.tjyh-main .word_overflow{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
 .us-modal .tjyh-search {
     width: 470px;

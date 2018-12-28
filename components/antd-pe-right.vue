@@ -9,10 +9,10 @@
             </div>
             <div class="tjyh-main-right-main">
                 <div v-for="item in selected" class="gm-member-row bh-clearfix tjyh-selected-item" :class="{'bh-ch-active': item.active}" @click="selectOne(item)" >
-                    <Col span="10" :title="item.XM" class="xm">
+                    <Col span="10" :title="item.XM" class="xm word_overflow">
                         {{item.XM}}
                     </Col>
-                    <Col span="10" :title="item.ZGH" class="zgh">
+                    <Col span="10" :title="item.ZGH" class="zgh word_overflow">
                         {{item.ZGH}}
                     </Col>
                     <Col span="2" class="">
@@ -199,7 +199,11 @@ export default {
     border-right: 1px solid #dcdee2;
 }
 
-
+.tjyh-main .word_overflow{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
 .us-modal .tjyh-search {
     width: 470px;
