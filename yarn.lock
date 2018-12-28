@@ -6864,9 +6864,10 @@ textextensions@2:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/textextensions/-/textextensions-2.2.0.tgz#38ac676151285b658654581987a0ce1a4490d286"
 
-tg-turing@^1.29.1:
-  version "1.29.1"
-  resolved "https://registry.yarnpkg.com/tg-turing/-/tg-turing-1.29.1.tgz#d3dcc3f9a2b3bcfcd02212bef09d421f753bf4b3"
+tg-turing@^1.29.2:
+  version "1.29.2"
+  resolved "https://registry.yarnpkg.com/tg-turing/-/tg-turing-1.29.2.tgz#df83557e1cd291010766872e205704ff57645193"
+  integrity sha512-c9TEirKNJ/Ot8KXFXaatDdLND5i7x3Xl8RQdM5SV89b7v8UOT/eRvnM4IPRNQho12LdFGj9QRTQWoy0eQviyvQ==
   dependencies:
     accounting-js "^1.1.1"
     axios "^0.18.0"
@@ -7027,6 +7028,7 @@ tunnel-agent@^0.6.0:
 turing@^0.0.74:
   version "0.0.74"
   resolved "https://registry.yarnpkg.com/turing/-/turing-0.0.74.tgz#dfd6a94ae528c2f34fa965872ee8e6a66688098e"
+  integrity sha1-39apSuUowvNPqWWHLujmpmaICY4=
   dependencies:
     jsdom "0.2.x"
 
