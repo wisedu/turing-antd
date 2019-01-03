@@ -1,12 +1,12 @@
 <template>
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
-        <CheckboxGroup :value="value" @on-change="onChange" :vertical="params.direction === 'v'">
+        <CheckboxGroup :value="currentValue" @on-change="onChange" :vertical="params.direction === 'v'">
             <Checkbox v-for="item in fullOptions" :label="item.value || item.id !== undefined ? item.value || item.id : item" :key="item.value || item.id !== undefined ? item.value || item.id : item">
                 {{ item.label || item }}
             </Checkbox>
         </CheckboxGroup>
     </FormItem>
-    <antd-fc-static v-else :caption="caption" :prop="name" :value="value" :display="display"></antd-fc-static>
+    <antd-fc-static v-else :caption="caption" :prop="name" :value="currentValue" :display="display"></antd-fc-static>
 </template>
 
 <script>
@@ -26,8 +26,17 @@ export default {
             } else {
                 return this.options;
             }
+        },
+        currentValue(){
+            const { value } = this;
+            if(Object.prototype.toString.call(value) !== "[object Array]"){
+                return []
+            }else{
+                return value
+            }
         }
     },
+
     methods: {
         onChange(vals) {
             let label = [];
