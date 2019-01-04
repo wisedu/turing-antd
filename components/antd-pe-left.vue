@@ -45,7 +45,8 @@ export default {
 
 <style>
 .antd-pe-left{
-    width: calc(100% / 3 - 3px);
     float: left;
+    height: calc(100% - 8px);
+    overflow-x: auto;
 }
 </style>

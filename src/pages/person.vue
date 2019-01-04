@@ -1,10 +1,12 @@
 <template>
-    <div class="us-modal">
-        <div class="tjyh-main">
-            <antd-pe-left :treeData="treeData" :tabData="tabData" @on-select="treeItemSelect_p"></antd-pe-left>
-            <antd-pe-center :users="users" @on-check="check_p" :isShowLoadmore="isShowLoadmore" @on-searchUser="searchUser" ref="antd-pe-center" :type="type"></antd-pe-center>
-            <antd-pe-right  v-model="selected" @on-delete="handleDelete" ref="antd-pe-right"></antd-pe-right>
-            <button @click="getCurrentVal">获取当前选中值</button>
+    <div>
+        <p class="tools"><button @click="getCurrentVal">获取当前选中值</button></p>
+        <div class="antd-pe-person">
+            <div class="tjyh-main">
+                <antd-pe-left :treeData="treeData" :tabData="tabData" @on-select="treeItemSelect_p"></antd-pe-left>
+                <antd-pe-center :users="users" @on-check="check_p" :isShowLoadmore="isShowLoadmore" @on-searchUser="searchUser" :result="selected"  ref="antd-pe-center" :type="type"></antd-pe-center>
+                <antd-pe-right  v-model="selected" @on-delete="handleDelete"></antd-pe-right>
+            </div>
         </div>
     </div>
 </template>
@@ -27,7 +29,7 @@ export default {
             selected:[],
             // tabData: [{id: '1',name: '组织机构'},{id: '2',name: '学工机构'}],
             treeData: [],
-            type: 'radio',
+            type: 'checkbox',
             isShowLoadmore: true,
             totalSize: 15,
         }
@@ -152,5 +154,5 @@ export default {
 </script>
 
 <style>
-  
+
 </style>
