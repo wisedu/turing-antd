@@ -11,6 +11,7 @@ export function Adapter(type, model, params){
                 let newTableItem = turing.utils.extend({}, {
                     title:model[prop].caption, 
                     key:prop,
+                    slot:prop,
                     className: "antd-gb-grid__header--center"
                 }, defaults.table, model[prop], params);
                 if (newTableItem.dict !== undefined && newTableItem.dict.display !== undefined) {
