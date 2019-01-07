@@ -156,7 +156,7 @@ export default {
             this.$emit("on-check", this.options);
         },
         searchUser(ele){
-            this.$emit("on-searchUser", ele);
+            this.$emit("on-search-user", ele);
         }
     }
 }
@@ -285,7 +285,6 @@ export default {
     line-height: 24px;
     display: table;
     text-align: center;
-    width: 293px;
 }
 
 .antd-pe-person .select-all-wrap {
