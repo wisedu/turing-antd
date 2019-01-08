@@ -6868,9 +6868,9 @@ textextensions@2:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/textextensions/-/textextensions-2.2.0.tgz#38ac676151285b658654581987a0ce1a4490d286"
 
-tg-turing@^1.29.4:
-  version "1.29.4"
-  resolved "https://registry.yarnpkg.com/tg-turing/-/tg-turing-1.29.4.tgz#cfb5685bfa74654961d29ef4ea226dc5a98c2ee4"
+tg-turing@^1.29.5:
+  version "1.29.5"
+  resolved "https://registry.yarnpkg.com/tg-turing/-/tg-turing-1.29.5.tgz#d833d7d987062a13ee9956aca75f52552b2078d5"
   dependencies:
     accounting-js "^1.1.1"
     axios "^0.18.0"
