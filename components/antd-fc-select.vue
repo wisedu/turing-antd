@@ -2,18 +2,18 @@
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
         <template v-if="params.tooltip !== 0 && !params.tooltip === true">
             <!--DatePicker这段是一样的-->
-            <Select ref="ctl" :value="value" :placeholder="placeholder" :disabled="readonly" dis-filterable :clearable="!readonly" @on-open-change="loadData('')" @on-change="onChange" label-in-value transfer :multiple="isMultiple" v-bind="params">
+            <Select ref="ctl" :value="currentValue" :placeholder="placeholder" :disabled="readonly" dis-filterable :clearable="!readonly" @on-open-change="loadData('')" @on-change="onChange" label-in-value transfer :multiple="isMultiple" v-bind="params">
                 <Option v-for="item in fullOptions" :value="item.value" :key="item.value">{{ item.label }}</Option>
             </Select>
         </template>
         <Tooltip v-else :content="params.tooltip" class="input-hasTip">
             <!--DatePicker这段是一样的-->
-            <Select ref="ctl" :value="value" :placeholder="placeholder" :disabled="readonly" dis-filterable :clearable="!readonly" @on-open-change="loadData('')" @on-change="onChange" label-in-value transfer :multiple="isMultiple" v-bind="params">
+            <Select ref="ctl" :value="currentValue" :placeholder="placeholder" :disabled="readonly" dis-filterable :clearable="!readonly" @on-open-change="loadData('')" @on-change="onChange" label-in-value transfer :multiple="isMultiple" v-bind="params">
                 <Option v-for="item in fullOptions" :value="item.value" :key="item.value">{{ item.label }}</Option>
             </Select>
         </Tooltip>
     </FormItem>
-    <antd-fc-static v-else :caption="caption" :prop="name" :value="value" :display="display"></antd-fc-static>
+    <antd-fc-static v-else :caption="caption" :prop="name" :value="currentValue" :display="display"></antd-fc-static>
 </template>
 
 <script>
@@ -57,6 +57,14 @@ export default {
                 }
             })
             return opts;
+        },
+        currentValue(){
+            const { value } = this;
+            if(value == null){
+                return ''
+            }else{
+                return value
+            }
         }
     },
     created() {
