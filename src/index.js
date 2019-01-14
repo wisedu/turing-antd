@@ -12,6 +12,8 @@ window["tg-turing"] = tgTuring;
 
 import home from './pages/home.vue';
 import table from './pages/table.vue';
+import search from './pages/search.vue';
+import constructer from './pages/constructer.vue';
 import person from './pages/person.vue';
 import grid from './pages/grid.vue';
 import upload from './pages/upload.vue';
@@ -111,6 +113,8 @@ const routes = [
     { path: '/person', component: person, name:"person" },
     { path: '/grid', component: grid, name:"grid" },
     { path: '/upload', component: upload, name:"upload" },
+    { path: '/search', component: search, name:"search" },
+    { path: '/constructer', component: constructer, name:"constructer" },
     { path: '/editor', component: editor, name:"editor" },
 ]
 const router = new VueRouter({
