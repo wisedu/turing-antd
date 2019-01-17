@@ -21,6 +21,10 @@ import AntdFcEditor from './components/antd-fc-editor.vue';
 import AntdGbGrid from './components/antd-gb-grid.vue';
 import AntdGbCollection from './components/antd-gb-collection.vue';
 import AntdGbSearch from './components/antd-gb-search.vue';
+import AntdGbSearchContainer from './components/antd-gb-search-container.vue';
+import AntdGbSearchItem from './components/antd-gb-search-item.vue';
+import AntdGbConstructer from './components/antd-gb-constructer.vue';
+import AntdGbConstructerItem from './components/antd-gb-constructer-item.vue';
 import AntdPeLeft from './components/antd-pe-left.vue';
 import AntdPeCenter from './components/antd-pe-center.vue';
 import AntdPeRight from './components/antd-pe-right.vue';
@@ -47,8 +51,7 @@ import ul from "./src/icons/ul.svg";
 import underline from "./src/icons/underline.svg";
 
 const components = {
-    AntdFcGroup,AntdFcForm,AntdFcStatic,AntdFcText,AntdFcTextArea,AntdFcDate,AntdFcDateRange,AntdFcButtonlist,AntdFcNumberRange,AntdFcNumber,AntdFcSelect,AntdFcUploadfile,AntdFcTree,AntdFcAutocomplete,AntdFcRadiolist,AntdFcSwitcher,AntdFcEditor,AntdGbGrid,AntdGbSearch,AntdFcCheckboxlist,AntdFcUploadfileSync,AntdGbCollection,AntdPeLeft,AntdPeCenter,AntdPeRight,
-    LayoutTmb
+    AntdFcGroup,AntdFcForm,AntdFcStatic,AntdFcText,AntdFcTextArea,AntdFcDate,AntdFcDateRange,AntdFcButtonlist,AntdFcNumberRange,AntdFcNumber,AntdFcSelect,AntdFcUploadfile,AntdFcTree,AntdFcAutocomplete,AntdFcRadiolist,AntdFcSwitcher,AntdFcEditor,AntdGbGrid,AntdGbSearch,AntdFcCheckboxlist,AntdFcUploadfileSync,AntdGbCollection,AntdPeLeft,AntdPeCenter,AntdPeRight,AntdGbSearchContainer,AntdGbSearchItem,AntdGbConstructer,AntdGbConstructerItem,LayoutTmb
 };
 const install = function (Vue, opts = {}) {
     if (install.installed) return;
