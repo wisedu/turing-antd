@@ -33,20 +33,70 @@ export default {
           defaultBuilderName: "包含"
         },
         {
-          caption: "姓名1",
+          caption: "开关",
           name: "XM1",
           xtype: "switcher",
+          defaultBuilder: "equal",
+          defaultBuilderName: "相等"
+        },
+        {
+          caption: "大文本",
+          name: "XM2",
+          xtype: "textarea",
+          defaultBuilder: "equal",
+          defaultBuilderName: "相等"
+        },
+        {
+          caption: "数字",
+          name: "XM4",
+          xtype: "number",
+          defaultBuilder: "equal",
+          defaultBuilderName: "相等"
+        },
+        {
+          caption: "日期（年月日）",
+          name: "XM5",
+          xtype: "date-local",
+          defaultBuilder: "equal",
+          defaultBuilderName: "相等"
+        },
+        {
+          caption: "日期（年月）",
+          name: "XM6",
+          xtype: "date-ym",
+          defaultBuilder: "equal",
+          defaultBuilderName: "相等"
+        },
+        {
+          caption: "日期（年月日时分）",
+          name: "XM7",
+          xtype: "date-full",
+          defaultBuilder: "equal",
+          defaultBuilderName: "相等"
+        },
+        {
+          caption: "日期范围",
+          name: "XM8",
+          xtype: "date-range",
+          defaultBuilder: "equal",
+          defaultBuilderName: "相等"
+        },
+        {
+          caption: "下拉",
+          name: "XM9",
+          xtype: "select",
+          url:'/sys/1.do',
           defaultBuilder: "equal",
           defaultBuilderName: "相等"
         }
       ],
       value1: [
-        [{ name: "col3", value: "b", linkOpt: "and", builder: "include" }],
+        [{ name: "col3", value: "b", linkOpt: "and", builder: "include","caption":"列3","value_display":"正常办结3" }],
         [
-          { name: "col1", value: "a", linkOpt: "and", builder: "include" },
-          { name: "col2", value: "x", linkOpt: "or", builder: "equal" }
+          { name: "col1", value: "a", linkOpt: "and", builder: "include","caption":"列1","value_display":"正常办结1" },
+          { name: "col2", value: "x", linkOpt: "or", builder: "equal","caption":"列2","value_display":"正常办结2" }
         ],
-        [{ name: "col4", value: "c", linkOpt: "and", builder: "include" }]
+        [{ name: "col4", value: "c", linkOpt: "and", builder: "include","caption":"列4","value_display":"正常办结4" }]
       ],
       result: "",
       modal1: false,
@@ -71,16 +121,5 @@ export default {
 </script>
 
 <style>
-.add {
-  margin: 0 8px;
-  display: inline-block
-}
-.add-and {
-    border:solid 1px red;
-    margin-left:1px;
-}
-.add-or {
-    border:solid 1px green;
-    margin-left:1px;
-}
+
 </style>

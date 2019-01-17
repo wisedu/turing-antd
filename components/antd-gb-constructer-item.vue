@@ -1,6 +1,6 @@
 <template>
     <div class="">
-        <Select v-model="selectmodel2" style="width:200px">
+        <Select v-model="selectValue" :label-in-value="true" @on-change="selectChange" style="width:100px">
             <Option v-for="item in model" :value="item.name" :key="item.name">{{ item.caption }}</Option>
         </Select>
         <antd-gb-search-item  :model="smodel" v-model="formValue" @on-item-change="handle"></antd-gb-search-item>
@@ -17,45 +17,61 @@ export default {
         model:{
             default:[]
         },
-        selectmodel1:'',
-        value2:'',
+        selectmodel:'',
+        selectvalue:'',
+        value:'',
         type:''
+    },
+    watch:{
+        selectValue(val){
+            // debugger;
+            this.formValue = '';
+        }
     },
     data(){
         return {
-            selectmodel2:this.selectmodel1,
-            formValue:this.value2
+            selectValue:this.selectmodel,
+            selectLabel:'',
+            formValue:this.selectvalue
         }
     },
     computed: {
         smodel(){
-            // debugger
             var that = this;
-            if(that.selectmodel2){
+            if(that.selectValue){
                 for (let index = 0; index < that.model.length; index++) {
                     const element = that.model[index];
-                    if(element.name === that.selectmodel2){
+                    if(element.name === that.selectValue){
                         return element;
                     }
                 }
-                // that.model.map(function (param) {
-                //     if(param.name === that.selectmodel2){
-                //         return param;
-                //     }
-                // })
             }else {
                 return {}
             }
-        }
+        },
     },
     methods: {
+        selectChange(param){
+            // debugger
+            this.selectLabel = param.label;
+        },
         getResult() {
-            return { name: this.selectmodel2, value: this.formValue, linkOpt: this.type, builder: this.smodel.defaultBuilder };
+            return { 
+                name: this.selectValue,
+                value: this.formValue,
+                linkOpt: this.type,
+                builder: this.smodel.defaultBuilder,
+                caption:this.selectLabel
+             };
         },
         handle(val,name,xtype,builder) {
             //debugger
             this.formValue=val;
         }
+    },
+    created(){
+        // debugger
+        console.log(this)
     },
     components: {
         AntdGbSearchItem
@@ -73,11 +89,6 @@ export default {
     margin: 4px;
     /* display: inline-block; */
 }
-.cons-item-span {
-    border: solid 1px purple;
-    display: inline-block;
-    vertical-align: top;
-    margin:0 8px;
-}
+
 
 </style>
