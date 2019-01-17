@@ -1,6 +1,6 @@
 {
   "name": "tg-turing-antd",
-  "version": "1.26.39",
+  "version": "1.26.40",
   "main": "dist/tg-turing-antd.min.js",
   "packageName": "tg-turing-antd",
   "license": "MIT",
@@ -37,7 +37,7 @@
     "url-loader": "^1.0.1",
     "vue-loader": "^15.0.9",
     "vue-router": "^3.0.1",
-    "vue-template-compiler": "^2.5.17",
+    "vue-template-compiler": "^2.5.22",
     "webpack": "^4.12.0",
     "webpack-cli": "^2.1.2",
     "webpack-dev-server": "^3.1.4",

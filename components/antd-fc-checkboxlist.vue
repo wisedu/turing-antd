@@ -30,9 +30,13 @@ export default {
         currentValue(){
             const { value } = this;
             if(Object.prototype.toString.call(value) !== "[object Array]"){
-                return []
+                if (this.formReadonly) {
+                    return value;
+                } else {
+                    return [];
+                }
             }else{
-                return value
+                return value;
             }
         }
     },
