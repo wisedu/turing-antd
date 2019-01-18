@@ -54,20 +54,7 @@ export default {
   },
   computed:{
     newValue(){
-      var that = this;
-      var tmpValue = JSON.parse(JSON.stringify(this.value1));
-      if (tmpValue && tmpValue.length>1) {
-        tmpValue.forEach(element => {
-          if (element.length === 1) {
-            element[0].builder_display = that.addBuilderDisplay(element[0]);
-          } else {
-            element.forEach(function (ele) {
-              ele.builder_display = that.addBuilderDisplay(ele);
-            });
-          }
-        });
-      }
-      return tmpValue;
+      return this.value1;
     }
   },
   methods: {

@@ -43,8 +43,8 @@ export default {
           caption: "大文本",
           name: "XM2",
           xtype: "textarea",
-          defaultBuilder: "equal",
-          defaultBuilderName: "相等"
+          defaultBuilder: "beginWith",
+          defaultBuilderName: "以。。。开始"
         },
         {
           caption: "数字",

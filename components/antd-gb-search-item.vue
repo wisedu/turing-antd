@@ -15,12 +15,6 @@ export default {
         model:{},
         value:""
     },
-    watch:{
-        model(val){
-            // debugger
-            console.log(val)
-        }
-    },
     data(){
         return {
             formValue:this.value,
