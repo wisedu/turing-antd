@@ -27,6 +27,28 @@ export default {
             options:[]
         }
     },
+    watch:{
+        model(){
+            var that = this;
+            if (this.model.url) {
+                axios({ 
+                    method: 'get',
+                    url: utils.getContextPath() + tmpModel.url,
+                    params: {} 
+                }).then(results => {
+                    that.options = [];
+                    console.log(results.data);
+                    if (results.data.length>0) {
+                        results.data.forEach(element => {
+                            that.options.push(element);
+                        });
+                    }
+                }).catch(err =>{
+                    console.log(this)
+                })
+            }
+        }
+    },
      computed: {
         componentMap() {
             // let map = {};
@@ -75,6 +97,7 @@ export default {
         }
     },
     created(){
+        var that = this;
         if (this.model.url) {
             axios({ 
                 method: 'get',
