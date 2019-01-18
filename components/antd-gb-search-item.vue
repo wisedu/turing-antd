@@ -33,7 +33,7 @@ export default {
             if (this.model.url) {
                 axios({ 
                     method: 'get',
-                    url: utils.getContextPath() + tmpModel.url,
+                    url: utils.getContextPath() + this.model.url,
                     params: {} 
                 }).then(results => {
                     that.options = [];
@@ -101,7 +101,7 @@ export default {
         if (this.model.url) {
             axios({ 
                 method: 'get',
-                url: utils.getContextPath() + tmpModel.url,
+                url: utils.getContextPath() + this.model.url,
                 params: {} 
             }).then(results => {
                 console.log(results.data);
