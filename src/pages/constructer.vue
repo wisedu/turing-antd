@@ -92,11 +92,7 @@ export default {
       ],
       value1: [
         [{ name: "col3", value: "b", linkOpt: "and", builder: "include","caption":"列3","value_display":"正常办结3" }],
-        [
-          { name: "col1", value: "a", linkOpt: "and", builder: "include","caption":"列1","value_display":"正常办结1" },
-          { name: "col2", value: "x", linkOpt: "or", builder: "equal","caption":"列2","value_display":"正常办结2" }
-        ],
-        [{ name: "col4", value: "c", linkOpt: "and", builder: "include","caption":"列4","value_display":"正常办结4" }]
+        
       ],
       result: "",
       modal1: false,

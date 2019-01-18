@@ -6,11 +6,11 @@
                 <slot name="searchitem" :model="item" :index="index" @on-item-change="handle"></slot>
             </div>
         </div>
-        <div v-else>
+        <!-- <div v-else>
             <div v-for="(item,index) in model">
                 <slot name="searchitem" :model="item" v-model="formValue[item.name]" @on-item-change="handle"></slot>
             </div>
-        </div>
+        </div> -->
         <slot name="searchbottom"></slot>
     </div>
 </template>
