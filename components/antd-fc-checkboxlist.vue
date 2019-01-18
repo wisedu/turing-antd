@@ -32,6 +32,14 @@ export default {
             if(Object.prototype.toString.call(value) !== "[object Array]"){
                 if (this.formReadonly) {
                     return value;
+                } else if (value) {
+                    if(Object.prototype.toString.call(value) === "[object String]"){
+                        if (value.indexOf(',')>-1) {
+                            return value.split(',');
+                        } else {
+                            return [value];
+                        }
+                    }
                 } else {
                     return [];
                 }
