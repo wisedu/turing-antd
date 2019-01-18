@@ -101,12 +101,14 @@ export default {
         if (this.model.url) {
             axios({ 
                 method: 'get',
-                url: utils.getContextPath() + this.model.url,
+                url: this.model.url,
                 params: {} 
             }).then(results => {
                 console.log(results.data);
-                if (results.data.length>0) {
-                    results.data.forEach(element => {
+                if (results.data.datas.code.rows.length>0) {
+                    results.data.datas.code.rows.forEach(element => {
+                        element.label = element.name;
+                        element.value = element.id;
                         that.options.push(element);
                     });
                 }
