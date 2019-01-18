@@ -33,7 +33,7 @@ export default {
             if (this.model.url) {
                 axios({ 
                     method: 'get',
-                    url: utils.getContextPath() + this.model.url,
+                    url:this.model.url,
                     params: {} 
                 }).then(results => {
                     that.options = [];
