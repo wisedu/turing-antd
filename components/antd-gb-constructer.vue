@@ -13,10 +13,12 @@
         </antd-gb-search-container>
         <Modal
             v-model="modalVisible"
+            width="600"
             title="增加"
+            :loading="isloading"
             @on-ok="ok"
             @on-cancel="cancel">
-            <antd-gb-constructer-item :model="model" :selectmodel="selectmodel" :value="selectvalue" :type="addType" ref="consadd"></antd-gb-constructer-item>
+            <antd-gb-constructer-item :model="model" :selectmodel="selectmodel" :value="selectvalue" :type="addType" :builderlists="builderlists" ref="consadd"></antd-gb-constructer-item>
         </Modal>
     </div>
 </template>
@@ -34,7 +36,8 @@ export default {
   },
   props:{
       model:Array,
-      value1:Array
+      value1:Array,
+      builderlists:Object
   },
   data() {
     return {
@@ -43,6 +46,7 @@ export default {
       modalVisible:false,
       selectmodel:'',
       selectvalue:'',
+      isloading:true
     };
   },
   watch: {
@@ -61,6 +65,7 @@ export default {
     addAndCb(index){
       this.addType = 'and';
       this.targetIndex = index;
+      this.$refs['consadd'].clear();
       this.modalVisible = true;
     },
     addOrCb() {
@@ -71,10 +76,16 @@ export default {
       // debugger;
       // this.$Message.info("Clicked ok");
       var result = this.$refs['consadd'].getResult();
-      if(this.addType === 'and'){
-        this.value1[this.targetIndex].push(result);
-      }else {
-        this.value1.push([result]);
+      if (!result) {
+        this.isloading = false;
+        this.modalVisible = true;
+      } else {
+        if(this.addType === 'and'){
+          this.value1[this.targetIndex].push(result);
+        }else {
+          this.value1.push([result]);
+        }
+        this.modalVisible = false;
       }
     },
     cancel() {

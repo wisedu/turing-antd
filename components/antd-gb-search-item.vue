@@ -22,6 +22,9 @@ export default {
         }
     },
     watch:{
+        value(val){
+            this.formValue = val;
+        },
         model(){
             var that = this;
             if (this.model.url) {
