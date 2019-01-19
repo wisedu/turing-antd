@@ -1,5 +1,6 @@
 
 import Select from './search_item_select.vue';
+import Cascader from './search_item_cascader.vue';
 export default {
     'text': 'Input', 					//文本，
     'switcher': 'iSwitch',			//开关
@@ -22,5 +23,5 @@ export default {
     // 'buttonlist': Buttonlist,        //按钮组
     // 'multi-buttonlist': Buttonlist,        //多选按钮组
     // 'multi-tree': Tree,        //多选下拉树
-    // 'tree': Tree        //下拉树
+    'tree': Cascader        //下拉树
 };

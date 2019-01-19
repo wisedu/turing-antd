@@ -91,8 +91,13 @@ export default {
         }
     },
     methods: {
-        handleItem() {
-            this.$emit("on-item-change", this.formValue,this.newModel.name,this.newModel.xtype,this.newModel.defaultBuilder);
+        handleItem(param) {
+            // debugger
+            if (param.key) {
+                this.$emit("on-item-change", param.value,this.newModel.name,this.newModel.xtype,this.newModel.defaultBuilder,param.label);
+            } else {
+                this.$emit("on-item-change", this.formValue,this.newModel.name,this.newModel.xtype,this.newModel.defaultBuilder);
+            }
         }
     },
     created(){

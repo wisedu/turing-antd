@@ -49,7 +49,8 @@ export default {
             buildVisible:true,
             buildvalue:this.buildValue,
             builderlistName:"",
-            currentBuilder:[]
+            currentBuilder:[],
+            value_display:''
         }
     },
     computed: {
@@ -88,15 +89,16 @@ export default {
                     value: this.formValue,
                     linkOpt: this.type,
                     builder: this.buildvalue?this.buildvalue:this.smodel.defaultBuilder,
-                    caption:this.selectLabel
+                    caption:this.selectLabel,
+                    value_display:this.value_display
                 };
             } else {
                 this.$Message.info(result);
                 return '';
             }
         },
-        handle(val,name,xtype,builder) {
-            //debugger
+        handle(val,name,xtype,builder,val_display) {
+            this.value_display = val_display;
             this.formValue=val;
         },
         validate(){
@@ -120,6 +122,7 @@ export default {
             this.selectValue = '';
             this.formValue = '';
             this.buildvalue = '';
+            this.value_display = '';
         }
     },
     created(){

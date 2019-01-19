@@ -4,7 +4,8 @@
             <template slot="searchitem" slot-scope="props">
               <div style="margin-bottom: 4px;">
                   <span v-for="(sub,sindex) in props.model" :key="'sub'+sindex" class="cons-item-span">
-                      {{sub.caption?sub.caption:sub.name}}-{{sub.builder_display?sub.builder_display:sub.builder}}-{{sub.value_display?sub.value_display:sub.value}}
+                      <span>{{sub.caption?sub.caption:sub.name}}-{{sub.builder_display?sub.builder_display:sub.builder}}-{{sub.value_display?sub.value_display:sub.value}}</span>
+                      <Icon type="md-trash" @click="deleteItem(props.index,sindex,sub)" style="    vertical-align: initial;" />
                   </span>
                   <label class="add add-and" @click="addAndCb(props.index)">增加[且]条件</label>
               </div>
@@ -94,20 +95,8 @@ export default {
     getResult() {
         return this.value1;
     },
-    addBuilderDisplay(obj){
-      var tmpDisplay = '';
-      switch (obj.builder) {
-        case 'equal':
-          tmpDisplay = '等于';
-          break;
-        case 'include':
-          tmpDisplay = '包含';
-          break;
-        default:
-          tmpDisplay = '无此builder类型';
-          break;
-      }
-      return tmpDisplay;
+    deleteItem(index,sindex,sub){
+      this.newValue[index].splice(sindex,1);
     }
   },
   mounted() {
@@ -128,6 +117,7 @@ export default {
 .add-and {
     border:solid 1px #2e8cf0;
     margin-left:1px;
+    margin-top: 2px;
 }
 .add-or {
     border:solid 1px #2e8cf0;
@@ -137,7 +127,7 @@ export default {
     border: solid 1px #2e8cf0;
     display: inline-block;
     vertical-align: top;
-    margin: 0 4px 0 0;
+    margin: 0 4px 2px 0;
     padding: 2px 4px;
     font-size: 14px;
 }
