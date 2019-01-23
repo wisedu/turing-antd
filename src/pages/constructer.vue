@@ -129,7 +129,8 @@ export default {
         "dataType": "String",
         "defaultBuilder": "include",
         "builderList": "cbl_String",
-        "dataSize": 10
+        "dataSize": 10,
+        "xtype":"date-local"
       }, {
         "name": "NL",
         "caption": "年龄",

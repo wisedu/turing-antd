@@ -1,6 +1,6 @@
 <template>
     <div class="search-item">
-        <component :model="newModel" :is="componentMap[newModel.xtype] || componentMap['text']" :options="options" :type="newModel.itype || 'text'" v-model="formValue" @input="handleItem" :ref="'field' + newModel.name"></component>
+        <component :model="newModel" :is="componentMap[newModel.xtype] || componentMap['text']" :options="options" :type="newModel.itype || 'text'" v-model="formValue" @input="handleItem" :ref="'field' + newModel.name" v-bind="newModel.bind"></component>
     </div>
 </template>
 
@@ -62,6 +62,7 @@ export default {
         newModel(){
             var that = this;
             var tmpModel = JSON.parse(JSON.stringify(this.model));
+            tmpModel['bind'] = {};
             switch (tmpModel.xtype) {
                 case 'text':
                 case 'textarea':
@@ -73,15 +74,19 @@ export default {
                     break;
                 case 'date-local':
                     tmpModel.itype = 'date';
+                    tmpModel.bind.format = 'yyyy-MM-dd';
                     break;
                 case 'date-ym':
                     tmpModel.itype = 'month';
+                    tmpModel.bind.format = 'yyyy-MM';
                     break;
                 case 'date-full':
                     tmpModel.itype = 'datetime';
+                    tmpModel.bind.format = 'yyyy-MM-dd HH:mm:ss';
                     break;
                 case 'date-range':
                     tmpModel.itype = 'daterange';
+                    tmpModel.bind.format = 'yyyy-MM-dd';
                     break;
                 default:
                     tmpModel.itype = 'text';
