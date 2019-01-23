@@ -1,5 +1,5 @@
 <template>
-    <Select filterable>
+    <Select filterable v-model="currentValue" on-change="selectChange" :label-in-value="true">
         <Option v-for="item in options" :value="item.value" :key="item.value">{{ item.label }}</Option>
     </Select>
 </template>
@@ -26,35 +26,22 @@ export default {
         };
     },
     computed: {
-        // param() {
-        //     return this.model.initParam;
-        // },
-        // selectType() {
-        //     if (this.model.xtype === 'select') {
-        //         return 'select';
-        //     }
-        //     if (this.model.xtype === 'multi-select' || this.model.xtype === 'multi-select2') {
-        //         return 'multi-select';
-        //     }
-        // }
     },
 
     watch: {
-        // value(val) {
-        //     this.currentValue = val;
-        // },
-        // currentValue(val) {
-        //     this.$emit('input', val);
-        // }
+
     },
     created(){
-        //debugger
         console.log(this)
     },
     methods: {
-        // handleDisplayChange(val) {
-        //     this.$emit('update:displayValue', val);
-        // }
+        selectChange(val,label){
+            this.$emit('input',{
+                value:val,
+                label:label,
+                key:this.model.name
+            });
+        }
     },
 
     components: {
