@@ -1,5 +1,5 @@
 <template>
-    <Select filterable v-model="currentValue" on-change="selectChange" :label-in-value="true">
+    <Select filterable v-model="currentValue" @on-change="selectChange" :label-in-value="true">
         <Option v-for="item in options" :value="item.value" :key="item.value">{{ item.label }}</Option>
     </Select>
 </template>
@@ -29,16 +29,18 @@ export default {
     },
 
     watch: {
-
+        currentValue(val){
+            // console.log('currentValue',val)
+        }
     },
     created(){
         console.log(this)
     },
     methods: {
-        selectChange(val,label){
+        selectChange(val){
             this.$emit('input',{
-                value:val,
-                label:label,
+                value:val.value,
+                label:val.label,
                 key:this.model.name
             });
         }

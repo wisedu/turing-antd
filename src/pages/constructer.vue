@@ -118,6 +118,8 @@ export default {
         "name": "XBDM",
         "caption": "性别",
         "dataType": "String",
+        "xtype":"select",
+        "url":"/666/33.do",
         "defaultBuilder": "include",
         "builderList": "cbl_String",
         "dataSize": 10
