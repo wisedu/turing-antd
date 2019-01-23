@@ -75,7 +75,7 @@ export default {
                     tmpModel.itype = 'date';
                     break;
                 case 'date-ym':
-                    tmpModel.itype = 'year';
+                    tmpModel.itype = 'month';
                     break;
                 case 'date-full':
                     tmpModel.itype = 'datetime';
