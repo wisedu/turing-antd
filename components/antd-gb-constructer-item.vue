@@ -35,6 +35,8 @@ export default {
         selectValue(val){
             // debugger;
             this.formValue = '';
+            this.buildvalue = '';
+            this.value_display = '';
         },
         builderlistName(val){
             //debugger
