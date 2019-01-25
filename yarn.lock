@@ -5675,9 +5675,9 @@ terser@^3.8.1:
     source-map "~0.6.1"
     source-map-support "~0.5.6"
 
-tg-turing@^1.30.3:
-  version "1.30.3"
-  resolved "https://registry.yarnpkg.com/tg-turing/-/tg-turing-1.30.3.tgz#f14e043cec12328e94b571da49347682e21cae00"
+tg-turing@^1.30.4:
+  version "1.30.4"
+  resolved "https://registry.yarnpkg.com/tg-turing/-/tg-turing-1.30.4.tgz#e9123e1d5b98823a2c1d2551d9b09adce0c874b0"
   dependencies:
     accounting-js "^1.1.1"
     axios "0.17.1"
