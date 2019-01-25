@@ -41,9 +41,12 @@ export default {
             if (this.async === false) {
 
             }else{
-                let selected_opt = {label: this.display, value: this.value};
-                if (this.localOptions.length === 0 && this.value !== undefined) {
-                    opts.push(selected_opt);
+                //YBT-3171 【表单】下拉选项列表存在空白的可选区域
+                if(this.display){
+                    let selected_opt = {label: this.display, value: this.value};
+                    if (this.localOptions.length === 0 && this.value !== undefined) {
+                        opts.push(selected_opt);
+                    }
                 }
             }
             this.options.map(item => {
