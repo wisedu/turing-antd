@@ -111,7 +111,11 @@ export default {
             }
         },
         "uploadfile": {
-            name: "antd-fc-uploadfile"
+            name: "antd-fc-uploadfile",
+            required: {
+                trigger: "change",
+                message: "请上传一项"
+            }
         },
         "uploadfile-sync": {
             name: "antd-fc-uploadfile-sync"
