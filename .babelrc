@@ -17,8 +17,7 @@
             },
             "useBuiltIns": "usage",
             "debug": false
-        }],
-        "stage-3"
+        }]
     ],
     "plugins": [
         "transform-class-properties",
