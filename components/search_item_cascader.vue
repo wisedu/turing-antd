@@ -20,7 +20,7 @@ export default {
     },
     data() {
         return {
-            currentValue: this.value
+            currentValue: this.value?this.value:[]
         };
     },
     computed: {

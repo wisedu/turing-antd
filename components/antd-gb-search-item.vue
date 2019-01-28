@@ -27,7 +27,7 @@ export default {
         },
         model(){
             var that = this;
-            if (this.model.url) {
+            if (this.model && this.model.url) {
                 axios({ 
                     method: 'get',
                     url:this.model.url,
@@ -45,6 +45,8 @@ export default {
                 }).catch(err =>{
                     console.log(this)
                 })
+            }else {
+               that.options = []; 
             }
         }
     },
