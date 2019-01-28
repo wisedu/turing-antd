@@ -63,6 +63,9 @@ export default {
         },
         newModel(){
             var that = this;
+            if (!this.model) {
+                return {};
+            }
             var tmpModel = JSON.parse(JSON.stringify(this.model));
             tmpModel['bind'] = {};
             switch (tmpModel.xtype) {

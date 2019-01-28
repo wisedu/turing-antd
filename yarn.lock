@@ -5677,8 +5677,7 @@ terser@^3.8.1:
 
 tg-turing@^1.30.6:
   version "1.30.6"
-  resolved "https://registry.npmjs.org/tg-turing/-/tg-turing-1.30.6.tgz#bbceb3df1d3fa1488ebb799bc84d7f825df78107"
-  integrity sha512-LJcp5Ivi0xs9GpO4Id9VJsB5B6VqkthWYaNq/aK8kWgTu2yyEaM5zDyJ8i9pnXYeCyDMGWAd8tw36+bTmYzdnw==
+  resolved "https://registry.yarnpkg.com/tg-turing/-/tg-turing-1.30.6.tgz#bbceb3df1d3fa1488ebb799bc84d7f825df78107"
   dependencies:
     accounting-js "^1.1.1"
     axios "0.17.1"
