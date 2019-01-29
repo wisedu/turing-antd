@@ -52,11 +52,10 @@ export default {
     },
     methods: {
         cascaderChange(val,val2){
-            // debugger
-            // this.$emit('input',val[0],val2[0].label,this.model.name);
+            var index = val.length - 1;
             this.$emit('input',{
-                value:val[0],
-                label:val2[0].label,
+                value:val[index],
+                label:val2[index].label,
                 key:this.model.name
             });
         },
