@@ -2,7 +2,7 @@
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
         <Cascader :data="fullOptions" :value="values" :placeholder="placeholder" @on-visible-change.once="initLoad" :load-data="loadData" filterable @on-change="onChange" v-bind="params"></Cascader>
     </FormItem>
-    <antd-fc-static v-else :caption="caption" :prop="name" :value="value"></antd-fc-static>
+    <antd-fc-static v-else :caption="caption" :prop="name" :value="value" :display="display"></antd-fc-static>
 </template>
 
 <script>
@@ -32,12 +32,19 @@ export default {
         }
     },
     watch:{
-        value: function(newValue, oldValue){
-            this.getOneData(newValue);
-        }
+//        先暂时注释掉，不知道这个监听是用在什么场景下
+//        value: function(newValue, oldValue){
+//            this.getOneData(newValue);
+//        }
     },
     methods:{
-        onChange(value){
+        onChange(_value){
+//            value取最后一个的值
+            let len = _value.length;
+            let value = '';
+            if(len > 0){
+                value = _value[_value.length - 1];
+            }
             let label = value;
             this.$emit("on-item-change", this.name, value, label, this.model)
             this.$emit("input", value)

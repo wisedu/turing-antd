@@ -1,15 +1,14 @@
 {
   "name": "tg-turing-antd",
-  "version": "1.26.70",
+  "version": "1.26.79",
   "main": "dist/tg-turing-antd.min.js",
   "packageName": "tg-turing-antd",
   "license": "MIT",
   "dependencies": {
     "bh-iview": "^2.0.5",
-    "tg-turing": "^1.30.6",
+    "tg-turing": "^1.30.14",
     "tiptap": "^1.4.0",
     "tiptap-extensions": "^1.4.0",
-    "turing": "^0.0.74",
     "vue": "^2.5.21",
     "vue-upload-component": "^2.8.11"
   },
