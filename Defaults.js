@@ -127,6 +127,20 @@ export default {
                 message: "请选择一项"
             }
         },
+        "multi-tree": {
+            name: "antd-fc-tree",
+            required: {
+                trigger: "change",
+                message: "请选择一项"
+            }
+        },
+        "multi-tree2": {
+            name: "antd-fc-tree",
+            required: {
+                trigger: "change",
+                message: "请选择一项"
+            }
+        },
         "autocomplete": {
             name: "antd-fc-autocomplete"
         },
