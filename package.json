@@ -31,6 +31,7 @@
     "optimize-css-assets-webpack-plugin": "^4.0.1",
     "rollup-plugin-css-only": "^0.4.0",
     "rollup-plugin-vue": "^4.3.1",
+    "shelljs": "^0.8.3",
     "style-loader": "^0.21.0",
     "svg-sprite-loader": "^4.1.3",
     "url-loader": "^1.0.1",
@@ -48,6 +49,7 @@
     "local": "webpack --config webpack.prod.config.js --mode production && cp -r ./dist/* ../turing-example/node_modules/tg-turing-antd/dist/",
     "local2": "webpack --config webpack.prod.config.js --mode production && cp -r ./dist/* ../../GitLab/egg/project-v/node_modules/tg-turing-antd/dist/",
     "esm": "rollup --config ./rollup.config.js",
+    "autoPublish": "node ./auto-update-version.js && npm publish",
     "prepublishOnly": "yarn add tg-turing && npm run build"
   }
 }
