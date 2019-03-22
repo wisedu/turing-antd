@@ -77,18 +77,18 @@ export default {
     },
     methods:{
         loadData(key){
-            if (this.loaddata !== undefined) {
-                this.loaddata(this.name, items => {
-                    if (Array.isArray(items) === false) {
-                        this.localOptions = [];
-                    } else {
-                        this.localOptions = items;
-                    }
+            if (this.model.dict !== undefined) {
+                defaults.getDictData[0](this.model.dict, {key}, datas => {
+                    this.localOptions = datas;
                 });
-            } else {
-                if (this.model.dict !== undefined) {
-                    defaults.getDictData[0](this.model.dict, {key}, datas => {
-                        this.localOptions = datas;
+            }else{
+                if (this.loaddata !== undefined) {
+                    this.loaddata(this.name, items => {
+                        if (Array.isArray(items) === false) {
+                            this.localOptions = [];
+                        } else {
+                            this.localOptions = items;
+                        }
                     });
                 }
             }
