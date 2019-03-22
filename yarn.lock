@@ -5467,9 +5467,10 @@ terser@^3.8.1:
     source-map "~0.6.1"
     source-map-support "~0.5.6"
 
-tg-turing@^1.30.15:
-  version "1.30.15"
-  resolved "https://registry.yarnpkg.com/tg-turing/-/tg-turing-1.30.15.tgz#b6116a9c72aa3b24b30ff05ead0c0840d6299928"
+tg-turing@^1.30.16:
+  version "1.30.16"
+  resolved "https://registry.npmjs.org/tg-turing/-/tg-turing-1.30.16.tgz#c534cea969aa61063cb50cf81f19a928202d9823"
+  integrity sha512-qjcW4tWTQgkvMZh6t34TJIoFCBXOruPy/+3YL64w2jxtW+k1/aWzG9gW+Y/7AooPVqYiqMMLrnufmIsh2+IG3Q==
   dependencies:
     accounting-js "^1.1.1"
     axios "0.17.1"
