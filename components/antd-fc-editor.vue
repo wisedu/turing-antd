@@ -149,7 +149,8 @@ export default {
           new Image(),
           new History(),
         ],
-        content:this.value,
+          //保存后的html内容的标签尖括号是非半角的，导致在插入编辑器后看到的是html标签而非正确的样式
+        content:this.value.replace(/＜/g,'<').replace(/＞/g,'>'),
         onUpdate:this.updateeditor
       }),
     }
