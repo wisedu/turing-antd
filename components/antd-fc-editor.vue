@@ -94,9 +94,7 @@
 
     <editor-content class="editor__content" :editor="editor" />
   </div>
-  <div class="antd-fc-editor-readonly" v-else>
-    {{content}}
-  </div>
+  <div class="antd-fc-editor-readonly" v-else></div>
 </template>
 
 <script>
@@ -176,7 +174,12 @@ export default {
 				command({ src })
 			}
 		},
-  }
+  },
+    mounted: function () {
+        this.$nextTick(function () {
+            this.$el.innerHTML = this.content;
+        })
+    }
 }
 </script>
 <style>
