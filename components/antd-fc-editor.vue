@@ -177,7 +177,9 @@ export default {
   },
     mounted: function () {
         this.$nextTick(function () {
-            this.$el.innerHTML = this.content;
+            if(this.formReadonly === true){
+                this.$el.innerHTML = this.content;
+            }
         })
     }
 }
