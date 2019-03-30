@@ -1,5 +1,5 @@
 <template>
-  <div class="editor">
+  <div class="editor" v-if="formReadonly !== true">
     <editor-menu-bar :editor="editor">
       <div class="menubar" slot-scope="{ commands, isActive }">
 
@@ -94,6 +94,9 @@
 
     <editor-content class="editor__content" :editor="editor" />
   </div>
+  <div class="antd-fc-editor-readonly" v-else>
+    {{content}}
+  </div>
 </template>
 
 <script>
@@ -128,6 +131,7 @@ export default {
     Icon,
   },
   data() {
+	    let content = this.value.replace(/＜/g,'<').replace(/＞/g,'>');
     return {
       editor: new Editor({
         extensions: [
@@ -150,9 +154,10 @@ export default {
           new History(),
         ],
           //保存后的html内容的标签尖括号是非半角的，导致在插入编辑器后看到的是html标签而非正确的样式
-        content:this.value.replace(/＜/g,'<').replace(/＞/g,'>'),
+        content:content,
         onUpdate:this.updateeditor
       }),
+        content:content,
     }
   },
   beforeDestroy() {
@@ -381,6 +386,12 @@ li[data-done="true"] .todo-checkbox {
 li[data-done="false"] {
   text-decoration: none;
 }
+
+  .antd-fc-editor-readonly{
+    position: relative;
+    max-height: 400px;
+    overflow: auto;
+  }
 
 </style>
 
