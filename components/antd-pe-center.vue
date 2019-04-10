@@ -331,7 +331,7 @@ export default {
     word-break: break-all;
 }
 .antd-pe-person .gm-member-row .zgh,.antd-pe-person .gm-member-row .dept{
-    padding-left: 4px;
+    /* padding-left: 4px; */
 }
 
 </style>

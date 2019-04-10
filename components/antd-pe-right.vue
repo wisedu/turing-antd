@@ -7,13 +7,32 @@
 <!--                     <a @click="selectAllOrClear">全选/清除 </a>|<a @click="setTop"> 置顶 </a>|<a @click="setBottom"> 置底 </a>|<a @click="moveUp"> 上移 </a>|<a @click="moveDown"> 下移 </a>|<a @click="deleteRecords"> 删除</a> -->
                 </div>
             </div>
+            <div style="padding-left: 16px;">
+                <Row>
+                    <Col span="7">
+                        <B>姓名</B>
+                    </Col>
+                    <Col span="7">
+                        <B>工号</B>
+                    </Col>
+                    <Col span="8">
+                        <B>组织机构</B>
+                    </Col>
+                    <Col span="2">
+                        <B>删除</B>
+                    </Col>
+                </Row>
+            </div>
             <div class="tjyh-main-right-main">
                 <div v-for="item in selected" class="gm-member-row bh-clearfix tjyh-selected-item" :class="{'bh-ch-active': item.active}" @click="selectOne(item)" >
-                    <Col span="10" :title="item.XM" class="xm word_overflow">
+                    <Col span="7" :title="item.XM" class="xm word_overflow">
                         {{item.XM}}
                     </Col>
-                    <Col span="10" :title="item.ZGH" class="zgh word_overflow">
+                    <Col span="7" :title="item.ZGH" class="zgh word_overflow">
                         {{item.ZGH}}
+                    </Col>
+                    <Col span="8" :title="item.ZGH" class="zgh word_overflow">
+                        {{item.deptName}}
                     </Col>
                     <Col span="2" class="">
                         <Icon type="md-trash" size="16" @click.native.stop="deleteRecords_in(item)"/>
@@ -276,7 +295,7 @@ export default {
 
 .antd-pe-person .tjyh-main-right-main {
     padding-left: 16px;
-    padding-right: 8px;
+    /* padding-right: 8px; */
     height: 310px;
     overflow-y: auto;
     overflow-x: hidden;
