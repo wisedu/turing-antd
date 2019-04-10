@@ -15,10 +15,10 @@
                     <Col span="7">
                         <B>工号</B>
                     </Col>
-                    <Col span="8">
+                    <Col span="7">
                         <B>组织机构</B>
                     </Col>
-                    <Col span="2">
+                    <Col span="3">
                         <B>删除</B>
                     </Col>
                 </Row>
@@ -31,7 +31,7 @@
                     <Col span="7" :title="item.ZGH" class="zgh word_overflow">
                         {{item.ZGH}}
                     </Col>
-                    <Col span="8" :title="item.ZGH" class="zgh word_overflow">
+                    <Col span="8" :title="item.deptName" class="zgh word_overflow">
                         {{item.deptName}}
                     </Col>
                     <Col span="2" class="">
