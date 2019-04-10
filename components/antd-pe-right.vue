@@ -7,7 +7,7 @@
 <!--                     <a @click="selectAllOrClear">全选/清除 </a>|<a @click="setTop"> 置顶 </a>|<a @click="setBottom"> 置底 </a>|<a @click="moveUp"> 上移 </a>|<a @click="moveDown"> 下移 </a>|<a @click="deleteRecords"> 删除</a> -->
                 </div>
             </div>
-            <div style="padding-left: 16px;">
+            <div style="padding-left: 16px;" v-if="selected.length > 0">
                 <Row>
                     <Col span="7">
                         <B>姓名</B>
