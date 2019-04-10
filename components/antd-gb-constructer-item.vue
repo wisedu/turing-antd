@@ -35,6 +35,8 @@ export default {
         selectValue(val){
             // debugger;
             this.formValue = '';
+            this.buildvalue = '';
+            this.value_display = '';
         },
         builderlistName(val){
             //debugger
@@ -63,6 +65,7 @@ export default {
                         return element;
                     }
                 }
+                return {}
             }else {
                 return {}
             }
@@ -102,6 +105,9 @@ export default {
             this.formValue=val;
         },
         validate(){
+            if (!this.selectValue) {
+                return '您输入的字段名称不存在,请重新选择~';
+            }
             if (this.formValue ) {
                 if (this.formValue.length > this.smodel.dataSize) {
                     return '请输入'+this.smodel.dataSize+'个字符以内';

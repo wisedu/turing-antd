@@ -20,19 +20,12 @@ export default {
     },
     data() {
         return {
-            currentValue: this.value,
-            t:[
-                {id: "3", name: "行政部", pId: "", isParent: 0},
-                {id: "2", name: "研发部", pId: "1", isParent: 0},
-                {id: "1", name: "云工厂", pId: "", isParent: 1},
-                {id: "4", name: "酱油部2", pId: "", isParent: 0},
-                {id: "TD_LSDEPT", name: "临时人员", pId: "", isParent: 0}
-            ]
+            currentValue: this.value?this.value:[]
         };
     },
     computed: {
         newOptions() {
-            let data = this.t;
+            let data = this.options;
             // 属性配置信息
             let attributes = {
                 id: 'id',
@@ -59,11 +52,10 @@ export default {
     },
     methods: {
         cascaderChange(val,val2){
-            // debugger
-            // this.$emit('input',val[0],val2[0].label,this.model.name);
+            var index = val.length - 1;
             this.$emit('input',{
-                value:val[0],
-                label:val2[0].label,
+                value:val[index],
+                label:val2[index].label,
                 key:this.model.name
             });
         },

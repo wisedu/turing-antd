@@ -6,7 +6,7 @@
             </Checkbox>
         </CheckboxGroup>
     </FormItem>
-    <antd-fc-static v-else :caption="caption" :prop="name" :value="currentValue" :display="display"></antd-fc-static>
+    <antd-fc-static v-else :caption="caption" :prop="name" :value="valueDisplay" :display="display"></antd-fc-static>
 </template>
 
 <script>
@@ -46,6 +46,13 @@ export default {
             }else{
                 return value;
             }
+        },
+        valueDisplay(){
+            if (this.currentValue) {
+                return this.currentValue.join(',');
+            }else {
+                return this.currentValue;
+            }
         }
     },
 
@@ -64,14 +71,14 @@ export default {
         }
     },
     created(){
-        if (this.loaddata !== undefined) {
-            this.loaddata(this.name, items => {
-                this.localOptions = items;
+        if (this.model.dict !== undefined) {
+            defaults.getDictData[0](this.model.dict, {}, datas => {
+                this.localOptions = datas;
             });
-        } else {
-            if (this.model.dict !== undefined) {
-                defaults.getDictData[0](this.model.dict, {}, datas => {
-                    this.localOptions = datas;
+        }else{
+            if (this.loaddata !== undefined) {
+                this.loaddata(this.name, items => {
+                    this.localOptions = items;
                 });
             }
         }

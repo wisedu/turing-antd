@@ -1,6 +1,7 @@
 
 import Select from './search_item_select.vue';
 import Cascader from './search_item_cascader.vue';
+import Datepicker from './search_item_datepicker.vue';
 export default {
     'text': 'Input', 					//文本，
     'switcher': 'iSwitch',			//开关
@@ -10,10 +11,10 @@ export default {
     // 'multi-select': Select,			//多选下拉(有复选框)(带搜索功能)
     // 'multi-select2': Select,			//多选下拉(旧)(带搜索功能)
     // 'time': 'DatePicker',         //时间
-    'date-local': 'DatePicker',	//日期
-    'date-ym': 'DatePicker',
-    'date-full': 'DatePicker',		//日期及时间
-    'date-range': 'DatePicker',
+    'date-local': Datepicker,	//日期
+    'date-ym': Datepicker,
+    'date-full': Datepicker,		//日期及时间
+    'date-range': Datepicker,
     // 'radiolist': Selectlist,			//单选组
     // 'checkboxlist': Selectlist,        //多选组
     // 'uploadsingleimage': UploadImage,        //单图片上传

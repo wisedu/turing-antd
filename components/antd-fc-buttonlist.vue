@@ -40,14 +40,14 @@ export default {
         }
     },
     created(){
-        if (this.loaddata !== undefined) {
-            this.loaddata(this.name, items => {
-                this.localOptions = items;
+        if (this.model.dict !== undefined) {
+            defaults.getDictData[0](this.model.dict, {}, datas => {
+                this.localOptions = datas;
             });
-        } else {
-            if (this.model.dict !== undefined) {
-                defaults.getDictData[0](this.model.dict, {}, datas => {
-                    this.localOptions = datas;
+        }else{
+            if (this.loaddata !== undefined) {
+                this.loaddata(this.name, items => {
+                    this.localOptions = items;
                 });
             }
         }

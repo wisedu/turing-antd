@@ -111,12 +111,30 @@ export default {
             }
         },
         "uploadfile": {
-            name: "antd-fc-uploadfile"
+            name: "antd-fc-uploadfile",
+            required: {
+                trigger: "change",
+                message: "请上传一项"
+            }
         },
         "uploadfile-sync": {
             name: "antd-fc-uploadfile-sync"
         },
         "tree": {
+            name: "antd-fc-tree",
+            required: {
+                trigger: "change",
+                message: "请选择一项"
+            }
+        },
+        "multi-tree": {
+            name: "antd-fc-tree",
+            required: {
+                trigger: "change",
+                message: "请选择一项"
+            }
+        },
+        "multi-tree2": {
             name: "antd-fc-tree",
             required: {
                 trigger: "change",

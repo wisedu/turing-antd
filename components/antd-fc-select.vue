@@ -41,9 +41,12 @@ export default {
             if (this.async === false) {
 
             }else{
-                let selected_opt = {label: this.display, value: this.value};
-                if (this.localOptions.length === 0 && this.value !== undefined) {
-                    opts.push(selected_opt);
+                //YBT-3171 【表单】下拉选项列表存在空白的可选区域
+                if(this.display){
+                    let selected_opt = {label: this.display, value: this.value};
+                    if (this.localOptions.length === 0 && this.value !== undefined) {
+                        opts.push(selected_opt);
+                    }
                 }
             }
             this.options.map(item => {
@@ -74,18 +77,18 @@ export default {
     },
     methods:{
         loadData(key){
-            if (this.loaddata !== undefined) {
-                this.loaddata(this.name, items => {
-                    if (Array.isArray(items) === false) {
-                        this.localOptions = [];
-                    } else {
-                        this.localOptions = items;
-                    }
+            if (this.model.dict !== undefined) {
+                defaults.getDictData[0](this.model.dict, {key}, datas => {
+                    this.localOptions = datas;
                 });
-            } else {
-                if (this.model.dict !== undefined) {
-                    defaults.getDictData[0](this.model.dict, {key}, datas => {
-                        this.localOptions = datas;
+            }else{
+                if (this.loaddata !== undefined) {
+                    this.loaddata(this.name, items => {
+                        if (Array.isArray(items) === false) {
+                            this.localOptions = [];
+                        } else {
+                            this.localOptions = items;
+                        }
                     });
                 }
             }

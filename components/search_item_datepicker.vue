@@ -1,13 +1,11 @@
 <template>
-    <Select filterable v-model="currentValue" @on-change="selectChange" :label-in-value="true">
-        <Option v-for="item in options" :value="item.value" :key="item.value">{{ item.label }}</Option>
-    </Select>
+    <DatePicker v-model="currentValue" :type="type" placeholder="请选择" @on-change="datepickerChange"></DatePicker>
 </template>
 <script>
 
 export default {
 
-    name: 'search_item_select',
+    name: 'search_item_datepicker',
 
     props: {
         model: {
@@ -16,9 +14,9 @@ export default {
                 return {};
             }
         },
-        options:Array,
         value: { default: '' },
-        displayValue: { default: '' }
+        type:String,
+        format:String,
     },
     data() {
         return {
@@ -29,18 +27,16 @@ export default {
     },
 
     watch: {
-        currentValue(val){
-            // console.log('currentValue',val)
-        }
+
     },
     created(){
         console.log(this)
     },
     methods: {
-        selectChange(val){
+        datepickerChange(val){
             this.$emit('input',{
-                value:val.value,
-                label:val.label,
+                value:val,
+                label:val,
                 key:this.model.name
             });
         }
