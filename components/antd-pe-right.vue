@@ -18,25 +18,27 @@
                     <Col span="7">
                         <B>{{theadData.deptName}}</B>
                     </Col>
-                    <Col span="3">
+                    <Col span="3" class="justifyCenter">
                         <B>删除</B>
                     </Col>
                 </Row>
             </div>
             <div class="tjyh-main-right-main">
                 <div v-for="item in selected" class="gm-member-row bh-clearfix tjyh-selected-item" :class="{'bh-ch-active': item.active}" @click="selectOne(item)" >
-                    <Col span="7" :title="item.XM" class="xm word_overflow">
-                        {{item.XM}}
-                    </Col>
-                    <Col span="7" :title="item.ZGH" class="zgh word_overflow">
-                        {{item.ZGH}}
-                    </Col>
-                    <Col span="8" :title="item.deptName" class="zgh word_overflow">
-                        {{item.deptName}}
-                    </Col>
-                    <Col span="2" class="">
-                        <Icon type="md-trash" size="16" @click.native.stop="deleteRecords_in(item)"/>
-                    </Col>
+                    <Row>
+                        <Col span="7" :title="item.XM" class="xm word_overflow">
+                            {{item.XM}}
+                        </Col>
+                        <Col span="7" :title="item.ZGH" class="zgh word_overflow">
+                            {{item.ZGH}}
+                        </Col>
+                        <Col span="7" :title="item.deptName" class="zgh word_overflow">
+                            {{item.deptName}}
+                        </Col>
+                        <Col span="3" class="justifyCenter">
+                            <Icon type="md-trash" size="16" @click.native.stop="deleteRecords_in(item)"/>
+                        </Col>
+                    </Row>
                 </div>
             </div>
         </div>
@@ -384,5 +386,31 @@ export default {
 .antd-pe-person .ivu-modal-header{
     padding: 0px;
     padding-bottom: 14px;
+}
+.antd-pe-person ::-webkit-scrollbar-track-piece { /* 滚动条凹槽的颜色，还可以设置边框属性*/
+    background-color:#f8f8f8;
+}
+/*定义滚动条样式（高宽及背景）*/ 
+.antd-pe-person ::-webkit-scrollbar { 
+    width: 5px;   /* 滚动条宽度， width：对应竖滚动条的宽度  height：对应横滚动条的高度*/
+} 
+/*定义滚动条轨道（凹槽）样式*/ 
+.antd-pe-person ::-webkit-scrollbar-track { 
+    background-color:#dddddd;
+    background-clip:padding-box;
+    min-height:28px;
+} 
+/*定义滑块 样式*/ 
+.antd-pe-person ::-webkit-scrollbar-thumb { 
+    border-radius: 8px; 
+    background-color:lightgray;
+    background-clip:padding-box;
+    min-height:28px;    
+}
+.antd-pe-person ::-webkit-scrollbar-thumb:hover {
+    background-color:gray;
+}
+.antd-pe-person .justifyCenter{
+    text-align: center;
 }
 </style>
