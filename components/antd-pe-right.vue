@@ -10,13 +10,13 @@
             <div style="padding-left: 16px;" v-if="selected.length > 0">
                 <Row>
                     <Col span="7">
-                        <B>姓名</B>
+                        <B>{{theadData.XM}}</B>
                     </Col>
                     <Col span="7">
-                        <B>工号</B>
+                        <B>{{theadData.ZGH}}</B>
                     </Col>
                     <Col span="7">
-                        <B>组织机构</B>
+                        <B>{{theadData.deptName}}</B>
                     </Col>
                     <Col span="3">
                         <B>删除</B>
@@ -47,7 +47,17 @@
 export default {
     name: "antd-pe-right",
     props: {
-        value: Array
+        value: Array,
+        theadData: {
+            type: Object,
+            default:function() {
+                return {
+                    XM: '姓名',
+                    ZGH: '工号',
+                    deptName: '组织结构'
+                };
+            }
+        }
     },
     data() {
         return {

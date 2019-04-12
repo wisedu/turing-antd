@@ -4,8 +4,8 @@
         <div class="antd-pe-person">
             <div class="tjyh-main">
                 <antd-pe-left :treeData="treeData" :tabData="tabData" @on-select="treeItemSelect_p"></antd-pe-left>
-                <antd-pe-center :users="users" @on-check="check_p" :isShowLoadmore="isShowLoadmore" @on-searchUser="searchUser" :result="selected"  ref="antd-pe-center" :type="type"></antd-pe-center>
-                <antd-pe-right  v-model="selected" @on-delete="handleDelete"></antd-pe-right>
+                <antd-pe-center :users="users" @on-check="check_p" :isShowLoadmore="isShowLoadmore" @on-searchUser="searchUser" :result="selected"  ref="antd-pe-center" :type="type" :theadData="theadData"></antd-pe-center>
+                <antd-pe-right  v-model="selected" @on-delete="handleDelete" :theadData="theadData"></antd-pe-right>
             </div>
         </div>
     </div>
@@ -32,6 +32,11 @@ export default {
             type: 'checkbox',
             isShowLoadmore: true,
             totalSize: 15,
+            theadData: {
+                XM:'姓名',
+                ZGH: '工号',
+                deptName: '部门'
+            }
         }
     },
     watch: {
@@ -53,6 +58,22 @@ export default {
                 ]
             }else{
                 this.users = [
+                    {XM: '张三',ZGH: '01120010',deptName: '学工',_disabled: false},
+                    {XM: '李四',ZGH: '01120011',deptName: '人事',_disabled: false},
+                    {XM: '王五',ZGH: '01120012',deptName: '教务',_disabled: false},
+                    {XM: '陈六',ZGH: '01120013',deptName: '教务',_disabled: false},
+                    {XM: '张三',ZGH: '01120010',deptName: '学工',_disabled: false},
+                    {XM: '李四',ZGH: '01120011',deptName: '人事',_disabled: false},
+                    {XM: '王五',ZGH: '01120012',deptName: '教务',_disabled: false},
+                    {XM: '陈六',ZGH: '01120013',deptName: '教务',_disabled: false},
+                    {XM: '张三',ZGH: '01120010',deptName: '学工',_disabled: false},
+                    {XM: '李四',ZGH: '01120011',deptName: '人事',_disabled: false},
+                    {XM: '王五',ZGH: '01120012',deptName: '教务',_disabled: false},
+                    {XM: '陈六',ZGH: '01120013',deptName: '教务',_disabled: false},
+                    {XM: '张三',ZGH: '01120010',deptName: '学工',_disabled: false},
+                    {XM: '李四',ZGH: '01120011',deptName: '人事',_disabled: false},
+                    {XM: '王五',ZGH: '01120012',deptName: '教务',_disabled: false},
+                    {XM: '陈六',ZGH: '01120013',deptName: '教务',_disabled: false},
                     {XM: '张三',ZGH: '01120010',deptName: '学工',_disabled: false},
                     {XM: '李四',ZGH: '01120011',deptName: '人事',_disabled: false},
                     {XM: '王五',ZGH: '01120012',deptName: '教务',_disabled: false},

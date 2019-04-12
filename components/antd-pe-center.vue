@@ -13,13 +13,13 @@
                                 <Checkbox v-model="isCheckedAll" @on-change="checkAll"></Checkbox>
                             </Col>
                             <Col span="6">
-                                <B>姓名</B>
+                                <B>{{theadData.XM}}</B>
                             </Col>
                             <Col span="8">
-                                <B>工号</B>
+                                <B>{{theadData.ZGH}}</B>
                             </Col>
                             <Col span="8">
-                                <B>组织机构</B>
+                                <B>{{theadData.deptName}}</B>
                             </Col>
                         </Row>
                         <div class="tjyh-middle-scroll">
@@ -46,13 +46,13 @@
                                  <Radio disabled style="visibility: hidden;"></Radio>
                             </Col>
                             <Col span="6">
-                                <B>姓名</B>
+                                <B>{{theadData.XM}}</B>
                             </Col>
                             <Col span="8">
-                                <B>工号</B>
+                                <B>{{theadData.ZGH}}</B>
                             </Col>
                             <Col span="8">
-                                <B>组织机构</B>
+                                <B>{{theadData.deptName}}</B>
                             </Col>
                         </Row>
                         <div class="tjyh-middle-scroll">
@@ -92,7 +92,17 @@ export default {
             type: Boolean,
             default: false
         },
-        result: [Array]
+        result: [Array],
+        theadData: {
+            type: Object,
+            default:function() {
+                return {
+                    XM: '姓名',
+                    ZGH: '工号',
+                    deptName: '组织结构'
+                };
+            }
+        }
     },
     data() {
         return {
