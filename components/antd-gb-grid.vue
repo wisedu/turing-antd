@@ -46,10 +46,7 @@ export default {
             type:String,
             default:""
         },
-        height: {
-            type: Number,
-            default: ""
-        },
+        height: Number,
         rowRending: Function
     },
     data() {
