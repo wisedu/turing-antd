@@ -2,7 +2,7 @@
     <Layout>
         <Header>
             <slot name="header">
-                <Menu mode="horizontal" theme="dark" :active-name="activeName" @on-select="menuSelect">
+                <Menu mode="horizontal" ref="menu" theme="dark" :active-name="activeName" @on-select="menuSelect">
                     <div class="layout-logo">
                         <slot name="logo">
                             <img class="logo" :src="logo">
