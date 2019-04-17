@@ -21,7 +21,12 @@ export default {
     extends: ConnectItem,
     methods:{
         onChange(value){
-            if (event.isComposing !== true) {
+            if (event === undefined || event === null) {
+                //FF 是不支持event & ie9
+                let label = value;
+                this.$emit("on-item-change", this.name, value, label, this.model)
+                this.$emit("input", value)
+            } else if (event.isComposing !== true) {
                 let label = value;
                 this.$emit("on-item-change", this.name, value, label, this.model)
                 this.$emit("input", value)
