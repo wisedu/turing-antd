@@ -2,13 +2,13 @@
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
         <template v-if="params.tooltip !== 0 && !params.tooltip === true">
             <!--DatePicker这段是一样的-->
-            <Select ref="ctl" :value="currentValue" :placeholder="placeholder" :disabled="readonly" dis-filterable :clearable="!readonly" @on-open-change="loadData('')" @on-change="onChange" label-in-value transfer :multiple="isMultiple" v-bind="params">
+            <Select ref="ctl" :value="currentValue" :show-page="showPage" :page-total="localTotal" :page-current="page.index" :show-search="true" :placeholder="placeholder" :disabled="readonly" dis-filterable :clearable="!readonly" @page-change="pageChange" @search-key-change="searchKeyChange"  @on-open-change="onOpenChange" @on-change="onChange" label-in-value transfer :multiple="isMultiple" v-bind="params">
                 <Option v-for="item in fullOptions" :value="item.value" :key="item.value">{{ item.label }}</Option>
             </Select>
         </template>
         <Tooltip v-else :content="params.tooltip" class="input-hasTip">
             <!--DatePicker这段是一样的-->
-            <Select ref="ctl" :value="currentValue" :placeholder="placeholder" :disabled="readonly" dis-filterable :clearable="!readonly" @on-open-change="loadData('')" @on-change="onChange" label-in-value transfer :multiple="isMultiple" v-bind="params">
+            <Select ref="ctl" :value="currentValue" :show-page="showPage" :page-total="localTotal" :page-current="page.index" :show-search="true" :placeholder="placeholder" :disabled="readonly" dis-filterable :clearable="!readonly" @page-change="pageChange" @search-key-change="searchKeyChange"  @on-open-change="onOpenChange" @on-change="onChange" label-in-value transfer :multiple="isMultiple" v-bind="params">
                 <Option v-for="item in fullOptions" :value="item.value" :key="item.value">{{ item.label }}</Option>
             </Select>
         </Tooltip>
@@ -24,7 +24,16 @@ export default {
     props:["multiple","async"],
     data(){
         return {
+            allOptions: [],
+            localTotal: 0,
             localOptions:[],
+            page: {
+                index: 1,
+                size: 50
+            },
+            searchKey: '',
+            showPage: true,
+            filterField: 'label'
             // localSelectedItem:{
             //     label:"",
             //     value:"",
@@ -78,18 +87,63 @@ export default {
         }
     },
     methods:{
+        onOpenChange(){
+            if(this.allOptions.length === 0){
+                this.loadData('');
+            }
+        },
+        setOptionsToLocal(){
+            let allOptions = this.allOptions;
+            let count = allOptions.length;
+            let searchKey = this.searchKey;
+            let searchRe = new RegExp(`${searchKey}`);
+            let localOptions = [];
+            for(let i=0; i<count; i++){
+                let item = allOptions[i];
+                if(searchKey){
+                    if(searchRe.test(item[this.filterField])){
+                        localOptions.push(item);
+                    }
+                }else{
+                    localOptions.push(item);
+                }
+            }
+
+            let pageIndex = this.page.index;
+            let pageSize = this.page.size;
+            let startIndex = (pageIndex - 1) * pageSize - 1;
+            let endIndex = startIndex + pageSize;
+            if(startIndex < 0){
+                startIndex = 0;
+            }
+
+            let localTotal = localOptions.length;
+            let showPage = localTotal > pageSize ? true : false;
+
+            localOptions = localOptions.slice(startIndex, endIndex);
+
+            this.$set(this, 'localOptions', localOptions);
+            this.$set(this, 'localTotal', localTotal);
+            this.$set(this, 'showPage', showPage);
+        },
         loadData(key){
             if (this.model.dict !== undefined) {
                 defaults.getDictData[0](this.model.dict, {key}, datas => {
-                    this.localOptions = datas;
+                    this.$set(this, 'allOptions', datas);
+                    this.setOptionsToLocal();
+//                    this.localOptions = datas;
                 });
             }else{
                 if (this.loaddata !== undefined) {
                     this.loaddata(this.name, items => {
                         if (Array.isArray(items) === false) {
-                            this.localOptions = [];
+//                            this.localOptions = [];
+                            this.$set(this, 'allOptions', []);
+                            this.setOptionsToLocal();
                         } else {
-                            this.localOptions = items;
+//                            this.localOptions = items;
+                            this.$set(this, 'allOptions', items);
+                            this.setOptionsToLocal();
                         }
                     });
                 }
@@ -123,6 +177,16 @@ export default {
                 this.$emit("input", selected.value)
             }
         },
+        pageChange(page){
+            this.$set(this.page, 'index', page);
+            this.setOptionsToLocal();
+        },
+        searchKeyChange(key){
+            this.$set(this.page, 'index', 1);
+            this.$set(this, 'searchKey', key);
+            console.log(key)
+            this.setOptionsToLocal();
+        }
         // search(key){
         //     if (key !== this.localSelectedItem.value){
         //         this.loadData(key)
