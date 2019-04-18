@@ -65,8 +65,10 @@ export default {
             const { value } = this;
             if(value == null){
                 return ''
-            }else{
-                return value
+            }else if(this.multiple){
+                return String(value).split(',');
+            }else {
+                return value;
             }
         }
     },
