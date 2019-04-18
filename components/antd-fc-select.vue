@@ -161,7 +161,7 @@ export default {
                     labels = undefined;
                 }
                 this.$emit("on-item-change", this.name, values, labels, this.model)
-                this.$emit("input", values)
+                this.$emit("input", values.join(','))
             } else {
                 let selected = item;
                 if (selected === undefined) {
