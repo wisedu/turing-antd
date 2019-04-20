@@ -2,13 +2,13 @@
     <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
         <template v-if="params.tooltip !== 0 && !params.tooltip === true">
             <!--DatePicker这段是一样的-->
-            <Select ref="ctl" :value="currentValue" :show-page="showPage" :page-total="localTotal" :page-current="page.index" :show-search="true" :placeholder="placeholder" :disabled="readonly" dis-filterable :clearable="!readonly" @page-change="pageChange" @search-key-change="searchKeyChange"  @on-open-change="onOpenChange" @on-change="onChange" label-in-value transfer :multiple="isMultiple" v-bind="params">
+            <Select ref="ctl" :is-from-antd="true" :filterable="false" :value="currentValue" :page-total="localTotal" :page-current="page.index" :placeholder="placeholder" :disabled="readonly" dis-filterable :clearable="!readonly" @page-change="pageChange" @search-key-change="searchKeyChange"  @on-open-change="onOpenChange" @on-change="onChange" label-in-value transfer :multiple="isMultiple" v-bind="params">
                 <Option v-for="item in fullOptions" :value="item.value" :key="item.value">{{ item.label }}</Option>
             </Select>
         </template>
         <Tooltip v-else :content="params.tooltip" class="input-hasTip">
             <!--DatePicker这段是一样的-->
-            <Select ref="ctl" :value="currentValue" :show-page="showPage" :page-total="localTotal" :page-current="page.index" :show-search="true" :placeholder="placeholder" :disabled="readonly" dis-filterable :clearable="!readonly" @page-change="pageChange" @search-key-change="searchKeyChange"  @on-open-change="onOpenChange" @on-change="onChange" label-in-value transfer :multiple="isMultiple" v-bind="params">
+            <Select ref="ctl" :is-from-antd="true" :filterable="false" :value="currentValue" :page-total="localTotal" :page-current="page.index" :placeholder="placeholder" :disabled="readonly" dis-filterable :clearable="!readonly" @page-change="pageChange" @search-key-change="searchKeyChange"  @on-open-change="onOpenChange" @on-change="onChange" label-in-value transfer :multiple="isMultiple" v-bind="params">
                 <Option v-for="item in fullOptions" :value="item.value" :key="item.value">{{ item.label }}</Option>
             </Select>
         </Tooltip>
@@ -184,7 +184,6 @@ export default {
         searchKeyChange(key){
             this.$set(this.page, 'index', 1);
             this.$set(this, 'searchKey', key);
-            console.log(key)
             this.setOptionsToLocal();
         }
         // search(key){
