@@ -1,6 +1,6 @@
 <template>
     <FormItem :label="caption" :label-width="params.labelWidth" >
-        <div class="antd-fc-static-readonly">{{display !== undefined ? display : value}}&nbsp;</div>
+        <div class="antd-fc-static-readonly">{{display !== undefined ? display : displayValue}}&nbsp;</div>
     </FormItem>
 </template>
 
@@ -10,6 +10,15 @@ import {ConnectItem} from 'tg-turing'
 export default {
     name:"antd-fc-static",
     extends: ConnectItem,
+    computed:{
+        displayValue(){
+        	if (Array.isArray(this.value)) {
+        		return this.value.join(',');
+        	} else {
+        		return this.value;
+        	}
+        }
+    }
 }
 </script>
 
