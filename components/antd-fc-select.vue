@@ -58,11 +58,11 @@ export default {
                     }
                 }
             }
-            this.options.map(item => {
-                if (opts.filter(opt => opt.value === item.value).length === 0) {
-                    opts.push(item)
-                }
-            })
+//            this.options.map(item => {
+//                if (opts.filter(opt => opt.value === item.value).length === 0) {
+//                    opts.push(item)
+//                }
+//            })
             this.localOptions.map(item => {
                 if (opts.filter(opt => opt.value === item.value).length === 0) {
                     opts.push(item)
@@ -147,6 +147,11 @@ export default {
                         }
                     });
                 }
+            }
+
+            if(this.options && this.options.length > 0){
+                this.$set(this, 'allOptions', this.options);
+                this.setOptionsToLocal();
             }
         },
         onChange(item){
