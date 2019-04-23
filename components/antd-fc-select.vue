@@ -84,6 +84,8 @@ export default {
     created() {
         if (this.async === false) {
             this.loadData('');
+        }else if(this.options && this.options.length > 0){
+            this.loadData('');
         }
     },
     methods:{
