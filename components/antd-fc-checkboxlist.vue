@@ -82,6 +82,13 @@ export default {
                 });
             }
         }
+    },
+    mounted: function () {
+        if(!this.formReadonly){
+//            初始化时，form上的默认数据是数组，导致checkbox上未做任何数据点击时，校验不通过
+            let value = this.currentValue;
+            this.onChange(value);
+        }
     }
 }
 </script>
