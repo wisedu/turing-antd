@@ -46,29 +46,30 @@ export default {
             return this.multiple === true ? true : false;
         },
         fullOptions(){
-            let opts = [];
-            if (this.async === false) {
-
-            }else{
-                //YBT-3171 【表单】下拉选项列表存在空白的可选区域
-                if(this.display){
-                    let selected_opt = {label: this.display, value: this.value};
-                    if (this.localOptions.length === 0 && this.value !== undefined) {
-                        opts.push(selected_opt);
-                    }
-                }
-            }
-//            this.options.map(item => {
+//            let opts = [];
+//            if (this.async === false) {
+//
+//            }else{
+//                //YBT-3171 【表单】下拉选项列表存在空白的可选区域
+//                if(this.display){
+//                    let selected_opt = {label: this.display, value: this.value};
+//                    if (this.localOptions.length === 0 && this.value !== undefined) {
+//                        opts.push(selected_opt);
+//                    }
+//                }
+//            }
+////            this.options.map(item => {
+////                if (opts.filter(opt => opt.value === item.value).length === 0) {
+////                    opts.push(item)
+////                }
+////            })
+//            this.localOptions.map(item => {
 //                if (opts.filter(opt => opt.value === item.value).length === 0) {
 //                    opts.push(item)
 //                }
 //            })
-            this.localOptions.map(item => {
-                if (opts.filter(opt => opt.value === item.value).length === 0) {
-                    opts.push(item)
-                }
-            })
-            return opts;
+//            return opts;
+            return this.localOptions;
         },
         currentValue(){
             const { value } = this;
@@ -82,9 +83,7 @@ export default {
         }
     },
     created() {
-        if (this.async === false) {
-            this.loadData('');
-        }else if(this.options && this.options.length > 0){
+        if (this.async === false || this.options && this.options.length > 0 || this.value) {
             this.loadData('');
         }
     },
