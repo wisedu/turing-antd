@@ -101,6 +101,12 @@ export default {
             let localOptions = [];
             for(let i=0; i<count; i++){
                 let item = allOptions[i];
+                if(typeof item.label === 'undefined'){
+                    item.label = item.name;
+                }
+                if(typeof item.value === 'undefined'){
+                    item.value = item.id;
+                }
                 if(searchKey){
                     if(searchRe.test(item[this.filterField])){
                         localOptions.push(item);
