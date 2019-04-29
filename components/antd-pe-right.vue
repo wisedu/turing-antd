@@ -393,6 +393,7 @@ export default {
 /*定义滚动条样式（高宽及背景）*/ 
 .antd-pe-person ::-webkit-scrollbar { 
     width: 5px;   /* 滚动条宽度， width：对应竖滚动条的宽度  height：对应横滚动条的高度*/
+    height: 8px;
 } 
 /*定义滚动条轨道（凹槽）样式*/ 
 .antd-pe-person ::-webkit-scrollbar-track { 
