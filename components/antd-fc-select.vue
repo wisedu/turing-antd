@@ -83,7 +83,11 @@ export default {
         }
     },
     created() {
-        if (this.async === false || this.options && this.options.length > 0 || this.value) {
+        console.log('async: '+this.async+"; options: "+this.options+"; value"+this.value)
+        // if (this.async === false || this.options && this.options.length > 0 || this.value) {
+        //     this.loadData('');
+        // }
+        if (this.async === false) {
             this.loadData('');
         }
     },
