@@ -81,6 +81,8 @@ export default {
             },
             required: {
                 trigger: "change",
+                type: 'array',
+                min: 1,
                 message: "请选择一项"
             }
         },
