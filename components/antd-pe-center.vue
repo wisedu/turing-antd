@@ -192,8 +192,9 @@ export default {
 
 .antd-pe-person .tjyh-main {
     width: 100%;
-    height: 360px;
-    display: table;
+    height: 387px;
+    /* height: 360px; */
+    /* display: table; */
     background: #F7F8FC;
     border: 1px solid #D8DCF0;
 }
